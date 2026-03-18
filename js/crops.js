@@ -1190,7 +1190,7 @@ var crops = {
     },
     "isWildseed": true
   },
-  // start of SVE crops
+  // SVE crops
   "cucumber": {
     "name": "Cucumber",
     "url": "https://stardew-valley-expanded.fandom.com/wiki/Cucumber",
@@ -1212,6 +1212,7 @@ var crops = {
       "extraPerc": 0,
       "price": 45,
       "jarType": "Pickles"
-    }
+    },
+	"mod": "Stardew Valley Expanded"
   }
 };
