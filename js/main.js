@@ -689,12 +689,17 @@ function fetchCrops() {
 	var season = seasons[options.season];
 
 	for (var i = 0; i < season.crops.length; i++) {
-	    if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
-	    	(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
-    	    (options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
-	    	cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
-	    	cropList[cropList.length - 1].id = i;
-		}
+	    if (season.crops[i].mod == undefined || 
+			season.crops[i].mod == "vanilla" || 
+			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia) {	
+				if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
+					(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
+					(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
+						cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
+						cropList[cropList.length - 1].id = i;
+				}
+			}
 	}
 }
 
@@ -1893,7 +1898,7 @@ function updateData() {
     }
 	
     options.enableSVE 	= document.getElementById('check_sve').checked;
-    options.byHarvest 	= document.getElementById('check_cornucopia').checked;
+    options.enableCornucopia 	= document.getElementById('check_cornucopia').checked;
 
 	// Persist the options object into the URL hash.
 	window.location.hash = encodeURIComponent(serialize(options));
@@ -2049,6 +2054,16 @@ function optionsLoad() {
 	document.getElementById('predictionModel').checked = options.predictionModel;
 
     updateSeasonNames();
+	
+	// mod support options
+	options.enableMods = validBoolean(options.enableMods);
+	document.getElementById('enable_mods').checked = options.enableMods;
+	
+	options.enableSVE = validBoolean(options.enableSVE);
+	document.getElementById('check_sve').checked = options.enableSVE;
+	
+    options.enableCornucopia = validBoolean(options.enableCornucopia);
+	document.getElementById('check_cornucopia').checked = options.enableCornucopia;
 }
 
 function deserialize(str) {
