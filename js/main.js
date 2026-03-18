@@ -1876,6 +1876,24 @@ function updateData() {
 	options.predictionModel = document.getElementById('predictionModel').checked;
 
     updateSeasonNames();
+	
+	// mod support options
+	options.enableMods 	= document.getElementById('enable_mods').checked;
+	
+	var tr_check_sveID = document.getElementById('tr_check_sve');
+	var tr_check_cornucopiaID = document.getElementById('tr_check_cornucopia');
+	
+	if (options.enableMods == false) {
+		tr_check_sveID.classList.add('hidden');
+		tr_check_cornucopiaID.classList.add('hidden');
+    }
+    else {		
+		tr_check_sveID.classList.remove('hidden');
+		tr_check_cornucopiaID.classList.remove('hidden');
+    }
+	
+    options.enableSVE 	= document.getElementById('check_sve').checked;
+    options.byHarvest 	= document.getElementById('check_cornucopia').checked;
 
 	// Persist the options object into the URL hash.
 	window.location.hash = encodeURIComponent(serialize(options));
