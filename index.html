@@ -22,115 +22,116 @@
 		</div>
 
 		<div class="options">
-		<table cellspacing="2" style="height: 0;">
+		<div class="col">
+			<table cellspacing="2" style="height: 0;">
 
-			<tr>
-				<td>Season:</td>
-				<td>
-					<select id="select_season" onChange="rebuild()">
-						<option value="0" id="season_0" selected="true">Spring</option>
-						<option value="1" id="season_1">Summer</option>
-						<option value="2" id="season_2">Fall</option>
-						<option value="3" id="season_3">Winter</option>
-						<option value="4" id="season_4">Greenhouse</option>
-					</select>
-				</td>
-			</tr>
+				<tr>
+					<td>Season:</td>
+					<td>
+						<select id="select_season" onChange="rebuild()">
+							<option value="0" id="season_0" selected="true">Spring</option>
+							<option value="1" id="season_1">Summer</option>
+							<option value="2" id="season_2">Fall</option>
+							<option value="3" id="season_3">Winter</option>
+							<option value="4" id="season_4">Greenhouse</option>
+						</select>
+					</td>
+				</tr>
 
-            <tr id="cross_season_row">
-                <td>Cross-Season:</td>
-                <td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
-            </tr>
+				<tr id="cross_season_row">
+					<td>Cross-Season:</td>
+					<td><input type="checkbox" id="cross_season" onChange="refresh()" /></td>
+				</tr>
 
-			<tr id="current_day_row">
-				<td>Current Day:</td>
-				<td><input type="number" id="current_day" value="1" onChange="refresh()"/></td>
-			</tr>
+				<tr id="current_day_row">
+					<td>Current Day:</td>
+					<td><input type="number" id="current_day" value="1" onChange="refresh()"/></td>
+				</tr>
 
-            <tr id="number_days_row">
-                <td>Number of Days:</td>
-                <td><input type="number" id="number_days" value="28" onChange="refresh()"/></td>
-            </tr>
+				<tr id="number_days_row">
+					<td>Number of Days:</td>
+					<td><input type="number" id="number_days" value="28" onChange="refresh()"/></td>
+				</tr>
 
-            <tr>
-                <td>Crops Tiles:</td>
-                <td><input type="number" id="number_planted" value="1" onChange="refresh()"/></td>
-            </tr>
+				<tr>
+					<td>Crops Tiles:</td>
+					<td><input type="number" id="number_planted" value="1" onChange="refresh()"/></td>
+				</tr>
 
-			<tr>
-				<td>Produce Type:</td>
-				<td>
-					<select id="select_produce" onChange="refresh()">
-						<option value="0" selected="true">Raw</option>
-						<option value="1">Jar</option>
-						<option value="2">Keg</option>
-                        <option value="3">Seeds</option>
-						<option value="4">Dehydrator</option>
-						<option value="5">Mill</option>
-					</select>
-				</td>
-			</tr>
+				<tr>
+					<td>Produce Type:</td>
+					<td>
+						<select id="select_produce" onChange="refresh()">
+							<option value="0" selected="true">Raw</option>
+							<option value="1">Jar</option>
+							<option value="2">Keg</option>
+							<option value="3">Seeds</option>
+							<option value="4">Dehydrator</option>
+							<option value="5">Mill</option>
+						</select>
+					</td>
+				</tr>
 
-            <tr>
-                <td colspan="2" class="sub">
-                    <table cellspacing="2" class="subt">
-                        <tr id="tr_equipment">
-                            <td>Equipment:</td>
-                            <td><input type="number" id="equipment" value="0" onChange="refresh()"/></td>
-                        </tr>
-                        <tr id="tr_check_sellRaw">
-                            <td>No Artisan Good:</td>
-                            <td><input type="checkbox" id="check_sellRaw" onChange="refresh()"/> Sell Raw<br /></td>
-                        </tr>
-                        <tr id="tr_check_sellExcess">
-                            <td>Excess:</td>
-                            <td><input type="checkbox" id="check_sellExcess" onChange="refresh()"/> Sell Raw<br /></td>
-                        </tr>
-                        <tr id="tr_check_byHarvest">
-                            <td>By Harvest:</td>
-                            <td><input type="checkbox" id="check_byHarvest" onChange="refresh()"/><br /></td>
-                        </tr>
-                        <tr id="tr_select_aging">
-                            <td>Aging:</td>
-                            <td >
-                                <select id="select_aging" onChange="refresh()">
-                                    <option value="0" selected="true">None</option>
-                                    <option value="1">Silver</option>
-                                    <option value="2">Gold</option>
-                                    <option value="3">Iridium</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+				<tr>
+					<td colspan="2" class="sub">
+						<table cellspacing="2" class="subt">
+							<tr id="tr_equipment">
+								<td>Equipment:</td>
+								<td><input type="number" id="equipment" value="0" onChange="refresh()"/></td>
+							</tr>
+							<tr id="tr_check_sellRaw">
+								<td>No Artisan Good:</td>
+								<td><input type="checkbox" id="check_sellRaw" onChange="refresh()"/> Sell Raw<br /></td>
+							</tr>
+							<tr id="tr_check_sellExcess">
+								<td>Excess:</td>
+								<td><input type="checkbox" id="check_sellExcess" onChange="refresh()"/> Sell Raw<br /></td>
+							</tr>
+							<tr id="tr_check_byHarvest">
+								<td>By Harvest:</td>
+								<td><input type="checkbox" id="check_byHarvest" onChange="refresh()"/><br /></td>
+							</tr>
+							<tr id="tr_select_aging">
+								<td>Aging:</td>
+								<td >
+									<select id="select_aging" onChange="refresh()">
+										<option value="0" selected="true">None</option>
+										<option value="1">Silver</option>
+										<option value="2">Gold</option>
+										<option value="3">Iridium</option>
+									</select>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
 
-			<tr>
+			</table>
+			
+			<table cellspacing="2" style="height: 0;">
+			
+				<tr id="enable_mods_row">
+					<td>Include mods:</td>
+					<td><input type="checkbox" id="enabled_mods" onChange="refresh()" /></td>
+				</tr>
 
-			</tr>
-
-			<tr id="enable_mods_row">
-                <td>Include mods:</td>
-                <td><input type="checkbox" id="enabled_mods" onChange="refresh()" /></td>
-            </tr>
-
-			<tr>
-                <td colspan="2" class="submod">
-                    <table cellspacing="2" class="submodt">
-                        <tr id="tr_check_sve">
-                            <td>Stardew Valled Expanded:</td>
-                            <td><input type="checkbox" id="check_sve" onChange="refresh()"/> <br /></td>
-                        </tr>
-                        <tr id="tr_check_cornucopia">
-                            <td>Cornucopia:</td>
-                            <td><input type="checkbox" id="check_cornucopia" onChange="refresh()"/> <br /></td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-		</table>
-
+				<tr>
+					<td colspan="2" class="submod">
+						<table cellspacing="2" class="submodt">
+							<tr id="tr_check_sve">
+								<td>Stardew Valled Expanded:</td>
+								<td><input type="checkbox" id="check_sve" onChange="refresh()"/> <br /></td>
+							</tr>
+							<tr id="tr_check_cornucopia">
+								<td>Cornucopia:</td>
+								<td><input type="checkbox" id="check_cornucopia" onChange="refresh()"/> <br /></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
 		<table cellspacing="2">
 
             <tr>
