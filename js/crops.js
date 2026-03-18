@@ -411,9 +411,9 @@ var crops = {
       "sell": 10,
       "pierre": 20,
       "joja": 25,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "special": 1000,
+      "specialLoc": "Travelling Cart",
+      "specialUrl": "http://stardewvalleywiki.com/Travelling_Cart"
     },
     "growth": {
       "initial": 4,
