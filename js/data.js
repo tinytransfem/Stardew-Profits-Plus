@@ -33,7 +33,8 @@ var options = {
 	"foodIndex": 0,
 	"foodLevel": 0,
 	"extra": false,
-	"disableLinks": false
+	"disableLinks": false,
+	"enableMods": false
 };
 
 // Different fertilizers with their stats.
@@ -104,7 +105,8 @@ var seasons = [
 			crops.tulip,
 			crops.ancientfruit,
 			crops.springseeds,
-			crops.carrot
+			crops.carrot,
+			crops.cucumber
 		]
 	},
 	{
