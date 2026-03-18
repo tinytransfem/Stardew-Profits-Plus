@@ -689,7 +689,16 @@ function fetchCrops() {
 	var season = seasons[options.season];
 
 	for (var i = 0; i < season.crops.length; i++) {
-	    
+	    if (season.crops[i].mod == "vanilla" || 
+			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia) {	
+				if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
+					(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
+					(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
+						cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
+						cropList[cropList.length - 1].id = i;
+				}
+		}
 		if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
 			(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
 			(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
