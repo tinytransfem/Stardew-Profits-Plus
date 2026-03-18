@@ -38,6 +38,11 @@ body {
 	shape-rendering: crispEdges;
 }
 
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
 .options {
 	margin: auto;
 	margin-top: 8px;
@@ -80,6 +85,25 @@ body {
 }
 
 .options table tr td .subt td {
+    background-color: #222222;
+    margin: 0px;
+}
+
+.options table tr .submod {
+    background-color: transparent;
+    padding: 0px;
+}
+
+.options table tr td .submodt {
+    background-color: transparent;
+    margin: 0 auto;
+    margin-left: 16px;
+    margin-top: -2px;
+    margin-bottom: -2px;
+    width: -webkit-fill-available;
+}
+
+.options table tr td .submodt td {
     background-color: #222222;
     margin: 0px;
 }
