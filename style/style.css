@@ -43,6 +43,10 @@ body {
     flex-direction: column;
 }
 
+.col table {
+    width: 100%;
+}
+
 .options {
 	margin: auto;
 	margin-top: 8px;
