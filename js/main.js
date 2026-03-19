@@ -693,12 +693,30 @@ function fetchCrops() {
 			season.crops[i].mod == "vanilla" || 
 			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
 			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {	
-				if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
-					(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
-					(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
-						cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
-						cropList[cropList.length - 1].id = i;
-				}
+
+			if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
+				(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
+				(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
+
+				cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
+				cropList[cropList.length - 1].id = i;
+			}
+		}
+	}
+
+	for (var i = 0; i < season.fruit.length; i++) {
+	    if (season.fruit[i].mod == undefined || 
+			season.fruit[i].mod == "vanilla" || 
+			(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+			(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {	
+
+			if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
+				(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
+				(options.seeds.special && season.fruit[i].seeds.specialLoc != "")) {
+
+				cropList.push(JSON.parse(JSON.stringify(season.fruit[i])));
+				cropList[cropList.length - 1].id = season.crops.length + i;
+			}
 		}
 	}
 }
