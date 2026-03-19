@@ -705,18 +705,20 @@ function fetchCrops() {
 		}
 	}
 
-	for (var i = 0; i < season.fruit.length; i++) {
-		if (season.fruit[i].mod == undefined ||
-			season.fruit[i].mod == "vanilla" ||
-			(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
-			(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
+	if (options.fruit) {
+		for (var i = 0; i < season.fruit.length; i++) {
+			if (season.fruit[i].mod == undefined ||
+				season.fruit[i].mod == "vanilla" ||
+				(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+				(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
 
-			if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
-				(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
-				(options.seeds.special && season.fruit[i].seeds.specialLoc != "")) {
+				if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
+					(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
+					(options.seeds.special && season.fruit[i].seeds.specialLoc != "")) {
 
-				cropList.push(JSON.parse(JSON.stringify(season.fruit[i])));
-				cropList[cropList.length - 1].id = season.crops.length + i;
+					cropList.push(JSON.parse(JSON.stringify(season.fruit[i])));
+					cropList[cropList.length - 1].id = season.crops.length + i;
+				}
 			}
 		}
 	}
@@ -1900,6 +1902,9 @@ function updateData() {
 	options.predictionModel = document.getElementById('predictionModel').checked;
 
 	updateSeasonNames();
+
+	// tree fruit support options
+	options.fruit = document.getElementById('fruit').checked;
 
 	// mod support options
 	options.enableMods = document.getElementById('enable_mods').checked;
