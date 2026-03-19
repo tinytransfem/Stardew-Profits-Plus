@@ -862,6 +862,11 @@ function getVerticalDomain() {
 			maxValue = d.drawProfit;
 	}
 
+	// add 10% space above the highest positive value
+	if (maxValue > 0) {
+		maxValue = maxValue * 1.1;
+	}
+
 	minValue = Math.floor(minValue / 100) * 100;
 	maxValue = Math.ceil(maxValue / 100) * 100;
 
@@ -894,6 +899,7 @@ function renderGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
+	var iconSize = Math.min(barWidth, 48);
 	var y = updateScaleY();
 	var zeroY = y(0) + barOffsetY;
 	var ax = updateScaleAxis();
@@ -999,15 +1005,17 @@ function renderGraph() {
 		.data(cropList)
 		.enter()
 		.append("svg:image")
-		.attr("x", function (d, i) { return x(i) + barOffsetX; })
+		.attr("x", function (d, i) {
+			return x(i) + barOffsetX + (barWidth - iconSize) / 2;
+		})
 		.attr("y", function (d) {
 			if (d.drawProfit >= 0)
-				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
+				return y(d.drawProfit) + barOffsetY - iconSize - barPadding;
 			else
-				return zeroY - barWidth - barPadding;
+				return zeroY - iconSize - barPadding;
 		})
-		.attr('width', barWidth)
-		.attr('height', barWidth)
+		.attr("width", iconSize)
+		.attr("height", iconSize)
 		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips = gTooltips.selectAll("rect")
