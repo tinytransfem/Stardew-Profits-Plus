@@ -507,7 +507,7 @@ var crops = {
     },
     "produce": {
       "extra": 3,
-      "extraPerc": 0.01,
+      "extraPerc": 1.375,
       "price": 1
     }
   },
