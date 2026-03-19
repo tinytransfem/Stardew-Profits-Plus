@@ -1140,30 +1140,6 @@ var crops = {
       "price": 3000
     }
   },
-    "sweet_potato": {
-      "name": "Sweet Potato",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Sweet_Potato",
-      "img": "sweet_potato.png",
-      "seeds": {
-        "sell": 67,
-        "pierre": 134,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "",
-        "specialUrl": ""
-      },
-      "growth": {
-        "initial": 12,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 280,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      }
-    },
   "taro_root": {
     "name": "Taro Root",
     "url": "https://stardewvalleywiki.com/Taro_Root",
@@ -1437,53 +1413,53 @@ var crops = {
   },
   // SVE crops
   "ancient_fiber": {
-      "name": "Ancient Fiber",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Ancient_Fiber",
-      "img": "ancient_fiber.png",
-      "seeds": {
-        "sell": 145,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Ancient_Fern_Seed"
-      },
-      "growth": {
-        "initial": 12,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 2,
-        "extraPerc": 0.05,
-        "price": 145
-      },
-    "mod": "Stardew Valley Expanded"
+    "name": "Ancient Fiber",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Ancient_Fiber",
+    "img": "ancient_fiber.png",
+    "seeds": {
+      "sell": 145,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Ancient_Fern_Seed"
     },
-    "butternut_squash": {
-      "name": "Butternut Squash",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Butternut_Squash",
-      "img": "butternut_squash.png",
-      "seeds": {
-        "sell": 45,
-        "pierre": 90,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "",
-        "specialUrl": ""
-      },
-      "growth": {
-        "initial": 12,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 200,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      },
-    "mod": "Stardew Valley Expanded"
+    "growth": {
+      "initial": 12,
+      "regrow": 0
     },
+    "produce": {
+      "extra": 2,
+      "extraPerc": 0.05,
+      "price": 145
+    },
+    "mod": "Stardew Valley Expanded"
+  },
+  "butternut_squash": {
+    "name": "Butternut Squash",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Butternut_Squash",
+    "img": "butternut_squash.png",
+    "seeds": {
+      "sell": 45,
+      "pierre": 90,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 200,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Stardew Valley Expanded"
+  },
   "cucumber": {
     "name": "Cucumber",
     "url": "https://stardew-valley-expanded.fandom.com/wiki/Cucumber",
@@ -1509,309 +1485,334 @@ var crops = {
     },
     "mod": "Stardew Valley Expanded"
   },
-    "gold_carrot": {
-      "name": "Gold Carrot",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Gold_Carrot",
-      "img": "gold_carrot.png",
-      "seeds": {
-        "sell": 300,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Gold_Carrot_Seed"
-      },
-      "growth": {
-        "initial": 6,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 1000,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      },
-    "mod": "Stardew Valley Expanded"
+  "gold_carrot": {
+    "name": "Gold Carrot",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Gold_Carrot",
+    "img": "gold_carrot.png",
+    "seeds": {
+      "sell": 300,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Gold_Carrot_Seed"
     },
-    "joja_berry": {
-      "name": "Joja Berry",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Berry",
-      "img": "joja_berry.png",
-      "seeds": {
-        "sell": 650,
-        "pierre": 0,
-        "joja": 0,
-        "special": 6500,
-        "specialLoc": "Joja Emporium",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Emporium"
-      },
-      "growth": {
-        "initial": 25,
-        "regrow": 4
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0.15,
-        "price": 650,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
-    "mod": "Stardew Valley Expanded"
+    "growth": {
+      "initial": 6,
+      "regrow": 0
     },
-    "joja_veggie": {
-      "name": "Joja Veggie",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Veggie",
-      "img": "joja_veggie.png",
-      "seeds": {
-        "sell": 200,
-        "pierre": 0,
-        "joja": 0,
-        "special": 600,
-        "specialLoc": "Joja Emporium",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Emporium"
-      },
-      "growth": {
-        "initial": 13,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0.1,
-        "price": 1254,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      },
-    "mod": "Stardew Valley Expanded"
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 1000,
+      "jarType": "Pickles",
+      "kegType": "Juice"
     },
-    "monster_fruit": {
-      "name": "Monster Fruit",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Monster_Fruit",
-      "img": "monster_fruit.png",
-      "seeds": {
-        "sell": 0,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Stalk_Seed"
-      },
-      "growth": {
-        "initial": 25,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 1525,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
     "mod": "Stardew Valley Expanded"
+  },
+  "joja_berry": {
+    "name": "Joja Berry",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Berry",
+    "img": "joja_berry.png",
+    "seeds": {
+      "sell": 650,
+      "pierre": 0,
+      "joja": 0,
+      "special": 6500,
+      "specialLoc": "Joja Emporium",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Emporium"
     },
-    "monster_mushroom": {
-      "name": "Monster Mushroom",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Monster_Mushroom",
-      "img": "monster_mushroom.png",
-      "seeds": {
-        "sell": 0,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Fungus_Seed"
-      },
-      "growth": {
-        "initial": 13,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 850,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      },
+    "growth": {
+      "initial": 25,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.15,
+      "price": 650,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "joja_veggie": {
+    "name": "Joja Veggie",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Veggie",
+    "img": "joja_veggie.png",
+    "seeds": {
+      "sell": 200,
+      "pierre": 0,
+      "joja": 0,
+      "special": 600,
+      "specialLoc": "Joja Emporium",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Joja_Emporium"
     },
-    "nectarine": {
-      "name": "Nectarine",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Nectarine",
-      "img": "nectarine.png",
-      "seeds": {
-        "sell": 1500,
-        "pierre": 6000,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "",
-        "specialUrl": ""
-      },
-      "growth": {
-        "initial": 28,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 150,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
+    "growth": {
+      "initial": 13,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 1254,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "monster_fruit": {
+    "name": "Monster Fruit",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Monster_Fruit",
+    "img": "monster_fruit.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Stalk_Seed"
     },
-    "pear": {
-      "name": "Pear",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Pear",
-      "img": "pear.png",
-      "seeds": {
-        "sell": 900,
-        "pierre": 3200,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "",
-        "specialUrl": ""
-      },
-      "growth": {
-        "initial": 28,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 90,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
+    "growth": {
+      "initial": 25,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 1525,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "monster_mushroom": {
+    "name": "Monster Mushroom",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Monster_Mushroom",
+    "img": "monster_mushroom.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Fungus_Seed"
     },
-    "persimmon": {
-      "name": "Persimmon",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Persimmon",
-      "img": "persimmon.png",
-      "seeds": {
-        "sell": 2000,
-        "pierre": 8000,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "",
-        "specialUrl": ""
-      },
-      "growth": {
-        "initial": 28,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 200,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
+    "growth": {
+      "initial": 13,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 850,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "nectarine": {
+    "name": "Nectarine",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Nectarine",
+    "img": "nectarine.png",
+    "seeds": {
+      "sell": 1500,
+      "pierre": 6000,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
     },
-    "salal_berry": {
-      "name": "Salal Berry",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Salal_Berry",
-      "img": "salal_berry.png",
-      "seeds": {
-        "sell": 0,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Shrub_Seed"
-      },
-      "growth": {
-        "initial": 13,
-        "regrow": 4
-      },
-      "produce": {
-        "extra": 2,
-        "extraPerc": 0.03,
-        "price": 75,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 150,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "pear": {
+    "name": "Pear",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Pear",
+    "img": "pear.png",
+    "seeds": {
+      "sell": 900,
+      "pierre": 3200,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
     },
-    "slime_berry": {
-      "name": "Slime Berry",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Slime_Berry",
-      "img": "slime_berry.png",
-      "seeds": {
-        "sell": 0,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Slime_Seed"
-      },
-      "growth": {
-        "initial": 13,
-        "regrow": 4
-      },
-      "produce": {
-        "extra": 2,
-        "extraPerc": 0.1,
-        "price": 65,
-        "jarType": "Jelly",
-        "kegType": "Wine",
-        "dehydratorType": "Dried Fruit"
-      },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "persimmon": {
+    "name": "Persimmon",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Persimmon",
+    "img": "persimmon.png",
+    "seeds": {
+      "sell": 2000,
+      "pierre": 8000,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
     },
-    "tree_coin": {
-      "name": "Tree Coin",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Tree_Coin",
-      "img": "tree_coin.png",
-      "seeds": {
-        "sell": 10000,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Tree_Coin"
-      },
-      "growth": {
-        "initial": 28,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 1000
-      },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 200,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "salal_berry": {
+    "name": "Salal Berry",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Salal_Berry",
+    "img": "salal_berry.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Shrub_Seed"
     },
-    "void_root": {
-      "name": "Void Root",
-      "url": "https://stardew-valley-expanded.fandom.com/wiki/Void_Root",
-      "img": "void_root.png",
-      "seeds": {
-        "sell": 0,
-        "pierre": 0,
-        "joja": 0,
-        "special": 0,
-        "specialLoc": "Unpurchasable",
-        "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Void_Seed"
-      },
-      "growth": {
-        "initial": 8,
-        "regrow": 0
-      },
-      "produce": {
-        "extra": 0,
-        "extraPerc": 0,
-        "price": 235,
-        "jarType": "Pickles",
-        "kegType": "Juice"
-      },
+    "growth": {
+      "initial": 13,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 2,
+      "extraPerc": 0.03,
+      "price": 75,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
     "mod": "Stardew Valley Expanded"
+  },
+  "slime_berry": {
+    "name": "Slime Berry",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Slime_Berry",
+    "img": "slime_berry.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Slime_Seed"
     },
+    "growth": {
+      "initial": 13,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 2,
+      "extraPerc": 0.1,
+      "price": 65,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Stardew Valley Expanded"
+  },
+  "sweet_potato": {
+    "name": "Sweet Potato",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Sweet_Potato",
+    "img": "sweet_potato.png",
+    "seeds": {
+      "sell": 67,
+      "pierre": 134,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 280,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Stardew Valley Expanded"
+  },
+  "tree_coin": {
+    "name": "Tree Coin",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Tree_Coin",
+    "img": "tree_coin.png",
+    "seeds": {
+      "sell": 10000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Tree_Coin"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 1000
+    },
+    "mod": "Stardew Valley Expanded"
+  },
+  "void_root": {
+    "name": "Void Root",
+    "url": "https://stardew-valley-expanded.fandom.com/wiki/Void_Root",
+    "img": "void_root.png",
+    "seeds": {
+      "sell": 0,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardew-valley-expanded.fandom.com/wiki/Void_Seed"
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 235,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Stardew Valley Expanded"
+  },
 };
