@@ -2,7 +2,7 @@
 var cropList;
 
 var svgWidth = 1080;
-var svgMinWidth = 300;
+var svgMinWidth = 500;
 var svgHeight = 480;
 
 var width = svgWidth - 48;
