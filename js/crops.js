@@ -871,8 +871,8 @@ var crops = {
       "regrow": 0
     },
     "produce": {
-      "extra": 0,
-      "extraPerc": 0.2,
+      "extra": 1,
+      "extraPerc": 0.25,
       "price": 80,
       "jarType": "Pickles",
       "kegType": "Juice"
