@@ -37,8 +37,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Ancient_Seeds"
     },
     "growth": {
       "initial": 28,
@@ -136,8 +136,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Island Trader",
+      "specialUrl": "https://stardewvalleywiki.com/Island_Trader"
     },
     "growth": {
       "initial": 28,
@@ -306,8 +306,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Carrot_Seeds"
     },
     "growth": {
       "initial": 3,
