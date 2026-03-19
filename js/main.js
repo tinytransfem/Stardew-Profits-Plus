@@ -10,7 +10,7 @@ var height = (svgHeight - 56) / 2;
 var barPadding = 4;
 var paddingLeft = 8;
 var miniBar = 8;
-var barOffsetX = 29;
+var barOffsetX = 56;
 var barOffsetY = 40;
 var graphDescription = "Profit";
 
@@ -815,7 +815,7 @@ function sortCrops() {
 function updateScaleX(graphWidth) {
 	return d3.scale.ordinal()
 		.domain(d3.range(cropList.length))
-		.rangeRoundBands([0, graphWidth], 0, 0);
+		.rangeRoundBands([0, graphWidth], 0.08, 0.04);
 }
 
 /*
