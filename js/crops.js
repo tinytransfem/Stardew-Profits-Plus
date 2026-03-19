@@ -257,8 +257,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Broccoli_Seeds"
     },
     "growth": {
       "initial": 8,
@@ -378,9 +378,9 @@ var crops = {
       "sell": 15,
       "pierre": 0,
       "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "special": 1000,
+      "specialLoc": "Traveling Merchant",
+      "specialUrl": "https://stardewvalleywiki.com/Traveling_Cart"
     },
     "growth": {
       "initial": 10,
@@ -498,8 +498,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Fiber_Seeds"
     },
     "growth": {
       "initial": 7,
@@ -667,8 +667,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Island Trader",
+      "specialUrl": "https://stardewvalleywiki.com/Island_Trader"
     },
     "growth": {
       "initial": 28,
@@ -791,8 +791,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Island Trader",
+      "specialUrl": "https://stardewvalleywiki.com/Island_Trader"
     },
     "growth": {
       "initial": 14,
@@ -887,8 +887,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Powdermelon_Seeds"
     },
     "growth": {
       "initial": 7,
@@ -1081,8 +1081,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Unpurchasable",
+      "specialUrl": "https://stardewvalleywiki.com/Summer_Squash_Seeds"
     },
     "growth": {
       "initial": 6,
@@ -1126,9 +1126,9 @@ var crops = {
       "sell": 200,
       "pierre": 0,
       "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "special": 1000,
+      "specialLoc": "Traveling Merchant",
+      "specialUrl": "https://stardewvalleywiki.com/Traveling_Cart"
     },
     "growth": {
       "initial": 24,
@@ -1149,8 +1149,8 @@ var crops = {
       "pierre": 0,
       "joja": 0,
       "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "specialLoc": "Island Trader",
+      "specialUrl": "https://stardewvalleywiki.com/Island_Trader"
     },
     "growth": {
       "initial": 10,
