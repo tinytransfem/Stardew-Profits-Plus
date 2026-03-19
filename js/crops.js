@@ -1309,10 +1309,10 @@ var crops = {
       "kegType": "Juice"
     }
   },
-  "springseeds": {
+  "spring_seeds": {
     "name": "Spring Seeds",
     "url": "http://stardewvalleywiki.com/Spring_Seeds",
-    "img": "springseeds.png",
+    "img": "spring_seeds.png",
     "seeds": {
       "sell": 0,
       "pierre": 0,
@@ -1333,10 +1333,10 @@ var crops = {
     },
     "isWildseed": true
   },
-  "summerseeds": {
+  "summer_seeds": {
     "name": "Summer Seeds",
     "url": "http://stardewvalleywiki.com/Summer_Seeds",
-    "img": "summerseeds.png",
+    "img": "summer_seeds.png",
     "seeds": {
       "sell": 0,
       "pierre": 0,
@@ -1359,10 +1359,10 @@ var crops = {
     },
     "isWildseed": true
   },
-  "fallseeds": {
+  "fall_seeds": {
     "name": "Fall Seeds",
     "url": "http://stardewvalleywiki.com/Fall_Seeds",
-    "img": "fallseeds.png",
+    "img": "fall_seeds.png",
     "seeds": {
       "sell": 0,
       "pierre": 0,
@@ -1385,10 +1385,10 @@ var crops = {
     },
     "isWildseed": true
   },
-  "winterseeds": {
+  "winter_seeds": {
     "name": "Winter Seeds",
     "url": "http://stardewvalleywiki.com/Winter_Seeds",
-    "img": "winterseeds.png",
+    "img": "winter_seeds.png",
     "seeds": {
       "sell": 0,
       "pierre": 0,
