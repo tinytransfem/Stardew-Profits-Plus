@@ -104,7 +104,7 @@ var seasons = [
 			crops.blue_jazz,
 			crops.tulip,
 			crops.ancient_fruit,
-			crops.springseeds,
+			crops.spring_seeds,
 			crops.carrot,
 			crops.fiber,
 			// fruit trees
@@ -136,7 +136,7 @@ var seasons = [
 			crops.sunflower,
 			crops.ancient_fruit,
 			crops.taro_root,
-			crops.summerseeds,
+			crops.summer_seeds,
 			crops.summer_squash,
 			crops.fiber,
 			// fruit trees
@@ -166,7 +166,7 @@ var seasons = [
 			crops.wheat,
 			crops.corn,
 			crops.ancient_fruit,
-			crops.fallseeds,
+			crops.fall_seeds,
 			crops.broccoli,
 			crops.fiber,
 			// fruit trees
@@ -178,7 +178,7 @@ var seasons = [
 		"name": "Winter",
 		"duration": 28,
 		"crops": [
-			crops.winterseeds,
+			crops.winter_seeds,
 			crops.powdermelon,
 			crops.fiber
 		]
