@@ -935,14 +935,14 @@ function renderGraph() {
 				return x(i) + barOffsetX;
 		})
 		.attr("y", function (d) {
-	if (d.drawProfit >= 0)
-		return y(d.drawProfit) + barOffsetY;
-	else
-		return zeroY;
-})
-.attr("height", function (d) {
-	return Math.abs(y(d.drawProfit) - y(0));
-})
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY;
+			else
+				return zeroY;
+		})
+		.attr("height", function (d) {
+			return Math.abs(y(d.drawProfit) - y(0));
+		})
 		.attr("width", function (d) {
 			if (d.drawProfit < 0 && options.buySeed && options.buyFert)
 				return barWidth - (barWidth / miniBar) * 2;
@@ -966,12 +966,12 @@ function renderGraph() {
 		.append("rect")
 		.attr("x", function (d, i) { return x(i) + barOffsetX; })
 		.attr("y", zeroY)
-.attr("height", function (d) {
-	if (options.buySeed)
-		return Math.abs(y(d.drawSeedLoss) - y(0));
-	else
-		return 0;
-})
+		.attr("height", function (d) {
+			if (options.buySeed)
+				return Math.abs(y(d.drawSeedLoss) - y(0));
+			else
+				return 0;
+		})
 		.attr("width", barWidth / miniBar)
 		.attr("fill", "orange");
 
@@ -986,12 +986,12 @@ function renderGraph() {
 				return x(i) + barOffsetX;
 		})
 		.attr("y", zeroY)
-.attr("height", function (d) {
-	if (options.buyFert)
-		return Math.abs(y(d.drawFertLoss) - y(0));
-	else
-		return 0;
-})
+		.attr("height", function (d) {
+			if (options.buyFert)
+				return Math.abs(y(d.drawFertLoss) - y(0));
+			else
+				return 0;
+		})
 		.attr("width", barWidth / miniBar)
 		.attr("fill", "brown");
 
@@ -1016,45 +1016,37 @@ function renderGraph() {
 		.append("rect")
 		.attr("x", function (d, i) { return x(i) + barOffsetX - barPadding / 2; })
 		.attr("y", function (d) {
-			if (d.drawProfit >= 0)
-				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-			else
-				return zeroY - barWidth - barPadding;
-		})
-		.attr("height", function (d) {
-			var topHeight = 0;
-
-			if (d.drawProfit >= 0)
-				topHeight = height + barWidth + barPadding - y(d.drawProfit);
-			else
-				topHeight = barWidth + barPadding;
-
-			var lossArray = [0];
+			var values = [0, d.drawProfit];
 
 			if (options.buySeed)
-				lossArray.push(d.drawSeedLoss);
+				values.push(d.drawSeedLoss);
 			if (options.buyFert)
-				lossArray.push(d.drawFertLoss);
-			if (d.drawProfit < 0)
-				lossArray.push(d.drawProfit);
+				values.push(d.drawFertLoss);
 
-			var swapped;
-			do {
-				swapped = false;
-				for (var i = 0; i < lossArray.length - 1; i++) {
-					if (lossArray[i] > lossArray[i + 1]) {
-						var temp = lossArray[i];
-						lossArray[i] = lossArray[i + 1];
-						lossArray[i + 1] = temp;
-						swapped = true;
-					}
-				}
-			} while (swapped);
+			var topValue = d3.max(values);
+			var topY = Math.min(y(topValue), y(0));
 
-			return topHeight + (height - y(-lossArray[0]));
+			return topY + barOffsetY - barWidth - barPadding;
+		})
+		.attr("height", function (d) {
+			var values = [0, d.drawProfit];
+
+			if (options.buySeed)
+				values.push(d.drawSeedLoss);
+			if (options.buyFert)
+				values.push(d.drawFertLoss);
+
+			var topValue = d3.max(values);
+			var bottomValue = d3.min(values);
+
+			var topY = Math.min(y(topValue), y(0));
+			var bottomY = Math.max(y(bottomValue), y(0));
+
+			return Math.max(0, (bottomY - topY) + barWidth + barPadding);
 		})
 		.attr("width", barWidth + barPadding)
-		.attr("opacity", "0")
+		.attr("fill", "transparent")
+		.attr("pointer-events", "all")
 		.attr("cursor", "pointer")
 		.on("mouseover", function (d) {
 			tooltip.selectAll("*").remove();
@@ -1540,14 +1532,14 @@ function updateGraph() {
 				return x(i) + barOffsetX;
 		})
 		.attr("y", function (d) {
-	if (d.drawProfit >= 0)
-		return y(d.drawProfit) + barOffsetY;
-	else
-		return zeroY;
-})
-.attr("height", function (d) {
-	return Math.abs(y(d.drawProfit) - y(0));
-})
+			if (d.drawProfit >= 0)
+				return y(d.drawProfit) + barOffsetY;
+			else
+				return zeroY;
+		})
+		.attr("height", function (d) {
+			return Math.abs(y(d.drawProfit) - y(0));
+		})
 		.attr("width", function (d) {
 			if (d.drawProfit < 0 && options.buySeed && options.buyFert)
 				return barWidth - (barWidth / miniBar) * 2;
@@ -1569,12 +1561,12 @@ function updateGraph() {
 		.transition()
 		.attr("x", function (d, i) { return x(i) + barOffsetX; })
 		.attr("y", zeroY)
-.attr("height", function (d) {
-	if (options.buySeed)
-		return Math.abs(y(d.drawSeedLoss) - y(0));
-	else
-		return 0;
-})
+		.attr("height", function (d) {
+			if (options.buySeed)
+				return Math.abs(y(d.drawSeedLoss) - y(0));
+			else
+				return 0;
+		})
 		.attr("width", barWidth / miniBar)
 		.attr("fill", "orange");
 
@@ -1587,12 +1579,12 @@ function updateGraph() {
 				return x(i) + barOffsetX;
 		})
 		.attr("y", zeroY)
-.attr("height", function (d) {
-	if (options.buyFert)
-		return Math.abs(y(d.drawFertLoss) - y(0));
-	else
-		return 0;
-})
+		.attr("height", function (d) {
+			if (options.buyFert)
+				return Math.abs(y(d.drawFertLoss) - y(0));
+			else
+				return 0;
+		})
 		.attr("width", barWidth / miniBar)
 		.attr("fill", "brown");
 
@@ -1613,42 +1605,33 @@ function updateGraph() {
 		.transition()
 		.attr("x", function (d, i) { return x(i) + barOffsetX - barPadding / 2; })
 		.attr("y", function (d) {
-			if (d.drawProfit >= 0)
-				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
-			else
-				return zeroY - barWidth - barPadding;
-		})
-		.attr("height", function (d) {
-			var topHeight = 0;
-
-			if (d.drawProfit >= 0)
-				topHeight = height + barWidth + barPadding - y(d.drawProfit);
-			else
-				topHeight = barWidth + barPadding;
-
-			var lossArray = [0];
+			var values = [0, d.drawProfit];
 
 			if (options.buySeed)
-				lossArray.push(d.drawSeedLoss);
+				values.push(d.drawSeedLoss);
 			if (options.buyFert)
-				lossArray.push(d.drawFertLoss);
-			if (d.drawProfit < 0)
-				lossArray.push(d.drawProfit);
+				values.push(d.drawFertLoss);
 
-			var swapped;
-			do {
-				swapped = false;
-				for (var i = 0; i < lossArray.length - 1; i++) {
-					if (lossArray[i] > lossArray[i + 1]) {
-						var temp = lossArray[i];
-						lossArray[i] = lossArray[i + 1];
-						lossArray[i + 1] = temp;
-						swapped = true;
-					}
-				}
-			} while (swapped);
+			var topValue = d3.max(values);
+			var topY = Math.min(y(topValue), y(0));
 
-			return topHeight + (height - y(-lossArray[0]));
+			return topY + barOffsetY - barWidth - barPadding;
+		})
+		.attr("height", function (d) {
+			var values = [0, d.drawProfit];
+
+			if (options.buySeed)
+				values.push(d.drawSeedLoss);
+			if (options.buyFert)
+				values.push(d.drawFertLoss);
+
+			var topValue = d3.max(values);
+			var bottomValue = d3.min(values);
+
+			var topY = Math.min(y(topValue), y(0));
+			var bottomY = Math.max(y(bottomValue), y(0));
+
+			return Math.max(0, (bottomY - topY) + barWidth + barPadding);
 		})
 		.attr("width", barWidth + barPadding);
 }
