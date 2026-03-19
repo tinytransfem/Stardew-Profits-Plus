@@ -56,7 +56,7 @@ var crops = {
   "apple_sapling": {
     "name": "Apple Sapling",
     "url": "https://stardewvalleywiki.com/Apple_Sapling",
-    "img": "apple_sapling.png",
+    "img": "apple.png",
     "seeds": {
       "sell": 1000,
       "pierre": 2000,
@@ -81,7 +81,7 @@ var crops = {
   "apricot_sapling": {
     "name": "Apricot Sapling",
     "url": "https://stardewvalleywiki.com/Apricot_Sapling",
-    "img": "apricot_sapling.png",
+    "img": "apricot.png",
     "seeds": {
       "sell": 500,
       "pierre": 1000,
@@ -130,7 +130,7 @@ var crops = {
   "banana_sapling": {
     "name": "Banana Sapling",
     "url": "https://stardewvalleywiki.com/Banana_Sapling",
-    "img": "banana_sapling.png",
+    "img": "banana.png",
     "seeds": {
       "sell": 850,
       "pierre": 0,
@@ -348,7 +348,7 @@ var crops = {
   "cherry_sapling": {
     "name": "Cherry Sapling",
     "url": "https://stardewvalleywiki.com/Cherry_Sapling",
-    "img": "cherry_sapling.png",
+    "img": "cherry.png",
     "seeds": {
       "sell": 850,
       "pierre": 1700,
@@ -661,7 +661,7 @@ var crops = {
   "mango_sapling": {
     "name": "Mango Sapling",
     "url": "https://stardewvalleywiki.com/Mango_Sapling",
-    "img": "mango_sapling.png",
+    "img": "mango.png",
     "seeds": {
       "sell": 850,
       "pierre": 0,
@@ -711,7 +711,7 @@ var crops = {
   "orange_sapling": {
     "name": "Orange Sapling",
     "url": "https://stardewvalleywiki.com/Orange_Sapling",
-    "img": "orange_sapling.png",
+    "img": "orange.png",
     "seeds": {
       "sell": 1000,
       "pierre": 2000,
@@ -760,7 +760,7 @@ var crops = {
   "peach_sapling": {
     "name": "Peach Sapling",
     "url": "https://stardewvalleywiki.com/Peach_Sapling",
-    "img": "peach_sapling.png",
+    "img": "peach.png",
     "seeds": {
       "sell": 1500,
       "pierre": 3000,
@@ -810,7 +810,7 @@ var crops = {
   "pomegranate_sapling": {
     "name": "Pomegranate Sapling",
     "url": "https://stardewvalleywiki.com/Pomegranate_Sapling",
-    "img": "pomegranate_sapling.png",
+    "img": "pomegranate.png",
     "seeds": {
       "sell": 1500,
       "pierre": 3000,
