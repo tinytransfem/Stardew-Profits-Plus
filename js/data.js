@@ -118,6 +118,7 @@ var seasons = [
 		"fruit": [
 			crops.apricot,
 			crops.cherry,
+			// SVE
 			crops.pear,
 			crops.tree_coin
 		]
@@ -157,6 +158,7 @@ var seasons = [
 			crops.orange,
 			crops.banana,
 			crops.mango,
+			// SVE
 			crops.nectarine,
 			crops.tree_coin
 		]
@@ -191,6 +193,7 @@ var seasons = [
 		"fruit": [
 			crops.apple,
 			crops.pomegranate,
+			// SVE
 			crops.persimmon,
 			crops.tree_coin
 		]
@@ -206,6 +209,7 @@ var seasons = [
 			crops.void_root
 		],
 		"fruit": [
+			// SVE
 			crops.tree_coin
 		]
 	},
@@ -259,17 +263,33 @@ var seasons = [
 			crops.broccoli,
 			crops.powdermelon,
 			crops.fiber,
-			// fruit trees
+			// SVE
+			crops.cucumber,
+			crops.gold_carrot,
+			crops.joja_berry,
+			crops.joja_veggie,
+			crops.salal_berry,
+			crops.slime_berry,
+			crops.ancient_fiber,
+			crops.butternut_squash,
+			crops.monster_fruit,
+			crops.monster_mushroom,
+			crops.sweet_potato,
+			crops.void_root
+		],
+		"fruit": [
 			crops.apricot,
 			crops.cherry,
+			crops.pear,
 			crops.peach,
 			crops.orange,
 			crops.banana,
 			crops.mango,
+			crops.nectarine,
 			crops.apple,
 			crops.pomegranate,
-			// SVE
-			crops.cucumber
+			crops.persimmon,
+			crops.tree_coin
 		]
 	}
 ];
