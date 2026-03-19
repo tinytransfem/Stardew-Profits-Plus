@@ -9,7 +9,6 @@ var width = svgWidth - 48;
 var height = (svgHeight - 56) / 2;
 var barPadding = 4;
 var paddingLeft = 8;
-var barWidth = width / (seasons[options.season].crops.length + seasons[options.season].fruit.length) - barPadding;
 var miniBar = 8;
 var barOffsetX = 29;
 var barOffsetY = 40;
@@ -813,10 +812,10 @@ function sortCrops() {
  * Updates the X D3 scale.
  * @return The new scale.
  */
-function updateScaleX() {
+function updateScaleX(graphWidth) {
 	return d3.scale.ordinal()
-		.domain(d3.range(seasons[4].crops.length + seasons[4].fruit.length))
-		.rangeRoundBands([0, width]);
+		.domain(d3.range(cropList.length))
+		.rangeRoundBands([0, graphWidth], 0, 0);
 }
 
 /*
@@ -895,15 +894,19 @@ function updateScaleAxis() {
  */
 function renderGraph() {
 
-	var x = updateScaleX();
+	var graphWidth = Math.max(
+		svgMinWidth - barOffsetX - paddingLeft - barPadding * 2,
+		cropList.length * 32
+	);
+
+	var x = updateScaleX(graphWidth);
+	var barWidth = x.rangeBand();
 	var y = updateScaleY();
 	var ax = updateScaleAxis();
 
-	var width = barOffsetX + barPadding * 2 + (barWidth + barPadding) * cropList.length + paddingLeft;
-	if (width < svgMinWidth)
-		width = svgMinWidth;
-	svg.attr("width", width).style("padding-top", "12px");
-	d3.select(".graph").attr("width", width);
+	var svgActualWidth = barOffsetX + graphWidth + paddingLeft + barPadding * 2;
+	svg.attr("width", svgActualWidth).style("padding-top", "12px");
+	d3.select(".graph").attr("width", svgActualWidth);
 
 	var yAxis = d3.svg.axis()
 		.scale(ax)
@@ -1501,9 +1504,19 @@ function renderGraph() {
  * Updates the already rendered graph, showing animations.
  */
 function updateGraph() {
-	var x = updateScaleX();
+	var graphWidth = Math.max(
+		svgMinWidth - barOffsetX - paddingLeft - barPadding * 2,
+		cropList.length * 32
+	);
+
+	var x = updateScaleX(graphWidth);
+	var barWidth = x.rangeBand();
 	var y = updateScaleY();
 	var ax = updateScaleAxis();
+
+	var svgActualWidth = barOffsetX + graphWidth + paddingLeft + barPadding * 2;
+	svg.attr("width", svgActualWidth);
+	d3.select(".graph").attr("width", svgActualWidth);
 
 	var yAxis = d3.svg.axis()
 		.scale(ax)
