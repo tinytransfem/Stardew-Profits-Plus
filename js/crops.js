@@ -1167,7 +1167,7 @@ var crops = {
   "tea_leaves": {
     "name": "Tea Leaves",
     "url": "http://stardewvalleywiki.com/Tea_Leaves",
-    "img": "tealeaves.png",
+    "img": "tea_leaves.png",
     "seeds": {
       "sell": 0,
       "pierre": 0,
