@@ -14,13 +14,6 @@ var barOffsetX = 56;
 var barOffsetY = 40;
 var graphDescription = "Profit";
 
-var iconMaxSize = 48;
-var iconMinSize = 20;
-var iconGap = 6;
-var titleHeight = 24;
-var plotTopPadding = 8;
-var plotBottomPadding = 16;
-
 // Prepare web elements.
 var svg = d3.select("div.graph")
 	.append("svg")
@@ -829,24 +822,24 @@ function updateScaleX(graphWidth) {
  * Updates the Y D3 scale.
  * @return The new scale.
  */
-function updateScaleY(plotTop, plotBottom) {
+function updateScaleY() {
 	var domain = getVerticalDomain();
 
 	return d3.scale.linear()
 		.domain([domain.min, domain.max])
-		.range([plotBottom, plotTop]);
+		.range([height * 2, 0]);
 }
 
 /*
  * Updates the axis D3 scale.
  * @return The new scale.
  */
-function updateScaleAxis(plotTop, plotBottom) {
+function updateScaleAxis() {
 	var domain = getVerticalDomain();
 
 	return d3.scale.linear()
 		.domain([domain.min, domain.max])
-		.range([plotBottom, plotTop]);
+		.range([height * 2, 0]);
 }
 
 function getVerticalDomain() {
@@ -901,14 +894,9 @@ function renderGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
-	var iconSize = Math.max(iconMinSize, Math.min(iconMaxSize, barWidth));
-
-	var plotTop = barOffsetY + titleHeight + plotTopPadding + iconSize + iconGap;
-	var plotBottom = svgHeight - plotBottomPadding;
-
-	var y = updateScaleY(plotTop, plotBottom);
-	var zeroY = y(0);
-	var ax = updateScaleAxis(plotTop, plotBottom);
+	var y = updateScaleY();
+	var zeroY = y(0) + barOffsetY;
+	var ax = updateScaleAxis();
 
 	var svgActualWidth = barOffsetX + graphWidth + paddingLeft + barPadding * 2;
 	svg.attr("width", svgActualWidth).style("padding-top", "12px");
@@ -922,7 +910,7 @@ function renderGraph() {
 
 	axisY = gAxis.attr("class", "axis")
 		.call(yAxis)
-		.attr("transform", "translate(48, 0)");
+		.attr("transform", "translate(48, " + barOffsetY + ")");
 
 	title = gTitle.attr("class", "Title")
 		.append("text")
@@ -948,7 +936,7 @@ function renderGraph() {
 		})
 		.attr("y", function (d) {
 			if (d.drawProfit >= 0)
-				return y(d.drawProfit);
+				return y(d.drawProfit) + barOffsetY;
 			else
 				return zeroY;
 		})
@@ -1011,15 +999,15 @@ function renderGraph() {
 		.data(cropList)
 		.enter()
 		.append("svg:image")
-		.attr("x", function (d, i) { return x(i) + barOffsetX + (barWidth - iconSize) / 2; })
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
 		.attr("y", function (d) {
 			if (d.drawProfit >= 0)
-				return y(d.drawProfit) - iconSize - iconGap;
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
 			else
-				return zeroY - iconSize - iconGap;
+				return zeroY - barWidth - barPadding;
 		})
-		.attr("width", iconSize)
-		.attr("height", iconSize)
+		.attr('width', barWidth)
+		.attr('height', barWidth)
 		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips = gTooltips.selectAll("rect")
@@ -1038,7 +1026,7 @@ function renderGraph() {
 			var topValue = d3.max(values);
 			var topY = Math.min(y(topValue), y(0));
 
-			return topY - iconSize - iconGap;
+			return topY + barOffsetY - barWidth - barPadding;
 		})
 		.attr("height", function (d) {
 			var values = [0, d.drawProfit];
@@ -1054,7 +1042,7 @@ function renderGraph() {
 			var topY = Math.min(y(topValue), y(0));
 			var bottomY = Math.max(y(bottomValue), y(0));
 
-			return Math.max(0, (bottomY - topY) + iconSize + iconGap);
+			return Math.max(0, (bottomY - topY) + barWidth + barPadding);
 		})
 		.attr("width", barWidth + barPadding)
 		.attr("fill", "transparent")
@@ -1506,14 +1494,9 @@ function updateGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
-	var iconSize = Math.max(iconMinSize, Math.min(iconMaxSize, barWidth));
-
-	var plotTop = barOffsetY + titleHeight + plotTopPadding + iconSize + iconGap;
-	var plotBottom = svgHeight - plotBottomPadding;
-
-	var y = updateScaleY(plotTop, plotBottom);
-	var zeroY = y(0);
-	var ax = updateScaleAxis(plotTop, plotBottom);
+	var y = updateScaleY();
+	var zeroY = y(0) + barOffsetY;
+	var ax = updateScaleAxis();
 
 	var svgActualWidth = barOffsetX + graphWidth + paddingLeft + barPadding * 2;
 	svg.attr("width", svgActualWidth);
@@ -1550,7 +1533,7 @@ function updateGraph() {
 		})
 		.attr("y", function (d) {
 			if (d.drawProfit >= 0)
-				return y(d.drawProfit);
+				return y(d.drawProfit) + barOffsetY;
 			else
 				return zeroY;
 		})
@@ -1605,19 +1588,17 @@ function updateGraph() {
 		.attr("width", barWidth / miniBar)
 		.attr("fill", "brown");
 
-	imgIcons = gIcons.selectAll("image")
-		.data(cropList)
-		.enter()
-		.append("svg:image")
-		.attr("x", function (d, i) { return x(i) + barOffsetX + (barWidth - iconSize) / 2; })
+	imgIcons.data(cropList)
+		.transition()
+		.attr("x", function (d, i) { return x(i) + barOffsetX; })
 		.attr("y", function (d) {
 			if (d.drawProfit >= 0)
-				return y(d.drawProfit) - iconSize - iconGap;
+				return y(d.drawProfit) + barOffsetY - barWidth - barPadding;
 			else
-				return zeroY - iconSize - iconGap;
+				return zeroY - barWidth - barPadding;
 		})
-		.attr("width", iconSize)
-		.attr("height", iconSize)
+		.attr('width', barWidth)
+		.attr('height', barWidth)
 		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips.data(cropList)
@@ -1634,7 +1615,7 @@ function updateGraph() {
 			var topValue = d3.max(values);
 			var topY = Math.min(y(topValue), y(0));
 
-			return topY - iconSize - iconGap;
+			return topY + barOffsetY - barWidth - barPadding;
 		})
 		.attr("height", function (d) {
 			var values = [0, d.drawProfit];
@@ -1650,7 +1631,7 @@ function updateGraph() {
 			var topY = Math.min(y(topValue), y(0));
 			var bottomY = Math.max(y(bottomValue), y(0));
 
-			return Math.max(0, (bottomY - topY) + iconSize + iconGap);
+			return Math.max(0, (bottomY - topY) + barWidth + barPadding);
 		})
 		.attr("width", barWidth + barPadding);
 }
