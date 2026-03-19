@@ -387,8 +387,8 @@ var crops = {
       "regrow": 2
     },
     "produce": {
-      "extra": 0,
-      "extraPerc": 0.02,
+      "extra": 3,
+      "extraPerc": 1.007,
       "price": 15,
       "keg": 150 / 5,
       "kegType": "Coffee"
