@@ -1033,9 +1033,9 @@ var crops = {
       "sell": 0,
       "pierre": 0,
       "joja": 0,
-      "special": 0,
-      "specialLoc": "",
-      "specialUrl": ""
+      "special": 100,
+      "specialLoc": "Egg Festival",
+      "specialUrl": "https://stardewvalleywiki.com/Egg_Festival"
     },
     "growth": {
       "initial": 8,
