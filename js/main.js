@@ -287,18 +287,23 @@ function getCaskModifier() {
 }
 
 /*
- * Calculates the dehydrator modifier for 5 crops.
+ * Calculates the dehydrator modifier.
  * @param crop The crop object, containing all the crop data.
  * @return The dehydrator modifier.
  */
 function getDehydratorModifier(crop) {
-	var modifier = 7.5 * crop.produce.price + 25;
+	var modifier = 1.5 * crop.produce.price + 5;
 	switch (crop.produce.dehydratorType) {
 		case "Dried Fruit":
-			modifier = options.skills.arti ? 10.5 * crop.produce.price + 35 : modifier;
+		case "Dried Vegetable":
+			modifier = options.skills.arti ? 2.1 * crop.produce.price + 7 : modifier;
+			break;
+		case "Dried Flower":
+		case "Dried Herb":
+			modifier = options.skills.arti ? 2.8 * crop.produce.price + 14 : 2 * crop.produce.price + 10;
 			break;
 		default: //We aren't calculating Mushrooms thus all else would be Grapes/Rasins
-			modifier = options.skills.arti ? 840 : 600;
+			modifier = options.skills.arti ? 168 : 120;
 	}
 	return modifier;
 }
