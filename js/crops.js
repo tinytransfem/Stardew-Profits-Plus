@@ -1815,4 +1815,3483 @@ var crops = {
     },
     "mod": "Stardew Valley Expanded"
   },
+  // Cornucopia crops
+  "adzuki_bean": {
+    "name": "Adzuki Bean",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Adzuki_Bean",
+    "img": "adzuki_bean.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 100,
+      "joja": 125,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.2,
+      "price": 60,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "agave": {
+    "name": "Agave",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Agave",
+    "img": "agave.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 100,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 270,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "almond_sapling": {
+    "name": "Almond Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Almond_Sapling",
+    "img": "almond_sapling.png",
+    "seeds": {
+      "sell": 937,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "aloe": {
+    "name": "Aloe",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Aloe",
+    "img": "aloe.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 100,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 170,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "asparagus": {
+    "name": "Asparagus",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Asparagus",
+    "img": "asparagus.png",
+    "seeds": {
+      "sell": 30,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 140,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "avocado_sapling": {
+    "name": "Avocado Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Avocado_Sapling",
+    "img": "avocado_sapling.png",
+    "seeds": {
+      "sell": 2000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 200,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "bamboo": {
+    "name": "Bamboo",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Bamboo",
+    "img": "bamboo.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 80,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0,
+      "price": 65,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "barley": {
+    "name": "Barley",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Barley",
+    "img": "barley.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 25,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "basil": {
+    "name": "Basil",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Basil",
+    "img": "basil.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 3,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "beansprouts": {
+    "name": "Beansprouts",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Beansprouts",
+    "img": "beansprouts.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "bee_balm": {
+    "name": "Bee Balm",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Bee_Balm",
+    "img": "bee_balm.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "bell_pepper": {
+    "name": "Bell Pepper",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Bell_Pepper",
+    "img": "bell_pepper.png",
+    "seeds": {
+      "sell": 65,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 70,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "black_beans": {
+    "name": "Black Beans",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Black_Beans",
+    "img": "black_beans.png",
+    "seeds": {
+      "sell": 30,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 15,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "blue_agave": {
+    "name": "Blue Agave",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Blue_Agave",
+    "img": "blue_agave.png",
+    "seeds": {
+      "sell": 90,
+      "pierre": 0,
+      "joja": 0,
+      "special": 180,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 400,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "blue_mist": {
+    "name": "Blue Mist",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Blue_Mist",
+    "img": "blue_mist.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "bluebonnet": {
+    "name": "Bluebonnet",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Bluebonnet",
+    "img": "bluebonnet.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "breadfruit_sapling": {
+    "name": "Breadfruit Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Breadfruit_Sapling",
+    "img": "breadfruit_sapling.png",
+    "seeds": {
+      "sell": 2000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 4000,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 240,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "buckwheat": {
+    "name": "Buckwheat",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Buckwheat",
+    "img": "buckwheat.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 25,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "buttercup": {
+    "name": "Buttercup",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Buttercup",
+    "img": "buttercup.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 25
+    },
+    "mod": "Cornucopia"
+  },
+  "cabbage": {
+    "name": "Cabbage",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cabbage",
+    "img": "cabbage.png",
+    "seeds": {
+      "sell": 35,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 130,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "camphor_sapling": {
+    "name": "Camphor Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Camphor_Sapling",
+    "img": "camphor_sapling.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 100,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "canary_melon": {
+    "name": "Canary Melon",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Canary_Melon",
+    "img": "canary_melon.png",
+    "seeds": {
+      "sell": 225,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 225,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "canola_flower": {
+    "name": "Canola Flower",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Canola_Flower",
+    "img": "canola_flower.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 40
+    },
+    "mod": "Cornucopia"
+  },
+  "cantaloupe": {
+    "name": "Cantaloupe",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cantaloupe",
+    "img": "cantaloupe.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 180,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "carnation": {
+    "name": "Carnation",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Carnation",
+    "img": "carnation.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "cashew_sapling": {
+    "name": "Cashew Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cashew_Sapling",
+    "img": "cashew_sapling.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 100
+    },
+    "mod": "Cornucopia"
+  },
+  "cassava": {
+    "name": "Cassava",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cassava",
+    "img": "cassava.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.2,
+      "price": 80,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "catnip": {
+    "name": "Catnip",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Catnip",
+    "img": "catnip.png",
+    "seeds": {
+      "sell": 30,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 70,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "celery": {
+    "name": "Celery",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Celery",
+    "img": "celery.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 45,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "chamomile": {
+    "name": "Chamomile",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Chamomile",
+    "img": "chamomile.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35
+    },
+    "mod": "Cornucopia"
+  },
+  "chickpea": {
+    "name": "Chickpea",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Chickpea",
+    "img": "chickpea.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0,
+      "price": 55,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "chives": {
+    "name": "Chives",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Chives",
+    "img": "chives.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "chrysanthemum": {
+    "name": "Chrysanthemum",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Chrysanthemum",
+    "img": "chrysanthemum.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "cilantro": {
+    "name": "Cilantro",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cilantro",
+    "img": "cilantro.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "cinnamon_sapling": {
+    "name": "Cinnamon Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cinnamon_Sapling",
+    "img": "cinnamon_sapling.png",
+    "seeds": {
+      "sell": 1500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 140
+    },
+    "mod": "Cornucopia"
+  },
+  "clary_sage": {
+    "name": "Clary Sage",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Clary_Sage",
+    "img": "clary_sage.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "clematis": {
+    "name": "Clematis",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Clematis",
+    "img": "clematis.png",
+    "seeds": {
+      "sell": 45,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.03,
+      "price": 110
+    },
+    "mod": "Cornucopia"
+  },
+  "cocoa_sapling": {
+    "name": "Cocoa Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cocoa_Sapling",
+    "img": "cocoa_sapling.png",
+    "seeds": {
+      "sell": 1250,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 125
+    },
+    "mod": "Cornucopia"
+  },
+  "cotton_boll": {
+    "name": "Cotton Boll",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cotton_Boll",
+    "img": "cotton_boll.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 2
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "cumin_seeds": {
+    "name": "Cumin Seeds",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cumin_Seeds",
+    "img": "cumin_seeds.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 80,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 40
+    },
+    "mod": "Cornucopia"
+  },
+  "dahlia": {
+    "name": "Dahlia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Dahlia",
+    "img": "dahlia.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50
+    },
+    "mod": "Cornucopia"
+  },
+  "daikon": {
+    "name": "Daikon",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Daikon",
+    "img": "daikon.png",
+    "seeds": {
+      "sell": 70,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 195,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "daisy": {
+    "name": "Daisy",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Daisy",
+    "img": "daisy.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 15
+    },
+    "mod": "Cornucopia"
+  },
+  "dill": {
+    "name": "Dill",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Dill",
+    "img": "dill.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 65,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "dragon_fruit_sapling": {
+    "name": "Dragon Fruit Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Dragon_Fruit_Sapling",
+    "img": "dragon_fruit_sapling.png",
+    "seeds": {
+      "sell": 1250,
+      "pierre": 0,
+      "joja": 0,
+      "special": 2500,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 125,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "durian_sapling": {
+    "name": "Durian Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Durian_Sapling",
+    "img": "durian_sapling.png",
+    "seeds": {
+      "sell": 2000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 350,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "durum": {
+    "name": "Durum",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Durum",
+    "img": "durum.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 25,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "eucalyptus_sapling": {
+    "name": "Eucalyptus Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Eucalyptus_Sapling",
+    "img": "eucalyptus_sapling.png",
+    "seeds": {
+      "sell": 1375,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 135,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "fairy_duster": {
+    "name": "Fairy Duster",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fairy_Duster",
+    "img": "fairy_duster.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 20,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 40
+    },
+    "mod": "Cornucopia"
+  },
+  "fall_rose": {
+    "name": "Fall Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fall_Rose",
+    "img": "fall_rose.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 290
+    },
+    "mod": "Cornucopia"
+  },
+  "fennel": {
+    "name": "Fennel",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fennel",
+    "img": "fennel.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "fenugreek": {
+    "name": "Fenugreek",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fenugreek",
+    "img": "fenugreek.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "fig_sapling": {
+    "name": "Fig Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fig_Sapling",
+    "img": "fig_sapling.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 100,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "freesia": {
+    "name": "Freesia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Freesia",
+    "img": "freesia.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "gem_rafflesia": {
+    "name": "Gem Rafflesia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Gem_Rafflesia",
+    "img": "gem_rafflesia.png",
+    "seeds": {
+      "sell": 500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 34,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 2400
+    },
+    "mod": "Cornucopia"
+  },
+  "geranium": {
+    "name": "Geranium",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Geranium",
+    "img": "geranium.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "ginseng": {
+    "name": "Ginseng",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ginseng",
+    "img": "ginseng.png",
+    "seeds": {
+      "sell": 296,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 30,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 2600,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "grapefruit_sapling": {
+    "name": "Grapefruit Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Grapefruit_Sapling",
+    "img": "grapefruit_sapling.png",
+    "seeds": {
+      "sell": 1500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 140,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "green_peas": {
+    "name": "Green Peas",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Green_Peas",
+    "img": "green_peas.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "groundcherries": {
+    "name": "Groundcherries",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Groundcherries",
+    "img": "groundcherries.png",
+    "seeds": {
+      "sell": 75,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 60,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "habanero": {
+    "name": "Habanero",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Habanero",
+    "img": "habanero.png",
+    "seeds": {
+      "sell": 65,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 120,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "hibiscus_sapling": {
+    "name": "Hibiscus Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Hibiscus_Sapling",
+    "img": "hibiscus_sapling.png",
+    "seeds": {
+      "sell": 750,
+      "pierre": 0,
+      "joja": 0,
+      "special": 1500,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 75
+    },
+    "mod": "Cornucopia"
+  },
+  "honeydew": {
+    "name": "Honeydew",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Honeydew",
+    "img": "honeydew.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 180,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "honeysuckle": {
+    "name": "Honeysuckle",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Honeysuckle",
+    "img": "honeysuckle.png",
+    "seeds": {
+      "sell": 120,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 16,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0.03,
+      "price": 110
+    },
+    "mod": "Cornucopia"
+  },
+  "hyacinth": {
+    "name": "Hyacinth",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Hyacinth",
+    "img": "hyacinth.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "hydrangea": {
+    "name": "Hydrangea",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Hydrangea",
+    "img": "hydrangea.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80
+    },
+    "mod": "Cornucopia"
+  },
+  "iris": {
+    "name": "Iris",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Iris",
+    "img": "iris.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "jalapeño": {
+    "name": "Jalapeño",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Jalapeño",
+    "img": "jalapeño.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 40,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "jasmine_sapling": {
+    "name": "Jasmine Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Jasmine_Sapling",
+    "img": "jasmine_sapling.png",
+    "seeds": {
+      "sell": 750,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 40
+    },
+    "mod": "Cornucopia"
+  },
+  "kidney_beans": {
+    "name": "Kidney Beans",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Kidney_Beans",
+    "img": "kidney_beans.png",
+    "seeds": {
+      "sell": 90,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "kiwifruit": {
+    "name": "Kiwifruit",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Kiwifruit",
+    "img": "kiwifruit.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 21,
+      "regrow": 2
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 100,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "larkspur": {
+    "name": "Larkspur",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Larkspur",
+    "img": "larkspur.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "lavender": {
+    "name": "Lavender",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lavender",
+    "img": "lavender.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "lemon_sapling": {
+    "name": "Lemon Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lemon_Sapling",
+    "img": "lemon_sapling.png",
+    "seeds": {
+      "sell": 500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "lemongrass": {
+    "name": "Lemongrass",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lemongrass",
+    "img": "lemongrass.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 20,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "lentils": {
+    "name": "Lentils",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lentils",
+    "img": "lentils.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 20,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "lettuce": {
+    "name": "Lettuce",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lettuce",
+    "img": "lettuce.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 65,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "licorice_root": {
+    "name": "Licorice Root",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Licorice_Root",
+    "img": "licorice_root.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 135,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "lily": {
+    "name": "Lily",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lily",
+    "img": "lily.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "lime_sapling": {
+    "name": "Lime Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lime_Sapling",
+    "img": "lime_sapling.png",
+    "seeds": {
+      "sell": 500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "lotus": {
+    "name": "Lotus",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lotus",
+    "img": "lotus.png",
+    "seeds": {
+      "sell": 30,
+      "pierre": 0,
+      "joja": 0,
+      "special": 60,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 11,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 150
+    },
+    "mod": "Cornucopia"
+  },
+  "lupine": {
+    "name": "Lupine",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lupine",
+    "img": "lupine.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50
+    },
+    "mod": "Cornucopia"
+  },
+  "lychee_sapling": {
+    "name": "Lychee Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lychee_Sapling",
+    "img": "lychee_sapling.png",
+    "seeds": {
+      "sell": 1250,
+      "pierre": 0,
+      "joja": 0,
+      "special": 2500,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 110,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "magnolia_sapling": {
+    "name": "Magnolia Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Magnolia_Sapling",
+    "img": "magnolia_sapling.png",
+    "seeds": {
+      "sell": 625,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 60
+    },
+    "mod": "Cornucopia"
+  },
+  "marjoram": {
+    "name": "Marjoram",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Marjoram",
+    "img": "marjoram.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "melaleuca_sapling": {
+    "name": "Melaleuca Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Melaleuca_Sapling",
+    "img": "melaleuca_sapling.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 100,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "mint": {
+    "name": "Mint",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Mint",
+    "img": "mint.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "morning_glory": {
+    "name": "Morning Glory",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Morning_Glory",
+    "img": "morning_glory.png",
+    "seeds": {
+      "sell": 120,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0,
+      "price": 110
+    },
+    "mod": "Cornucopia"
+  },
+  "mustard_greens": {
+    "name": "Mustard Greens",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Mustard_Greens",
+    "img": "mustard_greens.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 40,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "navy_beans": {
+    "name": "Navy Beans",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Navy_Beans",
+    "img": "navy_beans.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 15,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "nutmeg_sapling": {
+    "name": "Nutmeg Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Nutmeg_Sapling",
+    "img": "nutmeg_sapling.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "oats": {
+    "name": "Oats",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Oats",
+    "img": "oats.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 25,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "okra": {
+    "name": "Okra",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Okra",
+    "img": "okra.png",
+    "seeds": {
+      "sell": 80,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 4
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0.2,
+      "price": 60,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "onion": {
+    "name": "Onion",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Onion",
+    "img": "onion.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 115,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "orchid": {
+    "name": "Orchid",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Orchid",
+    "img": "orchid.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 300
+    },
+    "mod": "Cornucopia"
+  },
+  "oregano": {
+    "name": "Oregano",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Oregano",
+    "img": "oregano.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "pansy": {
+    "name": "Pansy",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pansy",
+    "img": "pansy.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50
+    },
+    "mod": "Cornucopia"
+  },
+  "papaya_sapling": {
+    "name": "Papaya Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Papaya_Sapling",
+    "img": "papaya_sapling.png",
+    "seeds": {
+      "sell": 150,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 135,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "parsley": {
+    "name": "Parsley",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Parsley",
+    "img": "parsley.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 45,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "passion_fruit": {
+    "name": "Passion Fruit",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Passion_Fruit",
+    "img": "passion_fruit.png",
+    "seeds": {
+      "sell": 65,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 220,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "peanut": {
+    "name": "Peanut",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Peanut",
+    "img": "peanut.png",
+    "seeds": {
+      "sell": 30,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 20,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 2,
+      "extraPerc": 0,
+      "price": 85,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "pecan_sapling": {
+    "name": "Pecan Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pecan_Sapling",
+    "img": "pecan_sapling.png",
+    "seeds": {
+      "sell": 1250,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 125
+    },
+    "mod": "Cornucopia"
+  },
+  "peony": {
+    "name": "Peony",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Peony",
+    "img": "peony.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 110
+    },
+    "mod": "Cornucopia"
+  },
+  "perilla_leaves": {
+    "name": "Perilla Leaves",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Perilla_Leaves",
+    "img": "perilla_leaves.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "petunia": {
+    "name": "Petunia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Petunia",
+    "img": "petunia.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50
+    },
+    "mod": "Cornucopia"
+  },
+  "pink_cat": {
+    "name": "Pink Cat",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pink_Cat",
+    "img": "pink_cat.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "pinto_beans": {
+    "name": "Pinto Beans",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pinto_Beans",
+    "img": "pinto_beans.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 15,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "pistachio_sapling": {
+    "name": "Pistachio Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pistachio_Sapling",
+    "img": "pistachio_sapling.png",
+    "seeds": {
+      "sell": 937,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "pitcher_plant": {
+    "name": "Pitcher Plant",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pitcher_Plant",
+    "img": "pitcher_plant.png",
+    "seeds": {
+      "sell": 150,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 15,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 150
+    },
+    "mod": "Cornucopia"
+  },
+  "plantain_sapling": {
+    "name": "Plantain Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Plantain_Sapling",
+    "img": "plantain_sapling.png",
+    "seeds": {
+      "sell": 450,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 175,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "pomelo_sapling": {
+    "name": "Pomelo Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pomelo_Sapling",
+    "img": "pomelo_sapling.png",
+    "seeds": {
+      "sell": 850,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 80,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "prismatic_rose": {
+    "name": "Prismatic Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Prismatic_Rose",
+    "img": "prismatic_rose.png",
+    "seeds": {
+      "sell": 1000,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 20,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 1500
+    },
+    "mod": "Cornucopia"
+  },
+  "purple_coneflower": {
+    "name": "Purple Coneflower",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Purple_Coneflower",
+    "img": "purple_coneflower.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 9,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 60
+    },
+    "mod": "Cornucopia"
+  },
+  "quinoa": {
+    "name": "Quinoa",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Quinoa",
+    "img": "quinoa.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.2,
+      "price": 30,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "red_onion": {
+    "name": "Red Onion",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Red_Onion",
+    "img": "red_onion.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 115,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "rose": {
+    "name": "Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Rose",
+    "img": "rose.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 290
+    },
+    "mod": "Cornucopia"
+  },
+  "rosemary": {
+    "name": "Rosemary",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Rosemary",
+    "img": "rosemary.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 75,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "sage": {
+    "name": "Sage",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Sage",
+    "img": "sage.png",
+    "seeds": {
+      "sell": 20,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 70,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "sesame_seeds": {
+    "name": "Sesame Seeds",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Sesame_Seeds",
+    "img": "sesame_seeds.png",
+    "seeds": {
+      "sell": 60,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 2,
+      "extraPerc": 0,
+      "price": 60
+    },
+    "mod": "Cornucopia"
+  },
+  "shallot": {
+    "name": "Shallot",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Shallot",
+    "img": "shallot.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 115,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "soybeans": {
+    "name": "Soybeans",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Soybeans",
+    "img": "soybeans.png",
+    "seeds": {
+      "sell": 65,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 10,
+      "regrow": 3
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0.1,
+      "price": 65
+    },
+    "mod": "Cornucopia"
+  },
+  "spinach": {
+    "name": "Spinach",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Spinach",
+    "img": "spinach.png",
+    "seeds": {
+      "sell": 5,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 4,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 35,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "spring_rose": {
+    "name": "Spring Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Spring_Rose",
+    "img": "spring_rose.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 290
+    },
+    "mod": "Cornucopia"
+  },
+  "sugar_beet": {
+    "name": "Sugar Beet",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Sugar_Beet",
+    "img": "sugar_beet.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 180,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "sugarcane": {
+    "name": "Sugarcane",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Sugarcane",
+    "img": "sugarcane.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 20,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 1,
+      "extraPerc": 0.1,
+      "price": 30,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "summer_rose": {
+    "name": "Summer Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Summer_Rose",
+    "img": "summer_rose.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 290
+    },
+    "mod": "Cornucopia"
+  },
+  "tarragon": {
+    "name": "Tarragon",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Tarragon",
+    "img": "tarragon.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 60,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "thyme": {
+    "name": "Thyme",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Thyme",
+    "img": "thyme.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 5,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "turmeric": {
+    "name": "Turmeric",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Turmeric",
+    "img": "turmeric.png",
+    "seeds": {
+      "sell": 40,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 7,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 100
+    },
+    "mod": "Cornucopia"
+  },
+  "turnip": {
+    "name": "Turnip",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Turnip",
+    "img": "turnip.png",
+    "seeds": {
+      "sell": 15,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 75,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "ube": {
+    "name": "Ube",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ube",
+    "img": "ube.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 200,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "ume_sapling": {
+    "name": "Ume Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ume_Sapling",
+    "img": "ume_sapling.png",
+    "seeds": {
+      "sell": 500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 50,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "violet": {
+    "name": "Violet",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Violet",
+    "img": "violet.png",
+    "seeds": {
+      "sell": 10,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 6,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 30
+    },
+    "mod": "Cornucopia"
+  },
+  "walnut_sapling": {
+    "name": "Walnut Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Walnut_Sapling",
+    "img": "walnut_sapling.png",
+    "seeds": {
+      "sell": 937,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 90
+    },
+    "mod": "Cornucopia"
+  },
+  "wasabi_root": {
+    "name": "Wasabi Root",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Wasabi_Root",
+    "img": "wasabi_root.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 165
+    },
+    "mod": "Cornucopia"
+  },
+  "watermelon": {
+    "name": "Watermelon",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Watermelon",
+    "img": "watermelon.png",
+    "seeds": {
+      "sell": 150,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 640,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "winter_rose": {
+    "name": "Winter Rose",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Winter_Rose",
+    "img": "winter_rose.png",
+    "seeds": {
+      "sell": 100,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 12,
+      "regrow": 5
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 290
+    },
+    "mod": "Cornucopia"
+  },
+  "wisteria_sapling": {
+    "name": "Wisteria Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Wisteria_Sapling",
+    "img": "wisteria_sapling.png",
+    "seeds": {
+      "sell": 625,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 60
+    },
+    "mod": "Cornucopia"
+  },
+  "wolfsbane": {
+    "name": "Wolfsbane",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Wolfsbane",
+    "img": "wolfsbane.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 13,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 140
+    },
+    "mod": "Cornucopia"
+  },
+  "wormwood": {
+    "name": "Wormwood",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Wormwood",
+    "img": "wormwood.png",
+    "seeds": {
+      "sell": 50,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 8,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 150,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    },
+    "mod": "Cornucopia"
+  },
+  "ylang_ylang_sapling": {
+    "name": "Ylang Ylang Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ylang_Ylang_Sapling",
+    "img": "ylang_ylang_sapling.png",
+    "seeds": {
+      "sell": 750,
+      "pierre": 0,
+      "joja": 0,
+      "special": 1500,
+      "specialLoc": "Oasis",
+      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 75
+    },
+    "mod": "Cornucopia"
+  },
+  "yuzu_sapling": {
+    "name": "Yuzu Sapling",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Yuzu_Sapling",
+    "img": "yuzu_sapling.png",
+    "seeds": {
+      "sell": 500,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 28,
+      "regrow": 0
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0,
+      "price": 40,
+      "jarType": "Jelly",
+      "kegType": "Wine",
+      "dehydratorType": "Dried Fruit"
+    },
+    "mod": "Cornucopia"
+  },
+  "zucchini": {
+    "name": "Zucchini",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Zucchini",
+    "img": "zucchini.png",
+    "seeds": {
+      "sell": 25,
+      "pierre": 0,
+      "joja": 0,
+      "special": 0,
+      "specialLoc": "",
+      "specialUrl": ""
+    },
+    "growth": {
+      "initial": 14,
+      "regrow": 2
+    },
+    "produce": {
+      "extra": 0,
+      "extraPerc": 0.1,
+      "price": 60,
+      "jarType": "Pickles",
+      "kegType": "Juice"
+    }
+  }
 };

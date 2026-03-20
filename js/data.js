@@ -148,10 +148,12 @@ var seasons = [
 			crops.summer_seeds,
 			crops.summer_squash,
 			crops.fiber,
-			//SVE
+			// SVE
 			crops.ancient_fiber,
 			crops.butternut_squash,
-			crops.monster_fruit
+			crops.monster_fruit,
+			// Cornucopia
+			crops.adzuki_bean
 		],
 		"fruit": [
 			crops.peach,
