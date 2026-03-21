@@ -567,7 +567,7 @@ function profit(crop) {
 					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
 				}
 				else if (options.produce == 2) {
-					if (crop.produce.kegType == "Pale Ale") {
+					if (crop.produce.keg != null) {
 						netIncome += itemsMade * crop.produce.keg;
 					}
 					else {
@@ -1282,7 +1282,7 @@ function renderGraph() {
 				var kegModifier = getKegModifier(d);
 				var caskModifier = getCaskModifier();
 				var kegPrice = d.produce.kegType != null && options.aging != "None" ? d.produce.price * kegModifier * caskModifier : d.produce.price * kegModifier;
-				if (d.produce.kegType == "Pale Ale") {
+				if (d.produce.keg != null) {
 					kegPrice = d.produce.keg;
 				}
 				var dehydratorModifierByCrop = d.produce.dehydratorType != null ? getDehydratorModifier(d) : 0;
