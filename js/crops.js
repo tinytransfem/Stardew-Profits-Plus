@@ -1837,7 +1837,11 @@ var crops = {
       "extraPerc": 0.2,
       "price": 60,
       "jarType": "Pickles",
-      "kegType": "Juice"
+      "kegType": "Juice",
+      "caskTypeC": "Wine",
+      "juicerTypeC": "Juice",
+      "dehydratorTypeC": "Dried Vegetable",
+      "alembicTypeC": "Essential Oil"
     },
     "mod": "Cornucopia"
   },
@@ -1851,7 +1855,7 @@ var crops = {
       "joja": 0,
       "special": 100,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 8,
@@ -1866,10 +1870,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "almond_sapling": {
-    "name": "Almond Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Almond_Sapling",
-    "img": "almond_sapling.png",
+  "almond": {
+    "name": "Almond",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Almond",
+    "img": "almond.png",
     "seeds": {
       "sell": 937,
       "pierre": 0,
@@ -1899,7 +1903,7 @@ var crops = {
       "joja": 0,
       "special": 100,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 4,
@@ -1939,10 +1943,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "avocado_sapling": {
-    "name": "Avocado Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Avocado_Sapling",
-    "img": "avocado_sapling.png",
+  "avocado": {
+    "name": "Avocado",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Avocado",
+    "img": "avocado.png",
     "seeds": {
       "sell": 2000,
       "pierre": 0,
@@ -1975,7 +1979,7 @@ var crops = {
       "joja": 0,
       "special": 80,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 9,
@@ -2149,7 +2153,7 @@ var crops = {
       "joja": 0,
       "special": 180,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 12,
@@ -2210,17 +2214,17 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "breadfruit_sapling": {
-    "name": "Breadfruit Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Breadfruit_Sapling",
-    "img": "breadfruit_sapling.png",
+  "breadfruit": {
+    "name": "Breadfruit",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Breadfruit",
+    "img": "breadfruit.png",
     "seeds": {
       "sell": 2000,
       "pierre": 0,
       "joja": 0,
       "special": 4000,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 28,
@@ -2309,10 +2313,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "camphor_sapling": {
-    "name": "Camphor Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Camphor_Sapling",
-    "img": "camphor_sapling.png",
+  "camphor_leaves": {
+    "name": "Camphor Leaves",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Camphor_Leaves",
+    "img": "camphor_leaves.png",
     "seeds": {
       "sell": 1000,
       "pierre": 0,
@@ -2432,10 +2436,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "cashew_sapling": {
-    "name": "Cashew Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Cashew_Sapling",
-    "img": "cashew_sapling.png",
+  "cashew": {
+    "name": "Cashew",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cashew",
+    "img": "cashew.png",
     "seeds": {
       "sell": 1000,
       "pierre": 0,
@@ -2651,10 +2655,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "cinnamon_sapling": {
-    "name": "Cinnamon Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Cinnamon_Sapling",
-    "img": "cinnamon_sapling.png",
+  "cinnamon_sticks": {
+    "name": "Cinnamon Sticks",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cinnamon_Sticks",
+    "img": "cinnamon_sticks.png",
     "seeds": {
       "sell": 1500,
       "pierre": 0,
@@ -2720,10 +2724,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "cocoa_sapling": {
-    "name": "Cocoa Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Cocoa_Sapling",
-    "img": "cocoa_sapling.png",
+  "cocoa_pod": {
+    "name": "Cocoa Pod",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Cocoa__Pod",
+    "img": "cocoa_pod.png",
     "seeds": {
       "sell": 1250,
       "pierre": 0,
@@ -2776,7 +2780,7 @@ var crops = {
       "joja": 0,
       "special": 80,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 5,
@@ -2885,17 +2889,17 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "dragon_fruit_sapling": {
-    "name": "Dragon Fruit Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Dragon_Fruit_Sapling",
-    "img": "dragon_fruit_sapling.png",
+  "dragon_fruit": {
+    "name": "Dragon Fruit",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Dragon_Fruit",
+    "img": "dragon_fruit.png",
     "seeds": {
       "sell": 1250,
       "pierre": 0,
       "joja": 0,
       "special": 2500,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 28,
@@ -2911,10 +2915,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "durian_sapling": {
-    "name": "Durian Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Durian_Sapling",
-    "img": "durian_sapling.png",
+  "durian": {
+    "name": "Durian",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Durian",
+    "img": "durian.png",
     "seeds": {
       "sell": 2000,
       "pierre": 0,
@@ -2962,10 +2966,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "eucalyptus_sapling": {
-    "name": "Eucalyptus Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Eucalyptus_Sapling",
-    "img": "eucalyptus_sapling.png",
+  "eucalyptus_leaves": {
+    "name": "Eucalyptus Leaves",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Eucalyptus_Leaves",
+    "img": "eucalyptus_leaves.png",
     "seeds": {
       "sell": 1375,
       "pierre": 0,
@@ -2997,7 +3001,7 @@ var crops = {
       "joja": 0,
       "special": 20,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 7,
@@ -3083,10 +3087,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "fig_sapling": {
-    "name": "Fig Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Fig_Sapling",
-    "img": "fig_sapling.png",
+  "fig": {
+    "name": "Fig",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Fig",
+    "img": "fig.png",
     "seeds": {
       "sell": 1000,
       "pierre": 0,
@@ -3132,10 +3136,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "gem_rafflesia": {
-    "name": "Gem Rafflesia",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Gem_Rafflesia",
-    "img": "gem_rafflesia.png",
+  "rafflesia": {
+    "name": "Rafflesia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Rafflesia",
+    "img": "rafflesia.png",
     "seeds": {
       "sell": 500,
       "pierre": 0,
@@ -3203,10 +3207,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "grapefruit_sapling": {
-    "name": "Grapefruit Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Grapefruit_Sapling",
-    "img": "grapefruit_sapling.png",
+  "grapefruit": {
+    "name": "Grapefruit",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Grapefruit",
+    "img": "grapefruit.png",
     "seeds": {
       "sell": 1500,
       "pierre": 0,
@@ -3306,17 +3310,17 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "hibiscus_sapling": {
-    "name": "Hibiscus Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Hibiscus_Sapling",
-    "img": "hibiscus_sapling.png",
+  "hibiscus": {
+    "name": "Hibiscus",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Hibiscus",
+    "img": "hibiscus.png",
     "seeds": {
       "sell": 750,
       "pierre": 0,
       "joja": 0,
       "special": 1500,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 28,
@@ -3473,10 +3477,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "jasmine_sapling": {
-    "name": "Jasmine Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Jasmine_Sapling",
-    "img": "jasmine_sapling.png",
+  "jasmine": {
+    "name": "Jasmine",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Jasmine",
+    "img": "jasmine.png",
     "seeds": {
       "sell": 750,
       "pierre": 0,
@@ -3593,10 +3597,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "lemon_sapling": {
-    "name": "Lemon Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Lemon_Sapling",
-    "img": "lemon_sapling.png",
+  "lemon": {
+    "name": "Lemon",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lemon",
+    "img": "lemon.png",
     "seeds": {
       "sell": 500,
       "pierre": 0,
@@ -3629,7 +3633,7 @@ var crops = {
       "joja": 0,
       "special": 20,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 6,
@@ -3742,10 +3746,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "lime_sapling": {
-    "name": "Lime Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Lime_Sapling",
-    "img": "lime_sapling.png",
+  "lime": {
+    "name": "Lime",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lime",
+    "img": "lime.png",
     "seeds": {
       "sell": 500,
       "pierre": 0,
@@ -3778,7 +3782,7 @@ var crops = {
       "joja": 0,
       "special": 60,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 11,
@@ -3814,17 +3818,17 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "lychee_sapling": {
-    "name": "Lychee Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Lychee_Sapling",
-    "img": "lychee_sapling.png",
+  "lychee": {
+    "name": "Lychee",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Lychee",
+    "img": "lychee.png",
     "seeds": {
       "sell": 1250,
       "pierre": 0,
       "joja": 0,
       "special": 2500,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 28,
@@ -3840,10 +3844,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "magnolia_sapling": {
-    "name": "Magnolia Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Magnolia_Sapling",
-    "img": "magnolia_sapling.png",
+  "magnolia": {
+    "name": "Magnolia",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Magnolia",
+    "img": "magnolia.png",
     "seeds": {
       "sell": 625,
       "pierre": 0,
@@ -3888,10 +3892,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "melaleuca_sapling": {
-    "name": "Melaleuca Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Melaleuca_Sapling",
-    "img": "melaleuca_sapling.png",
+  "melaleuca_leaves": {
+    "name": "Melaleuca Leaves",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Melaleuca_Leaves",
+    "img": "melaleuca_leaves.png",
     "seeds": {
       "sell": 1000,
       "pierre": 0,
@@ -4011,10 +4015,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "nutmeg_sapling": {
-    "name": "Nutmeg Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Nutmeg_Sapling",
-    "img": "nutmeg_sapling.png",
+  "nutmeg": {
+    "name": "Nutmeg",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Nutmeg",
+    "img": "nutmeg.png",
     "seeds": {
       "sell": 1000,
       "pierre": 0,
@@ -4180,10 +4184,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "papaya_sapling": {
-    "name": "Papaya Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Papaya_Sapling",
-    "img": "papaya_sapling.png",
+  "papaya": {
+    "name": "Papaya",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Papaya",
+    "img": "papaya.png",
     "seeds": {
       "sell": 150,
       "pierre": 0,
@@ -4282,10 +4286,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "pecan_sapling": {
-    "name": "Pecan Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Pecan_Sapling",
-    "img": "pecan_sapling.png",
+  "pecan": {
+    "name": "Pecan",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pecan",
+    "img": "pecan.png",
     "seeds": {
       "sell": 1250,
       "pierre": 0,
@@ -4424,10 +4428,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "pistachio_sapling": {
-    "name": "Pistachio Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Pistachio_Sapling",
-    "img": "pistachio_sapling.png",
+  "pistachio": {
+    "name": "Pistachio",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pistachio",
+    "img": "pistachio.png",
     "seeds": {
       "sell": 937,
       "pierre": 0,
@@ -4470,10 +4474,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "plantain_sapling": {
-    "name": "Plantain Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Plantain_Sapling",
-    "img": "plantain_sapling.png",
+  "plantain": {
+    "name": "Plantain",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Plantain",
+    "img": "plantain.png",
     "seeds": {
       "sell": 450,
       "pierre": 0,
@@ -4496,10 +4500,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "pomelo_sapling": {
-    "name": "Pomelo Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Pomelo_Sapling",
-    "img": "pomelo_sapling.png",
+  "pomelo": {
+    "name": "Pomelo",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Pomelo",
+    "img": "pomelo.png",
     "seeds": {
       "sell": 850,
       "pierre": 0,
@@ -4845,7 +4849,7 @@ var crops = {
       "joja": 0,
       "special": 20,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 8,
@@ -5006,10 +5010,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "ume_sapling": {
-    "name": "Ume Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Ume_Sapling",
-    "img": "ume_sapling.png",
+  "ume": {
+    "name": "Ume",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ume",
+    "img": "ume.png",
     "seeds": {
       "sell": 500,
       "pierre": 0,
@@ -5055,10 +5059,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "walnut_sapling": {
-    "name": "Walnut Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Walnut_Sapling",
-    "img": "walnut_sapling.png",
+  "walnut": {
+    "name": "Walnut",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Walnut",
+    "img": "walnut.png",
     "seeds": {
       "sell": 937,
       "pierre": 0,
@@ -5150,10 +5154,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "wisteria_sapling": {
-    "name": "Wisteria Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Wisteria_Sapling",
-    "img": "wisteria_sapling.png",
+  "wisteria": {
+    "name": "Wisteria",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Wisteria",
+    "img": "wisteria.png",
     "seeds": {
       "sell": 625,
       "pierre": 0,
@@ -5221,17 +5225,17 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "ylang_ylang_sapling": {
-    "name": "Ylang Ylang Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Ylang_Ylang_Sapling",
-    "img": "ylang_ylang_sapling.png",
+  "ylang_ylang": {
+    "name": "Ylang Ylang",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Ylang_Ylang",
+    "img": "ylang_ylang.png",
     "seeds": {
       "sell": 750,
       "pierre": 0,
       "joja": 0,
       "special": 1500,
       "specialLoc": "Oasis",
-      "specialUrl": "https://stardewcornucopia.wiki.gg/wiki/Oasis"
+      "specialUrl": "https://stardewvalleywiki.com/Oasis"
     },
     "growth": {
       "initial": 28,
@@ -5244,10 +5248,10 @@ var crops = {
     },
     "mod": "Cornucopia"
   },
-  "yuzu_sapling": {
-    "name": "Yuzu Sapling",
-    "url": "https://stardewcornucopia.wiki.gg/wiki/Yuzu_Sapling",
-    "img": "yuzu_sapling.png",
+  "yuzu": {
+    "name": "Yuzu",
+    "url": "https://stardewcornucopia.wiki.gg/wiki/Yuzu",
+    "img": "yuzu.png",
     "seeds": {
       "sell": 500,
       "pierre": 0,
