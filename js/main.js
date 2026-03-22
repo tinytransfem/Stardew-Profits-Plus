@@ -255,9 +255,9 @@ function convertToSeeds(crop, num_planted, isTea, isCoffee) {
 }
 
 /*
- * Returns the type of jar to use for the crop.
+ * Returns the type of jar product to use for the crop.
  * @param crop The crop object, containing all the crop data.
- * @return The jar type.
+ * @return The jar product type.
  */
 function getJarType(crop) {
 	if (crop.produce.jarOverride != null) {
@@ -277,9 +277,9 @@ function getJarType(crop) {
 }
 
 /*
- * Returns the type of keg to use for the crop.
+ * Returns the type of keg product to use for the crop.
  * @param crop The crop object, containing all the crop data.
- * @return The keg type.
+ * @return The keg product type.
  */
 function getKegType(crop) {
 	if (crop.produce.kegOverride != null) {
@@ -306,14 +306,28 @@ function getKegType(crop) {
 function getKegModifier(crop) {
 	switch (getKegType(crop)) {
 		case "Juice":
-			return options.skills.arti ? 3.15 : 2.25;
+			return 2.25;
 			break;
 		case "Wine":
-			return options.skills.arti ? 4.2 : 3;
+			return 3;
 			break;
 		default:
-			return options.skills.arti ? 1.4 : 1;
+			return 1;
 	}
+}
+
+/*
+ * Calculates the keg price for the crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return The keg price.
+ */
+function getKegPrice(crop) {
+	if (crop.produce.kegPrice != null) {
+		return crop.produce.kegOverride == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
+	} else if (getKegType(crop) != "None") {
+		return crop.produce.price * getKegModifier(crop) * getCaskModifier();
+	}
+	else return 0;
 }
 
 /*
@@ -331,15 +345,33 @@ function getCaskModifier() {
 }
 
 /*
+ * Returns the type of dehydrator product to use for the crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return The dehydrator product type.
+ */
+function getDehydratorType(crop) {
+	if (crop.produce.dehydratorOverride != null) {
+		return crop.produce.dehydratorOverride;
+	} else {
+		switch (crop.produce.type) {
+			case "Fruit":
+				return "Dried Fruit";
+				break;
+			default:
+				return "None";
+		}
+	}
+}
+
+/*
  * Calculates the dehydrator modifier.
  * @param crop The crop object, containing all the crop data.
  * @return The dehydrator modifier.
  */
 function getDehydratorModifier(crop) {
 	var modifier = 1.5 * crop.produce.price + 5;
-	switch (crop.produce.dehydratorOverride) {
+	switch (getDehydratorType(crop)) {
 		case "Dried Fruit":
-		case "Dried Vegetable":
 			modifier = options.skills.arti ? 2.1 * crop.produce.price + 7 : modifier;
 			break;
 		case "Dried Flower":
@@ -610,11 +642,7 @@ function profit(crop) {
 					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
 				}
 				else if (options.produce == 2) {
-					if (crop.produce.kegPrice != null) {
-						netIncome += itemsMade * crop.produce.kegPrice;
-					} else {
-						netIncome += itemsMade * (getKegType(crop) != "None" && options.aging != "None" ? crop.produce.price * kegModifier * caskModifier : crop.produce.price * kegModifier);
-					}
+					netIncome += itemsMade * getKegPrice(crop);
 				}
 				else if (options.produce == 4) {
 					netIncome += crop.produce.dehydratorOverride != null ? itemsMade * dehydratorModifier : 0;
@@ -1319,10 +1347,7 @@ function renderGraph() {
 				var fertilizer = fertilizers[options.fertilizer];
 				var kegModifier = getKegModifier(d);
 				var caskModifier = getCaskModifier();
-				var kegPrice = getKegType(d) != "None" && options.aging != "None" ? d.produce.price * kegModifier * caskModifier : d.produce.price * kegModifier;
-				if (d.produce.kegPrice != null) {
-					kegPrice = d.produce.kegPrice;
-				}
+				var kegPrice = getKegPrice(d);
 				var dehydratorModifierByCrop = d.produce.dehydratorOverride != null ? getDehydratorModifier(d) : 0;
 				var millModifierByCrop = d.produce.millOverride != null ? getMillModifier(d) : 0;
 				var seedPrice = d.seeds.sell;
