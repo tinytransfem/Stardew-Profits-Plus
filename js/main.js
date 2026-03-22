@@ -408,6 +408,28 @@ function getMillPrice(crop) {
 }
 
 /*
+ * Calculates how many crops are used for a product.
+ * @param crop The crop object, containing all the crop data.
+ * @return The number of crops used.
+ */
+function getMultiCropUsage(crop) {
+	switch (options.produce) {
+		case 2:
+			switch (getKegType(crop)) {
+				case "Coffee":
+					return 5;
+				default:
+					return 1;
+			}
+			break;
+		case 4:
+			return 5;
+		default:
+			return 1;
+	}
+}
+
+/*
  * Calculates the profit for a specified crop.
  * @param crop The crop object, containing all the crop data.
  * @return The total profit.
@@ -436,8 +458,7 @@ function profit(crop) {
 	crop.produce.gold = 0
 	crop.produce.iridium = 0
 
-	//Skip keg/jar calculations for ineligible crops
-
+	//Skip calculations for crops with no artisan goods
 	var userawproduce = false;
 
 	switch (produce) {
