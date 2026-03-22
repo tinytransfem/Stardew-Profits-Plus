@@ -1132,7 +1132,7 @@ var crops = {
       "regrow": 1
     },
     "produce": {
-      "type": "Tea",
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
       "price": 50,

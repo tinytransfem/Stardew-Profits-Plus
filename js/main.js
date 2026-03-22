@@ -97,8 +97,7 @@ function harvests(cropID) {
 				break;
 			}
 		}
-	}
-	else {
+	} else {
 		remainingDays = options.days;
 	}
 
@@ -116,8 +115,7 @@ function harvests(cropID) {
 	while (day <= remainingDays) {
 		if (crop.growth.regrow > 0) {
 			day += crop.growth.regrow;
-		}
-		else {
+		} else {
 			if (options.skills.agri)
 				day += Math.floor(crop.growth.initial * (fertilizer.growth - 0.1));
 			else
@@ -245,11 +243,9 @@ function convertToSeeds(crop, num_planted, isTea, isCoffee) {
 	if (options.replant && !isTea) {
 		if (isCoffee && options.nextyear) {
 			forSeeds = num_planted;
-		}
-		else if (crop.growth.regrow > 0 && options.nextyear) {
+		} else if (crop.growth.regrow > 0 && options.nextyear) {
 			forSeeds = num_planted * 0.5;
-		}
-		else if (crop.growth.regrow == 0) {
+		} else if (crop.growth.regrow == 0) {
 			forSeeds = num_planted * crop.harvests * 0.5;
 			if (!options.nextyear && forSeeds >= 1)
 				forSeeds -= num_planted * 0.5;
@@ -456,8 +452,7 @@ function profit(crop) {
 	if (produce != 3 && produce != 5 || userawproduce) {
 		if (userawproduce && !options.sellRaw) {
 			netIncome = 0;
-		}
-		else {
+		} else {
 			//First we need to find crop quality for all crops
 			//Then remove crops repurposed for seeds (take away from regular quality first)
 			//If we're working with an artisan then we will look at excess (by time) to take away qualities
@@ -488,7 +483,7 @@ function profit(crop) {
 				crop.produce.gold = countGold
 				crop.produce.iridium = countIridium
 				profitData.quantitySold = Math.floor(total_crops - forSeeds);
-			}
+			} 
 			else if (produce == 1 || produce == 2 || produce == 4) {
 
 				var usableCrops = 0;
@@ -510,8 +505,7 @@ function profit(crop) {
 							usableCrops -= num_planted * 0.5;
 						usableCrops = Math.max(0, usableCrops);
 					}
-				}
-				else {
+				} else {
 					usableCrops = Math.floor(total_crops - forSeeds);
 					usableCrops = Math.max(0, usableCrops);
 				}
@@ -526,7 +520,7 @@ function profit(crop) {
 					} else {
 						itemsMade = usableCrops;
 					}
-				}
+				} 
 				else if (produce == 4) {
 					if (options.predictionModel && usableCropsByHarvest.length > 0) {
 						for (i in usableCropsByHarvest) {
@@ -579,8 +573,7 @@ function profit(crop) {
 						cropsLeft += Math.max(0, itemsMade - options.equipment) * 5;
 						itemsMade = Math.min(options.equipment, itemsMade);
 					}
-				}
-				else {
+				} else {
 					if (produce == 1 || produce == 2) {
 						if (!options.predictionModel) {
 							itemsMade *= crop.harvests;
@@ -611,15 +604,14 @@ function profit(crop) {
 				var dehydratorModifier = getDehydratorModifier(crop);
 				if (options.produce == 1) {
 					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
-				}
+				} 
 				else if (options.produce == 2) {
 					if (crop.produce.keg != null) {
 						netIncome += itemsMade * crop.produce.keg;
-					}
-					else {
+					} else {
 						netIncome += itemsMade * (crop.produce.kegOverride != null && options.aging != "None" ? crop.produce.price * kegModifier * caskModifier : crop.produce.price * kegModifier);
 					}
-				}
+				} 
 				else if (options.produce == 4) {
 					netIncome += crop.produce.dehydratorOverride != null ? itemsMade * dehydratorModifier : 0;
 				}
@@ -629,12 +621,12 @@ function profit(crop) {
 			}
 		}
 
-	}
+	} 
 	else if (produce == 3) {
 		var items = total_crops - forSeeds;
 		netIncome += 2 * items * crop.seeds.sell;
 		profitData.quantitySold = Math.floor(2 * items);
-	}
+	} 
 	else if (produce == 5) {
 		var items = total_crops - forSeeds;
 		var millModifier = getMillModifier(crop);
@@ -661,12 +653,10 @@ function profit(crop) {
 		totalReturnOnInvestment = 100 * ((totalProfit) / -netExpenses); // Calculate the return on investment and scale it to a % increase
 		if (crop.growth.regrow == 0) {
 			averageReturnOnInvestment = (totalReturnOnInvestment / crop.growth.initial);
-		}
-		else {
+		} else {
 			averageReturnOnInvestment = (totalReturnOnInvestment / options.days);
 		}
-	}
-	else {
+	} else {
 		totalReturnOnInvestment = 0;
 		averageReturnOnInvestment = 0;
 	}
@@ -820,13 +810,11 @@ function valueCrops() {
 			if (options.buySeed || (options.buyFert && fertilizers[options.fertilizer].cost > 0)) {
 				cropList[i].drawProfit = cropList[i].averageReturnOnInvestment;
 				graphDescription = "Daily Return On Investment per tile per season";
-			}
-			else {
+			} else {
 				cropList[i].drawProfit = 0;
 				graphDescription = "Daily Profit per tile per season (Choose an expense for ROI)";
 			}
-		}
-		else {
+		} else {
 			cropList[i].drawProfit = cropList[i].profit;
 			cropList[i].drawSeedLoss = cropList[i].seedLoss;
 			cropList[i].drawFertLoss = cropList[i].fertLoss;
