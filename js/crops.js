@@ -371,7 +371,7 @@ var crops = {
       "extra": 3,
       "extraPerc": 1.007,
       "price": 15,
-      "kegPrice": 150 / 5,
+      "kegPrice": 150,
       "jarOverride": "None",
       "kegOverride": "Coffee"
     }
