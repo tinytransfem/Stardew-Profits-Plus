@@ -130,6 +130,15 @@ function harvests(cropID) {
 }
 
 /*
+ * Calculates the total number of crops harvested for a crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return Number of crops for the specified crop.
+ */
+function harvested(crop) {
+	return (planted(crop) * 1.0 + planted(crop) * crop.produce.extraPerc * crop.produce.extra) * crop.harvests;
+}
+
+/*
  * Calculates the minimum cost of a single packet of seeds.
  * @param crop The crop object, containing all the crop data.
  * @return The minimum cost of a packet of seeds, taking options into account.
@@ -317,7 +326,7 @@ function getKegModifier(crop) {
  */
 function getKegPrice(crop) {
 	if (crop.produce.kegPrice != null) {
-		return crop.produce.kegOverride == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
+		return getKegType(crop) == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
 	} else if (getKegType(crop) != "None") {
 		return crop.produce.price * getKegModifier(crop) * getCaskModifier();
 	}
@@ -815,6 +824,7 @@ function valueCrops() {
 		}
 		cropList[i].planted = planted(cropList[i]);
 		cropList[i].harvests = harvests(cropList[i].id);
+		cropList[i].totalCrops = harvested(cropList[i]);
 		cropList[i].seedLoss = seedLoss(cropList[i]);
 		cropList[i].fertLoss = fertLoss(cropList[i]);
 		cropList[i].profitData = profit(cropList[i]);
@@ -1350,6 +1360,9 @@ function renderGraph() {
 			tooltipTr = tooltipTable.append("tr");
 			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Harvests:");
 			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.harvests);
+			tooltipTr = tooltipTable.append("tr");
+			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Total Crops:");
+			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.totalCrops);
 
 			if (options.extra) {
 				var fertilizer = fertilizers[options.fertilizer];
