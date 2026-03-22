@@ -165,7 +165,8 @@ button:hover {
 }
 
 input[type=number] {
-    -moz-appearance:textfield;
+	appearance: textfield;
+	-moz-appearance: textfield;
 	width: 64px;
 	background-color: #111111;
 	color: #eeeeee;
@@ -317,6 +318,21 @@ td input[type="checkbox"]:disabled{
 	padding: 0px 4px 0px 4px;
 	margin-bottom: 1px;
     vertical-align: bottom;
+	white-space: nowrap;
+}
+
+.tooltipTdRight .price {
+	display: inline-block;
+	min-width: 48px;
+	text-align: right;
+}
+
+.tooltipTdRight .gold {
+	display: inline-block;
+}
+
+.tooltipTdRight .uses {
+	margin-left: 4px;
 }
 
 .tooltipTdRightPos {

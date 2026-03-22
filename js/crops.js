@@ -163,6 +163,8 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 100,
+      "millPrice": 150,
+      "millUses": 3,
       "millOverride": "Sugar"
     }
   },
@@ -372,6 +374,7 @@ var crops = {
       "extraPerc": 1.007,
       "price": 15,
       "kegPrice": 150,
+      "kegUses": 5,
       "jarOverride": "None",
       "kegOverride": "Coffee"
     }
@@ -535,7 +538,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 80,
-      "dehydratorPrice": 600 / 5,
+      "dehydratorPrice": 600,
       "dehydratorOverride": "Raisins"
     }
   },
@@ -1208,6 +1211,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0.1,
       "price": 30,
+      "millPrice": 100,
       "millOverride": "Rice"
     }
   },
@@ -1234,6 +1238,7 @@ var crops = {
       "price": 25,
       "kegPrice": 200,
       "kegOverride": "Beer",
+      "millPrice": 50,
       "millOverride": "Wheat Flour"
     }
   },
