@@ -586,6 +586,9 @@ function profit(crop) {
 						cropsLeft += Math.floor(usableCropsByHarvest[i] % cropsPerItem);
 					}
 				} else {
+					if (produce == 1 || produce == 2) {
+						usableCrops *= crop.harvests;
+					}
 					itemsMade = Math.floor(usableCrops / cropsPerItem);
 					cropsLeft = Math.floor(usableCrops % cropsPerItem);
 				}
@@ -628,13 +631,6 @@ function profit(crop) {
 					if (produce == 4 && !options.byHarvest) {
 						cropsLeft += Math.max(0, itemsMade - options.equipment) * cropsPerItem;
 						itemsMade = Math.min(options.equipment, itemsMade);
-					}
-				} else {
-					if (produce == 1 || produce == 2) {
-						if (!options.predictionModel) {
-							itemsMade *= crop.harvests;
-							cropsLeft *= crop.harvests;
-						}
 					}
 				}
 
