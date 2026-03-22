@@ -1,5 +1,5 @@
 /*
- * All data gathered from a modified version of polarstoat/stardew-crop-data
+ * All data gathered using in-game extraction and wikis linked in the "url" field for each crop.
  */
 
 // Crop List
@@ -21,11 +21,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 150,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 150
     }
   },
   "ancient_fruit": {
@@ -45,12 +44,10 @@ var crops = {
       "regrow": 7
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 550,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 550
     }
   },
   "apple": {
@@ -70,12 +67,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 100
     }
   },
   "apricot": {
@@ -95,12 +90,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 50
     }
   },
   "artichoke": {
@@ -120,11 +113,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 160,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 160
     }
   },
   "banana": {
@@ -144,12 +136,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 150,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 150
     }
   },
   "beet": {
@@ -169,12 +159,11 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
       "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice",
-      "millType": "Sugar"
+      "millOverride": "Sugar"
     }
   },
   "blueberry": {
@@ -194,12 +183,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Fruit",
       "extra": 2,
       "extraPerc": 1.01,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 50
     }
   },
   "blue_jazz": {
@@ -219,6 +206,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 50
@@ -241,11 +229,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 80,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 80
     }
   },
   "broccoli": {
@@ -265,11 +252,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 70,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 70
     }
   },
   "cactus_fruit": {
@@ -289,12 +275,10 @@ var crops = {
       "regrow": 3
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 75,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 75
     }
   },
   "carrot": {
@@ -314,11 +298,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     }
   },
   "cauliflower": {
@@ -338,11 +321,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 175,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 175
     }
   },
   "cherry": {
@@ -362,12 +344,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 80,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 80
     }
   },
   "coffee_bean": {
@@ -387,11 +367,13 @@ var crops = {
       "regrow": 2
     },
     "produce": {
+      "type": "Special",
       "extra": 3,
       "extraPerc": 1.007,
       "price": 15,
       "keg": 150 / 5,
-      "kegType": "Coffee"
+      "jarOverride": "None",
+      "kegOverride": "Coffee"
     }
   },
   "corn": {
@@ -411,11 +393,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     }
   },
   "cranberries": {
@@ -435,12 +416,10 @@ var crops = {
       "regrow": 5
     },
     "produce": {
+      "type": "Fruit",
       "extra": 1.11,
       "extraPerc": 1.00,
-      "price": 75,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 75
     }
   },
   "eggplant": {
@@ -460,11 +439,10 @@ var crops = {
       "regrow": 5
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0.002,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     }
   },
   "fairy_rose": {
@@ -484,6 +462,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 290
@@ -506,6 +485,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Resource",
       "extra": 3,
       "extraPerc": 1.375,
       "price": 1
@@ -528,11 +508,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     }
   },
   "grape": {
@@ -552,12 +531,11 @@ var crops = {
       "regrow": 3
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
       "price": 80,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Raisins"
+      "dehydratorOverride": "Raisins"
     }
   },
   "green_bean": {
@@ -577,11 +555,10 @@ var crops = {
       "regrow": 3
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 40,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 40
     }
   },
   "hops": {
@@ -601,12 +578,12 @@ var crops = {
       "regrow": 1
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
       "price": 25,
       "keg": 300,
-      "jarType": "Pickles",
-      "kegType": "Pale Ale"
+      "kegOverride": "Pale Ale"
     }
   },
   "hot_pepper": {
@@ -626,12 +603,10 @@ var crops = {
       "regrow": 3
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0.03,
-      "price": 40,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 40
     }
   },
   "kale": {
@@ -651,11 +626,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 110,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 110
     }
   },
   "mango": {
@@ -675,12 +649,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 130,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 130
     }
   },
   "melon": {
@@ -700,12 +672,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 250,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 250
     }
   },
   "orange": {
@@ -725,12 +695,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 100
     }
   },
   "parsnip": {
@@ -750,11 +718,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     }
   },
   "peach": {
@@ -774,12 +741,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 140,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 140
     }
   },
   "pineapple": {
@@ -799,12 +764,10 @@ var crops = {
       "regrow": 7
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 300,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 300
     }
   },
   "pomegranate": {
@@ -824,12 +787,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 140,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 140
     }
   },
   "poppy": {
@@ -849,6 +810,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 140
@@ -871,11 +833,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 1,
       "extraPerc": 0.25,
-      "price": 80,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 80
     }
   },
   "powdermelon": {
@@ -895,12 +856,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 60,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 60
     }
   },
   "pumpkin": {
@@ -920,11 +879,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 320,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 320
     }
   },
   "radish": {
@@ -944,11 +902,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 90,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 90
     }
   },
   "red_cabbage": {
@@ -968,11 +925,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 260,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 260
     }
   },
   "rhubarb": {
@@ -992,12 +948,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 220,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 220
     }
   },
   "starfruit": {
@@ -1017,12 +971,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 750,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 750
     }
   },
   "strawberry": {
@@ -1042,12 +994,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0.02,
-      "price": 120,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 120
     }
   },
   "summer_spangle": {
@@ -1067,6 +1017,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 90
@@ -1089,11 +1040,10 @@ var crops = {
       "regrow": 3
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 45,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 45
     }
   },
   "sunflower": {
@@ -1113,6 +1063,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 80
@@ -1135,6 +1086,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
       "price": 3000
@@ -1157,11 +1109,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 100
     }
   },
   "tea_leaves": {
@@ -1181,12 +1132,12 @@ var crops = {
       "regrow": 1
     },
     "produce": {
+      "type": "Tea",
       "extra": 0,
       "extraPerc": 0,
       "price": 50,
       "keg": 100,
-      "jarType": "Pickles",
-      "kegType": "Tea"
+      "kegOverride": "Tea"
     }
   },
   "tomato": {
@@ -1206,11 +1157,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0.05,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     }
   },
   "tulip": {
@@ -1230,6 +1180,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Flower",
       "extra": 0,
       "extraPerc": 0,
       "price": 30
@@ -1252,12 +1203,11 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0.1,
       "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice",
-      "millType": "Wheat Flour"
+      "millOverride": "Rice"
     }
   },
   "wheat": {
@@ -1277,12 +1227,13 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
       "price": 25,
       "keg": 200,
-      "jarType": "Pickles",
-      "kegType": "Beer"
+      "kegOverride": "Beer",
+      "millOverride": "Wheat Flour"
     }
   },
   "yam": {
@@ -1302,11 +1253,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 160,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 160
     }
   },
   "spring_seeds": {
@@ -1326,6 +1276,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       // (Wild Horseradish + Daffodil + Leek + Dandelion) / 4
@@ -1350,12 +1301,11 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       // (Spice Berry + Grape + Sweet Pea) / 3
-      "price": (80 + 80 + 50) / 3,
-      "jarType": "Jelly",
-      "kegType": "Wine"
+      "price": (80 + 80 + 50) / 3
     },
     "isWildseed": true
   },
@@ -1376,12 +1326,11 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       // (Blackberry + Common Mushroom + Hazelnut + Wild Plum) / 4
-      "price": (20 + 40 + 90 + 80) / 4,
-      "jarType": "Jelly",
-      "kegType": "Wine"
+      "price": (20 + 40 + 90 + 80) / 4
     },
     "isWildseed": true
   },
@@ -1402,12 +1351,11 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       // (Crocus + Crystal Fruit + Snow Yam + Winter Root) / 4
-      "price": (60 + 150 + 100 + 70) / 4,
-      "jarType": "Jelly",
-      "kegType": "Wine"
+      "price": (60 + 150 + 100 + 70) / 4
     },
     "isWildseed": true
   },
@@ -1429,6 +1377,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 2,
       "extraPerc": 0.05,
       "price": 145
@@ -1452,11 +1401,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 200,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 200
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1477,11 +1425,10 @@ var crops = {
       "regrow": 2
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 45,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 45
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1502,11 +1449,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 1000,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 1000
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1527,12 +1473,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0.15,
-      "price": 650,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 650
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1553,11 +1497,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 1254,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 1254
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1578,12 +1521,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 1525,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 1525
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1604,11 +1545,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 850,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 850
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1629,12 +1569,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 150,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 150
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1655,12 +1593,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 90,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 90
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1681,12 +1617,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Fruit",
       "extra": 0,
       "extraPerc": 0,
-      "price": 200,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 200
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1707,12 +1641,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Fruit",
       "extra": 2,
       "extraPerc": 0.03,
-      "price": 75,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 75
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1733,12 +1665,10 @@ var crops = {
       "regrow": 4
     },
     "produce": {
+      "type": "Fruit",
       "extra": 2,
       "extraPerc": 0.1,
-      "price": 65,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 65
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1759,11 +1689,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 280,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 280
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1784,6 +1713,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       "price": 1000
@@ -1807,11 +1737,10 @@ var crops = {
       "regrow": 0
     },
     "produce": {
+      "type": "Vegetable",
       "extra": 0,
       "extraPerc": 0,
-      "price": 235,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 235
     },
     "mod": "Stardew Valley Expanded"
   },
@@ -1835,13 +1764,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.2,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice",
-      "caskTypeC": "Wine",
-      "juicerTypeC": "Juice",
-      "dehydratorTypeC": "Dried Vegetable",
-      "alembicTypeC": "Essential Oil"
+      "price": 60
     },
     "mod": "Cornucopia"
   },
@@ -1864,9 +1787,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 270,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 270
     },
     "mod": "Cornucopia"
   },
@@ -1912,9 +1833,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 170,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 170
     },
     "mod": "Cornucopia"
   },
@@ -1937,9 +1856,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 140,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 140
     },
     "mod": "Cornucopia"
   },
@@ -1962,10 +1879,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 200,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 200
     },
     "mod": "Cornucopia"
   },
@@ -1988,9 +1902,7 @@ var crops = {
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "price": 65,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 65
     },
     "mod": "Cornucopia"
   },
@@ -2013,9 +1925,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 25,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 25
     },
     "mod": "Cornucopia"
   },
@@ -2038,9 +1948,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 30
     },
     "mod": "Cornucopia"
   },
@@ -2063,9 +1971,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 30
     },
     "mod": "Cornucopia"
   },
@@ -2111,10 +2017,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 70,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 70
     },
     "mod": "Cornucopia"
   },
@@ -2137,9 +2040,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 15,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 15
     },
     "mod": "Cornucopia"
   },
@@ -2162,9 +2063,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 400,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 400
     },
     "mod": "Cornucopia"
   },
@@ -2233,10 +2132,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 240,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 240
     },
     "mod": "Cornucopia"
   },
@@ -2259,9 +2155,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 25,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 25
     },
     "mod": "Cornucopia"
   },
@@ -2307,9 +2201,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 130,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 130
     },
     "mod": "Cornucopia"
   },
@@ -2332,9 +2224,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 100
     },
     "mod": "Cornucopia"
   },
@@ -2357,10 +2247,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 225,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 225
     },
     "mod": "Cornucopia"
   },
@@ -2406,10 +2293,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 180,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 180
     },
     "mod": "Cornucopia"
   },
@@ -2478,9 +2362,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.2,
-      "price": 80,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 80
     },
     "mod": "Cornucopia"
   },
@@ -2503,9 +2385,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 70,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 70
     },
     "mod": "Cornucopia"
   },
@@ -2528,9 +2408,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 45,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 45
     },
     "mod": "Cornucopia"
   },
@@ -2576,9 +2454,7 @@ var crops = {
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "price": 55,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 55
     },
     "mod": "Cornucopia"
   },
@@ -2601,9 +2477,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -2649,9 +2523,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -2835,9 +2707,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 195,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 195
     },
     "mod": "Cornucopia"
   },
@@ -2883,9 +2753,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 65,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 65
     },
     "mod": "Cornucopia"
   },
@@ -2908,10 +2776,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 125,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 125
     },
     "mod": "Cornucopia"
   },
@@ -2934,10 +2799,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 350,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 350
     },
     "mod": "Cornucopia"
   },
@@ -2960,9 +2822,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 25,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 25
     },
     "mod": "Cornucopia"
   },
@@ -2985,9 +2845,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 135,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 135
     },
     "mod": "Cornucopia"
   },
@@ -3056,9 +2914,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -3081,9 +2937,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -3106,10 +2960,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 100
     },
     "mod": "Cornucopia"
   },
@@ -3201,9 +3052,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 2600,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 2600
     },
     "mod": "Cornucopia"
   },
@@ -3226,10 +3075,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 140,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 140
     },
     "mod": "Cornucopia"
   },
@@ -3252,9 +3098,7 @@ var crops = {
     "produce": {
       "extra": 1,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -3277,10 +3121,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 60,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 60
     },
     "mod": "Cornucopia"
   },
@@ -3303,10 +3144,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 120,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 120
     },
     "mod": "Cornucopia"
   },
@@ -3352,10 +3190,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 180,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 180
     },
     "mod": "Cornucopia"
   },
@@ -3470,10 +3305,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 40,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 40
     },
     "mod": "Cornucopia"
   },
@@ -3519,9 +3351,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -3544,10 +3374,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 100,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 100
     },
     "mod": "Cornucopia"
   },
@@ -3616,10 +3443,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -3642,9 +3466,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -3667,9 +3489,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 20,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 20
     },
     "mod": "Cornucopia"
   },
@@ -3692,9 +3512,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 65,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 65
     },
     "mod": "Cornucopia"
   },
@@ -3717,9 +3535,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 135,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 135
     },
     "mod": "Cornucopia"
   },
@@ -3765,10 +3581,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -3837,10 +3650,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 110,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 110
     },
     "mod": "Cornucopia"
   },
@@ -3886,9 +3696,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -3911,9 +3719,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 100,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 100
     },
     "mod": "Cornucopia"
   },
@@ -3936,9 +3742,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -3984,9 +3788,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 40,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 40
     },
     "mod": "Cornucopia"
   },
@@ -4009,9 +3811,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 15,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 15
     },
     "mod": "Cornucopia"
   },
@@ -4057,9 +3857,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 25,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 25
     },
     "mod": "Cornucopia"
   },
@@ -4082,9 +3880,7 @@ var crops = {
     "produce": {
       "extra": 1,
       "extraPerc": 0.2,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     },
     "mod": "Cornucopia"
   },
@@ -4107,9 +3903,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 115,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 115
     },
     "mod": "Cornucopia"
   },
@@ -4155,9 +3949,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -4203,10 +3995,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 135,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 135
     },
     "mod": "Cornucopia"
   },
@@ -4229,9 +4018,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 45,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 45
     },
     "mod": "Cornucopia"
   },
@@ -4254,10 +4041,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 220,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 220
     },
     "mod": "Cornucopia"
   },
@@ -4280,9 +4064,7 @@ var crops = {
     "produce": {
       "extra": 2,
       "extraPerc": 0,
-      "price": 85,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 85
     },
     "mod": "Cornucopia"
   },
@@ -4351,9 +4133,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -4422,9 +4202,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 15,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 15
     },
     "mod": "Cornucopia"
   },
@@ -4493,10 +4271,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 175,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 175
     },
     "mod": "Cornucopia"
   },
@@ -4519,10 +4294,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 80,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 80
     },
     "mod": "Cornucopia"
   },
@@ -4591,9 +4363,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.2,
-      "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 30
     },
     "mod": "Cornucopia"
   },
@@ -4616,9 +4386,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 115,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 115
     },
     "mod": "Cornucopia"
   },
@@ -4664,9 +4432,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 75,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 75
     },
     "mod": "Cornucopia"
   },
@@ -4689,9 +4455,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 70,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 70
     },
     "mod": "Cornucopia"
   },
@@ -4737,9 +4501,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 115,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 115
     },
     "mod": "Cornucopia"
   },
@@ -4785,9 +4547,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 35,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 35
     },
     "mod": "Cornucopia"
   },
@@ -4833,9 +4593,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 180,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 180
     },
     "mod": "Cornucopia"
   },
@@ -4858,9 +4616,7 @@ var crops = {
     "produce": {
       "extra": 1,
       "extraPerc": 0.1,
-      "price": 30,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 30
     },
     "mod": "Cornucopia"
   },
@@ -4906,9 +4662,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     },
     "mod": "Cornucopia"
   },
@@ -4931,9 +4685,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -4979,9 +4731,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 75,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 75
     },
     "mod": "Cornucopia"
   },
@@ -5004,9 +4754,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 200,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 200
     },
     "mod": "Cornucopia"
   },
@@ -5029,10 +4777,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 50,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 50
     },
     "mod": "Cornucopia"
   },
@@ -5124,10 +4869,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 640,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 640
     },
     "mod": "Cornucopia"
   },
@@ -5219,9 +4961,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 150,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 150
     },
     "mod": "Cornucopia"
   },
@@ -5267,10 +5007,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0,
-      "price": 40,
-      "jarType": "Jelly",
-      "kegType": "Wine",
-      "dehydratorType": "Dried Fruit"
+      "price": 40
     },
     "mod": "Cornucopia"
   },
@@ -5293,9 +5030,7 @@ var crops = {
     "produce": {
       "extra": 0,
       "extraPerc": 0.1,
-      "price": 60,
-      "jarType": "Pickles",
-      "kegType": "Juice"
+      "price": 60
     }
   }
 };
