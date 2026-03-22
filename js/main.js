@@ -259,6 +259,28 @@ function convertToSeeds(crop, num_planted, isTea, isCoffee) {
 }
 
 /*
+ * Returns the type of jar to use for the crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return The jar type.
+ */
+function getJarType(crop) {
+	if (crop.produce.jarOverride != null) {
+		return crop.produce.jarOverride;
+	} else {
+		switch (crop.produce.Type) {
+			case "Vegetable":
+				return "Pickles";
+				break;
+			case "Fruit":
+				return "Jelly";
+				break;
+			default:
+				return "None";
+		}
+	}
+}
+
+/*
  * Calculates the keg modifier for the crop.
  * @param crop The crop object, containing all the crop data.
  * @return The keg modifier.
@@ -366,7 +388,7 @@ function profit(crop) {
 
 	switch (produce) {
 		case 1:
-			if (crop.produce.jarOverride == "None") userawproduce = true;
+			if (getJarType(crop) == "None") userawproduce = true;
 			break;
 		case 2:
 			if (crop.produce.kegOverride == "None") userawproduce = true;
@@ -1160,8 +1182,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
 					break;
 				case 1:
-					if (d.produce.jarOverride != null) {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.jarOverride);
+					if (getJarType(d) != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getJarType(d));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1375,8 +1397,8 @@ function renderGraph() {
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
 				tooltipTr = tooltipTable.append("tr");
-				if (d.produce.jarOverride) {
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + d.produce.jarOverride + "):");
+				if (getJarType(d) != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + getJarType(d) + "):");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(options.skills.arti ? Math.round((d.produce.price * 2 + 50) * 1.4) : d.produce.price * 2 + 50)
 						.append("div").attr("class", "gold");
 				}
