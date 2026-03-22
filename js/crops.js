@@ -535,6 +535,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 80,
+      "dehydratorPrice": 600 / 5,
       "dehydratorOverride": "Raisins"
     }
   },

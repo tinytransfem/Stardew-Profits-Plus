@@ -266,10 +266,8 @@ function getJarType(crop) {
 		switch (crop.produce.type) {
 			case "Vegetable":
 				return "Pickles";
-				break;
 			case "Fruit":
 				return "Jelly";
-				break;
 			default:
 				return "None";
 		}
@@ -288,10 +286,8 @@ function getKegType(crop) {
 		switch (crop.produce.type) {
 			case "Vegetable":
 				return "Juice";
-				break;
 			case "Fruit":
 				return "Wine";
-				break;
 			default:
 				return "None";
 		}
@@ -307,10 +303,8 @@ function getKegModifier(crop) {
 	switch (getKegType(crop)) {
 		case "Juice":
 			return 2.25;
-			break;
 		case "Wine":
 			return 3;
-			break;
 		default:
 			return 1;
 	}
@@ -356,7 +350,6 @@ function getDehydratorType(crop) {
 		switch (crop.produce.type) {
 			case "Fruit":
 				return "Dried Fruit";
-				break;
 			default:
 				return "None";
 		}
@@ -364,24 +357,36 @@ function getDehydratorType(crop) {
 }
 
 /*
- * Calculates the dehydrator modifier.
+ * Calculates the keg price for the crop.
  * @param crop The crop object, containing all the crop data.
- * @return The dehydrator modifier.
+ * @return The keg price.
  */
-function getDehydratorModifier(crop) {
-	var modifier = 1.5 * crop.produce.price + 5;
-	switch (getDehydratorType(crop)) {
-		case "Dried Fruit":
-			modifier = options.skills.arti ? 2.1 * crop.produce.price + 7 : modifier;
-			break;
-		case "Dried Flower":
-		case "Dried Herb":
-			modifier = options.skills.arti ? 2.8 * crop.produce.price + 14 : 2 * crop.produce.price + 10;
-			break;
-		default: //We aren't calculating Mushrooms thus all else would be Grapes/Rasins
-			modifier = options.skills.arti ? 168 : 120;
+function getDehydratorPrice(crop) {
+	if (crop.produce.dehydratorPrice != null) {
+		return options.skills.arti ? crop.produce.dehydratorPrice * 1.4 : crop.produce.dehydratorPrice;
 	}
-	return modifier;
+	else switch (getDehydratorType(crop)) {
+		case "Dried Fruit":
+			return options.skills.arti ? (crop.produce.price * 1.5 + 1) * 1.4 : crop.produce.price * 1.5 + 1;
+		default:
+			return 0;
+	}
+}
+
+/*
+ * Returns the type of mill product to use for the crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return The mill product type.
+ */
+function getMillType(crop) {
+	if (crop.produce.millOverride != null) {
+		return crop.produce.millOverride;
+	} else {
+		switch (crop.produce.type) {
+			default:
+				return "None";
+		}
+	}
 }
 
 /*
@@ -389,22 +394,17 @@ function getDehydratorModifier(crop) {
  * @param crop The crop object, containing all the crop data.
  * @return The mill modifier.
  */
-function getMillModifier(crop) {
-	var modifier = 1;
-	switch (crop.produce.millOverride) {
+function getMillPrice(crop) {
+	switch (getMillType(crop)) {
 		case "Rice":
-			modifier = 100;
-			break;
+			return 100;
 		case "Sugar":
-			modifier = 50 * 3;
-			break;
+			return 50 * 3;
 		case "Wheat Flour":
-			modifier = 50;
-			break;
+			return 50;
 		default:
-			modifier = 0;
+			return 0;
 	}
-	return modifier;
 }
 
 /*
@@ -448,10 +448,10 @@ function profit(crop) {
 			if (getKegType(crop) == "None") userawproduce = true;
 			break;
 		case 4:
-			if (crop.produce.dehydratorOverride == "None") userawproduce = true;
+			if (getDehydratorType(crop) == "None") userawproduce = true;
 			break;
 		case 5:
-			if (crop.produce.millOverride == null) userawproduce = true;
+			if (getMillType(crop) == "None") userawproduce = true;
 			break;
 	}
 
@@ -635,9 +635,6 @@ function profit(crop) {
 					crop.produce.iridium = Math.round((countIridium + Number.EPSILON) * 100) / 100;
 				}
 
-				var kegModifier = getKegModifier(crop);
-				var caskModifier = getCaskModifier();
-				var dehydratorModifier = getDehydratorModifier(crop);
 				if (options.produce == 1) {
 					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
 				}
@@ -645,7 +642,7 @@ function profit(crop) {
 					netIncome += itemsMade * getKegPrice(crop);
 				}
 				else if (options.produce == 4) {
-					netIncome += crop.produce.dehydratorOverride != null ? itemsMade * dehydratorModifier : 0;
+					netIncome += itemsMade * getDehydratorPrice(crop);
 				}
 
 				profitData.quantitySold = itemsMade;
@@ -661,8 +658,7 @@ function profit(crop) {
 	}
 	else if (produce == 5) {
 		var items = total_crops - forSeeds;
-		var millModifier = getMillModifier(crop);
-		netIncome += millModifier * items;
+		netIncome += getMillPrice(crop) * items;
 		profitData.quantitySold = items;
 	}
 
@@ -1322,7 +1318,7 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text("None");
 					break;
 				case 5:
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.millOverride);
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(getMillType(d));
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1345,11 +1341,8 @@ function renderGraph() {
 
 			if (options.extra) {
 				var fertilizer = fertilizers[options.fertilizer];
-				var kegModifier = getKegModifier(d);
-				var caskModifier = getCaskModifier();
 				var kegPrice = getKegPrice(d);
 				var dehydratorModifierByCrop = d.produce.dehydratorOverride != null ? getDehydratorModifier(d) : 0;
-				var millModifierByCrop = d.produce.millOverride != null ? getMillModifier(d) : 0;
 				var seedPrice = d.seeds.sell;
 				var initialGrow = 0;
 				if (options.skills.agri)
@@ -1465,9 +1458,9 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("None");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (d.produce.millOverride) {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + d.produce.millOverride + "):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(millModifierByCrop)
+				if (getMillType(d) != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getMillType(d) + "):");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(getMillPrice(d))
 						.append("div").attr("class", "gold");
 				} else {
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Mill):");
