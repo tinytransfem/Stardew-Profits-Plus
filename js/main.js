@@ -2011,7 +2011,7 @@ function optionsLoad() {
 	el('max_seed_money').value = options.maxSeedMoney;
 
 	options.average = validIntRange(0, 3, options.average);
-	el('select_profit_display').checked = options.average;
+	el('select_profit_display').value = options.average;
 
 	options.crossSeason = validBoolean(options.crossSeason);
 	el('cross_season').checked = options.crossSeason;
