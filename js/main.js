@@ -1362,7 +1362,7 @@ function renderGraph() {
 			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.harvests);
 			tooltipTr = tooltipTable.append("tr");
 			tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Total Crops:");
-			tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.totalCrops);
+			tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.floor(d.totalCrops));
 
 			if (options.extra) {
 				var fertilizer = fertilizers[options.fertilizer];
@@ -1549,7 +1549,7 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.extra);
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Extra chance:");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text((d.produce.extraPerc * 100) + "%");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text((d.produce.extraPerc * 100).toFixed(1) + "%");
 				}
 				if (d.produce.extraPerc > 0) {
 					tooltipTr = tooltipTable.append("tr");
