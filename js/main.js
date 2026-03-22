@@ -818,16 +818,16 @@ function valueCrops() {
 			cropList[i].drawProfit = cropList[i].averageProfit;
 			cropList[i].drawSeedLoss = cropList[i].averageSeedLoss;
 			cropList[i].drawFertLoss = cropList[i].averageFertLoss;
-			graphDescription = "Daily Profit per tile per season"
+			graphDescription = options.planted > 1 ? "Daily Profit per " + options.planted + " tiles" : "Daily Profit per 1 tile";
 		}
 		else if ((options.average == 2)) {
 			if (options.buySeed || (options.buyFert && fertilizers[options.fertilizer].cost > 0)) {
 				cropList[i].drawProfit = cropList[i].totalReturnOnInvestment;
-				graphDescription = "Total Return On Investment per tile per season";
+				graphDescription = options.planted > 1 ? "Total Return On Investment per " + options.planted + " tiles" : "Total Return On Investment per 1 tile";
 			}
 			else {
 				cropList[i].drawProfit = 0;
-				graphDescription = "Total Profit per tile per season (Choose an expense for ROI)";
+				graphDescription = options.planted > 1 ? "Total Profit per " + options.planted + " tiles (Choose an expense for ROI)" : "Total Profit per 1 tile (Choose an expense for ROI)";
 			}
 			cropList[i].drawSeedLoss = cropList[i].seedLoss;
 			cropList[i].drawFertLoss = cropList[i].fertLoss;
@@ -837,16 +837,16 @@ function valueCrops() {
 			cropList[i].drawFertLoss = cropList[i].averageFertLoss;
 			if (options.buySeed || (options.buyFert && fertilizers[options.fertilizer].cost > 0)) {
 				cropList[i].drawProfit = cropList[i].averageReturnOnInvestment;
-				graphDescription = "Daily Return On Investment per tile per season";
+				graphDescription = options.planted > 1 ? "Daily Return On Investment per " + options.planted + " tiles" : "Daily Return On Investment per 1 tile";
 			} else {
 				cropList[i].drawProfit = 0;
-				graphDescription = "Daily Profit per tile per season (Choose an expense for ROI)";
+				graphDescription = options.planted > 1 ? "Daily Profit per " + options.planted + " tiles (Choose an expense for ROI)" : "Daily Profit per 1 tile (Choose an expense for ROI)";
 			}
 		} else {
 			cropList[i].drawProfit = cropList[i].profit;
 			cropList[i].drawSeedLoss = cropList[i].seedLoss;
 			cropList[i].drawFertLoss = cropList[i].fertLoss;
-			graphDescription = "Total Profit per tile per season";
+			graphDescription = options.planted > 1 ? "Total Profit per " + options.planted + " tiles" : "Total Profit per 1 tile";
 		}
 	}
 }
