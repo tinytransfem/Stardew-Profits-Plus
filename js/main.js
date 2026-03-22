@@ -367,7 +367,7 @@ function getDehydratorPrice(crop) {
 	}
 	else switch (getDehydratorType(crop)) {
 		case "Dried Fruit":
-			return options.skills.arti ? (crop.produce.price * 1.5 + 1) * 1.4 : crop.produce.price * 1.5 + 1;
+			return options.skills.arti ? (crop.produce.price * 1.5 + 5) * 1.4 : crop.produce.price * 1.5 + 5;
 		default:
 			return 0;
 	}
