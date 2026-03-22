@@ -1289,8 +1289,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
 					break;
 				case 4:
-					if (d.produce.dehydratorOverride != null) {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.dehydratorOverride);
+					if (getDehydratorType(d) != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getDehydratorType(d));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1342,7 +1342,6 @@ function renderGraph() {
 			if (options.extra) {
 				var fertilizer = fertilizers[options.fertilizer];
 				var kegPrice = getKegPrice(d);
-				var dehydratorModifierByCrop = d.produce.dehydratorOverride != null ? getDehydratorModifier(d) : 0;
 				var seedPrice = d.seeds.sell;
 				var initialGrow = 0;
 				if (options.skills.agri)
@@ -1449,9 +1448,9 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("None");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (d.produce.dehydratorOverride) {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + d.produce.dehydratorOverride + "):");
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(dehydratorModifierByCrop)
+				if (getDehydratorType(d) != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getDehydratorType(d) + "):");
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(getDehydratorPrice(d))
 						.append("div").attr("class", "gold");
 				} else {
 					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Dehydrator):");
