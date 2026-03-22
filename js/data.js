@@ -37,6 +37,22 @@ var options = {
 	"enableMods": false
 };
 
+var artisanMachines = {
+	jar: {
+		Vegetable: "Pickles",
+		Fruit: "Jelly"
+	},
+	keg: {
+		Vegetable: "Juice",
+		Fruit: "Wine"
+	},
+	dehydrator: {
+		Fruit: "Dried Fruit"
+	},
+	mill: {
+	}
+};
+
 // Different fertilizers with their stats.
 var fertilizers = [
 	{

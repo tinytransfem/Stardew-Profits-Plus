@@ -268,43 +268,23 @@ function convertToSeeds(crop, num_planted, isTea, isCoffee) {
 }
 
 /*
- * Returns the type of jar product to use for the crop.
+ * Returns the type of product to use for the crop and machine.
  * @param crop The crop object, containing all the crop data.
- * @return The jar product type.
+ * @param machine The machine type.
+ * @return The product type.
  */
-function getJarType(crop) {
-	if (crop.produce.jarOverride != null) {
-		return crop.produce.jarOverride;
-	} else {
-		switch (crop.produce.type) {
-			case "Vegetable":
-				return "Pickles";
-			case "Fruit":
-				return "Jelly";
-			default:
-				return "None";
-		}
+function getArtisanType(crop, machine) {
+	var overrideField = machine + "Override";
+	if (crop.produce[overrideField] != null) {
+		return crop.produce[overrideField];
 	}
-}
 
-/*
- * Returns the type of keg product to use for the crop.
- * @param crop The crop object, containing all the crop data.
- * @return The keg product type.
- */
-function getKegType(crop) {
-	if (crop.produce.kegOverride != null) {
-		return crop.produce.kegOverride;
-	} else {
-		switch (crop.produce.type) {
-			case "Vegetable":
-				return "Juice";
-			case "Fruit":
-				return "Wine";
-			default:
-				return "None";
-		}
+	var map = artisanMachines[machine];
+	if (map && map[crop.produce.type]) {
+		return map[crop.produce.type];
 	}
+
+	return "None";
 }
 
 /*
@@ -313,7 +293,7 @@ function getKegType(crop) {
  * @return The keg modifier.
  */
 function getKegModifier(crop) {
-	switch (getKegType(crop)) {
+	switch (getArtisanType(crop, "keg")) {
 		case "Juice":
 			return 2.25;
 		case "Wine":
@@ -330,8 +310,8 @@ function getKegModifier(crop) {
  */
 function getKegPrice(crop) {
 	if (crop.produce.kegPrice != null) {
-		return getKegType(crop) == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
-	} else if (getKegType(crop) != "None") {
+		return getArtisanType(crop, "keg") == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
+	} else if (getArtisanType(crop, "keg") != "None") {
 		return crop.produce.price * getKegModifier(crop) * getCaskModifier();
 	}
 	else return 0;
@@ -352,24 +332,6 @@ function getCaskModifier() {
 }
 
 /*
- * Returns the type of dehydrator product to use for the crop.
- * @param crop The crop object, containing all the crop data.
- * @return The dehydrator product type.
- */
-function getDehydratorType(crop) {
-	if (crop.produce.dehydratorOverride != null) {
-		return crop.produce.dehydratorOverride;
-	} else {
-		switch (crop.produce.type) {
-			case "Fruit":
-				return "Dried Fruit";
-			default:
-				return "None";
-		}
-	}
-}
-
-/*
  * Calculates the keg price for the crop.
  * @param crop The crop object, containing all the crop data.
  * @return The keg price.
@@ -378,27 +340,11 @@ function getDehydratorPrice(crop) {
 	if (crop.produce.dehydratorPrice != null) {
 		return options.skills.arti ? crop.produce.dehydratorPrice * 1.4 : crop.produce.dehydratorPrice;
 	}
-	else switch (getDehydratorType(crop)) {
+	else switch (getArtisanType(crop, "dehydrator")) {
 		case "Dried Fruit":
 			return options.skills.arti ? (crop.produce.price * 7.5 + 25) * 1.4 : crop.produce.price * 7.5 + 25;
 		default:
 			return 0;
-	}
-}
-
-/*
- * Returns the type of mill product to use for the crop.
- * @param crop The crop object, containing all the crop data.
- * @return The mill product type.
- */
-function getMillType(crop) {
-	if (crop.produce.millOverride != null) {
-		return crop.produce.millOverride;
-	} else {
-		switch (crop.produce.type) {
-			default:
-				return "None";
-		}
 	}
 }
 
@@ -468,16 +414,16 @@ function profit(crop) {
 
 	switch (produce) {
 		case 1:
-			if (getJarType(crop) == "None") userawproduce = true;
+			if (getArtisanType(crop, "jar") == "None") userawproduce = true;
 			break;
 		case 2:
-			if (getKegType(crop) == "None") userawproduce = true;
+			if (getArtisanType(crop, "keg") == "None") userawproduce = true;
 			break;
 		case 4:
-			if (getDehydratorType(crop) == "None") userawproduce = true;
+			if (getArtisanType(crop, "dehydrator") == "None") userawproduce = true;
 			break;
 		case 5:
-			if (getMillType(crop) == "None") userawproduce = true;
+			if (getArtisanType(crop, "mill") == "None") userawproduce = true;
 			break;
 	}
 
@@ -1207,8 +1153,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
 					break;
 				case 1:
-					if (getJarType(d) != "None") {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getJarType(d));
+					if (getArtisanType(d, "jar") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getArtisanType(d, "jar"));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1236,8 +1182,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text("None");
 					break;
 				case 2:
-					if (getKegType(d) != "None") {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getKegType(d));
+					if (getArtisanType(d, "keg") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getArtisanType(d, "keg"));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1276,8 +1222,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
 					break;
 				case 4:
-					if (getDehydratorType(d) != "None") {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getDehydratorType(d));
+					if (getArtisanType(d, "dehydrator") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getArtisanType(d, "dehydrator"));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1305,7 +1251,7 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text("None");
 					break;
 				case 5:
-					tooltipTr.append("td").attr("class", "tooltipTdRight").text(getMillType(d));
+					tooltipTr.append("td").attr("class", "tooltipTdRight").text(getArtisanType(d, "mill"));
 					tooltipTr = tooltipTable.append("tr");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1410,8 +1356,8 @@ function renderGraph() {
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
 				tooltipTr = tooltipTable.append("tr");
-				if (getJarType(d) != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + getJarType(d) + "):");
+				if (getArtisanType(d, "jar") != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + getArtisanType(d, "jar") + "):");
 
 					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 					var priceSpan = tdRight.append("span").attr("class", "price");
@@ -1424,8 +1370,8 @@ function renderGraph() {
 					tdRight.append("span").attr("class", "price").text("-");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (getKegType(d) != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getKegType(d) + "):");
+				if (getArtisanType(d, "keg") != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "keg") + "):");
 
 					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 					var priceSpan = tdRight.append("span").attr("class", "price");
@@ -1439,8 +1385,8 @@ function renderGraph() {
 					tdRight.append("span").attr("class", "price").text("-");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (getDehydratorType(d) != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getDehydratorType(d) + "):");
+				if (getArtisanType(d, "dehydrator") != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "dehydrator") + "):");
 
 					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 					var priceSpan = tdRight.append("span").attr("class", "price");
@@ -1453,8 +1399,8 @@ function renderGraph() {
 					tdRight.append("span").attr("class", "price").text("-");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (getMillType(d) != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getMillType(d) + "):");
+				if (getArtisanType(d, "mill") != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "mill") + "):");
 
 					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 					var priceSpan = tdRight.append("span").attr("class", "price");
