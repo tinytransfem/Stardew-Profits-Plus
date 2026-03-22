@@ -545,6 +545,10 @@ function profit(crop) {
 
 				var usableCrops = 0;
 				var usableCropsByHarvest = [];
+				var cropsPerItem = getMultiCropUsage(crop);
+				var itemsMade = 0;
+				var cropsLeft = 0;
+
 				//extra isn't being accounted for by harvest
 				if (produce != 4 || options.byHarvest) {
 					if (options.predictionModel && crop.produce.extra > 0) {
@@ -567,36 +571,23 @@ function profit(crop) {
 					usableCrops = Math.max(0, usableCrops);
 				}
 
-				var itemsMade = 0;
-				var cropsLeft = 0;
-				if (produce == 1 || produce == 2) {
-					if (options.predictionModel && usableCropsByHarvest.length > 0) {
-						for (i in usableCropsByHarvest) {
-							itemsMade += Math.floor(usableCropsByHarvest[i]);
-						}
-					} else {
-						itemsMade = usableCrops;
+				if (options.predictionModel && usableCropsByHarvest.length > 0) {
+					for (i in usableCropsByHarvest) {
+						itemsMade += Math.floor(usableCropsByHarvest[i] / cropsPerItem);
+						cropsLeft += Math.floor(usableCropsByHarvest[i] % cropsPerItem);
 					}
-				}
-				else if (produce == 4) {
-					if (options.predictionModel && usableCropsByHarvest.length > 0) {
-						for (i in usableCropsByHarvest) {
-							cropsLeft += Math.floor(usableCropsByHarvest[i] % 5);
-							itemsMade += Math.floor(usableCropsByHarvest[i] / 5);
-						}
-					} else {
-						cropsLeft = Math.floor(usableCrops % 5);
-						itemsMade = Math.floor(usableCrops / 5);
-					}
+				} else {
+					itemsMade = Math.floor(usableCrops / cropsPerItem);
+					cropsLeft = Math.floor(usableCrops % cropsPerItem);
 				}
 
 				if (produce == 4 && options.equipment > 0 && options.byHarvest) {
 					if (options.predictionModel && usableCropsByHarvest.length > 0) {
-						itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops / 5))
-						cropsLeft = total_crops - (itemsMade * 5)
+						itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops / cropsPerItem))
+						cropsLeft = total_crops - (itemsMade * cropsPerItem);
 
 					} else {
-						cropsLeft += Math.max(0, itemsMade - options.equipment) * 5;
+						cropsLeft += Math.max(0, itemsMade - options.equipment) * cropsPerItem;
 						itemsMade = Math.min(options.equipment, itemsMade);
 					}
 				}
@@ -607,33 +598,33 @@ function profit(crop) {
 						itemsMade *= crop.harvests;
 					}
 				}
+
 				if (options.nextyear && options.byHarvest) {
-					if (produce == 4) {
-						var itemsMadeNew = Math.max(0, Math.round((itemsMade * 5 - num_planted * 0.5) / 5));
-						cropsLeft += (itemsMade - itemsMadeNew) * 5;
-						itemsMade = itemsMadeNew;
-					}
+					var itemsMadeNew = Math.max(0, Math.round((itemsMade * cropsPerItem - num_planted * 0.5) / cropsPerItem));
+					cropsLeft += (itemsMade - itemsMadeNew) * cropsPerItem;
+					itemsMade = itemsMadeNew;
 				}
 
 				if (options.equipment > 0) {
 					if (produce == 1 || produce == 2) {
 						if (options.predictionModel && usableCropsByHarvest.length > 0) {
-							itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops));
-							cropsLeft = total_crops - itemsMade;
+							itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops / cropsPerItem));
+							cropsLeft = total_crops - itemsMade * cropsPerItem;
 
 						} else {
-							cropsLeft += Math.max(0, itemsMade - options.equipment) * crop.harvests;
+							cropsLeft += Math.max(0, itemsMade - options.equipment) * cropsPerItem * crop.harvests;
 							itemsMade = Math.min(options.equipment, itemsMade) * crop.harvests;
 						}
 					}
 					if (produce == 4 && !options.byHarvest) {
-						cropsLeft += Math.max(0, itemsMade - options.equipment) * 5;
+						cropsLeft += Math.max(0, itemsMade - options.equipment) * cropsPerItem;
 						itemsMade = Math.min(options.equipment, itemsMade);
 					}
 				} else {
 					if (produce == 1 || produce == 2) {
 						if (!options.predictionModel) {
 							itemsMade *= crop.harvests;
+							cropsLeft *= crop.harvests;
 						}
 					}
 				}
