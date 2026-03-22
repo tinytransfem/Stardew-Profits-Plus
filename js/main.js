@@ -195,7 +195,7 @@ function removeCropQuality(removeCrop, countRegular, countSilver, countGold, cou
 				countSilver = 0;
 				if (countGold - removeCrop < 0) {
 					removeCrop -= countGold;
-					countSilver = 0;
+					countGold = 0;
 					if (countIridium - removeCrop < 0) {
 						removeCrop -= countIridium;
 						countIridium = 0;
