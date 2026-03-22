@@ -371,7 +371,7 @@ var crops = {
       "extra": 3,
       "extraPerc": 1.007,
       "price": 15,
-      "keg": 150 / 5,
+      "kegPrice": 150 / 5,
       "jarOverride": "None",
       "kegOverride": "Coffee"
     }
@@ -582,7 +582,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 25,
-      "keg": 300,
+      "kegPrice": 300,
       "kegOverride": "Pale Ale"
     }
   },
@@ -1136,7 +1136,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 50,
-      "keg": 100,
+      "kegPrice": 100,
       "kegOverride": "Tea"
     }
   },
@@ -1231,7 +1231,7 @@ var crops = {
       "extra": 0,
       "extraPerc": 0,
       "price": 25,
-      "keg": 200,
+      "kegPrice": 200,
       "kegOverride": "Beer",
       "millOverride": "Wheat Flour"
     }

@@ -287,10 +287,10 @@ function getKegType(crop) {
 	} else {
 		switch (crop.produce.type) {
 			case "Vegetable":
-				return "Pickles";
+				return "Juice";
 				break;
 			case "Fruit":
-				return "Jelly";
+				return "Wine";
 				break;
 			default:
 				return "None";
@@ -299,17 +299,21 @@ function getKegType(crop) {
 }
 
 /*
- * Calculates the keg modifier for the crop.
+ * Calculates the keg modifier for the kegType.
  * @param crop The crop object, containing all the crop data.
  * @return The keg modifier.
  */
 function getKegModifier(crop) {
-	if (options.skills.arti) {
-		result = crop.produce.kegOverride == "Wine" ? 4.2 : 3.15;
-	} else {
-		result = crop.produce.kegOverride == "Wine" ? 3 : 2.25;
+	switch (getKegType(crop)) {
+		case "Juice":
+			return options.skills.arti ? 3.15 : 2.25;
+			break;
+		case "Wine":
+			return options.skills.arti ? 4.2 : 3;
+			break;
+		default:
+			return options.skills.arti ? 1.4 : 1;
 	}
-	return result;
 }
 
 /*
@@ -400,7 +404,7 @@ function profit(crop) {
 	crop.produce.gold = 0
 	crop.produce.iridium = 0
 
-	//Skip keg/jar calculations for ineligible crops (where corp.produce.jar or crop.produce.keg = 0)
+	//Skip keg/jar calculations for ineligible crops
 
 	var userawproduce = false;
 
@@ -409,7 +413,7 @@ function profit(crop) {
 			if (getJarType(crop) == "None") userawproduce = true;
 			break;
 		case 2:
-			if (crop.produce.kegOverride == "None") userawproduce = true;
+			if (getKegType(crop) == "None") userawproduce = true;
 			break;
 		case 4:
 			if (crop.produce.dehydratorOverride == "None") userawproduce = true;
@@ -483,7 +487,7 @@ function profit(crop) {
 				crop.produce.gold = countGold
 				crop.produce.iridium = countIridium
 				profitData.quantitySold = Math.floor(total_crops - forSeeds);
-			} 
+			}
 			else if (produce == 1 || produce == 2 || produce == 4) {
 
 				var usableCrops = 0;
@@ -520,7 +524,7 @@ function profit(crop) {
 					} else {
 						itemsMade = usableCrops;
 					}
-				} 
+				}
 				else if (produce == 4) {
 					if (options.predictionModel && usableCropsByHarvest.length > 0) {
 						for (i in usableCropsByHarvest) {
@@ -604,14 +608,14 @@ function profit(crop) {
 				var dehydratorModifier = getDehydratorModifier(crop);
 				if (options.produce == 1) {
 					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
-				} 
+				}
 				else if (options.produce == 2) {
-					if (crop.produce.keg != null) {
-						netIncome += itemsMade * crop.produce.keg;
+					if (crop.produce.kegPrice != null) {
+						netIncome += itemsMade * crop.produce.kegPrice;
 					} else {
-						netIncome += itemsMade * (crop.produce.kegOverride != null && options.aging != "None" ? crop.produce.price * kegModifier * caskModifier : crop.produce.price * kegModifier);
+						netIncome += itemsMade * (getKegType(crop) != "None" && options.aging != "None" ? crop.produce.price * kegModifier * caskModifier : crop.produce.price * kegModifier);
 					}
-				} 
+				}
 				else if (options.produce == 4) {
 					netIncome += crop.produce.dehydratorOverride != null ? itemsMade * dehydratorModifier : 0;
 				}
@@ -621,12 +625,12 @@ function profit(crop) {
 			}
 		}
 
-	} 
+	}
 	else if (produce == 3) {
 		var items = total_crops - forSeeds;
 		netIncome += 2 * items * crop.seeds.sell;
 		profitData.quantitySold = Math.floor(2 * items);
-	} 
+	}
 	else if (produce == 5) {
 		var items = total_crops - forSeeds;
 		var millModifier = getMillModifier(crop);
@@ -1221,8 +1225,8 @@ function renderGraph() {
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text("None");
 					break;
 				case 2:
-					if (d.produce.kegOverride != null) {
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.kegOverride);
+					if (getKegType(d) != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdRight").text(getKegType(d));
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdRight").text("Quantity sold:");
 
@@ -1315,9 +1319,9 @@ function renderGraph() {
 				var fertilizer = fertilizers[options.fertilizer];
 				var kegModifier = getKegModifier(d);
 				var caskModifier = getCaskModifier();
-				var kegPrice = d.produce.kegOverride != null && options.aging != "None" ? d.produce.price * kegModifier * caskModifier : d.produce.price * kegModifier;
-				if (d.produce.keg != null) {
-					kegPrice = d.produce.keg;
+				var kegPrice = getKegType(d) != "None" && options.aging != "None" ? d.produce.price * kegModifier * caskModifier : d.produce.price * kegModifier;
+				if (d.produce.kegPrice != null) {
+					kegPrice = d.produce.kegPrice;
 				}
 				var dehydratorModifierByCrop = d.produce.dehydratorOverride != null ? getDehydratorModifier(d) : 0;
 				var millModifierByCrop = d.produce.millOverride != null ? getMillModifier(d) : 0;
@@ -1417,8 +1421,8 @@ function renderGraph() {
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("None");
 				}
 				tooltipTr = tooltipTable.append("tr");
-				if (d.produce.kegOverride) {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + d.produce.kegOverride + "):");
+				if (getKegType(d) != "None") {
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getKegType(d) + "):");
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.round(kegPrice))
 						.append("div").attr("class", "gold");
 				}
