@@ -1086,7 +1086,7 @@ var crops = {
       "regrow": 0
     },
     "produce": {
-      "type": "Fruit",
+      "type": "Special",
       "extra": 0,
       "extraPerc": 0,
       "price": 3000
