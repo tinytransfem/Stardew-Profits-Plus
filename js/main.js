@@ -267,7 +267,29 @@ function getJarType(crop) {
 	if (crop.produce.jarOverride != null) {
 		return crop.produce.jarOverride;
 	} else {
-		switch (crop.produce.Type) {
+		switch (crop.produce.type) {
+			case "Vegetable":
+				return "Pickles";
+				break;
+			case "Fruit":
+				return "Jelly";
+				break;
+			default:
+				return "None";
+		}
+	}
+}
+
+/*
+ * Returns the type of keg to use for the crop.
+ * @param crop The crop object, containing all the crop data.
+ * @return The keg type.
+ */
+function getKegType(crop) {
+	if (crop.produce.kegOverride != null) {
+		return crop.produce.kegOverride;
+	} else {
+		switch (crop.produce.type) {
 			case "Vegetable":
 				return "Pickles";
 				break;
