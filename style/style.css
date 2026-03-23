@@ -302,6 +302,7 @@ td input[type="checkbox"]:disabled{
 	padding: 1px 4px 0px 4px;
 	margin-bottom: 1px;
     vertical-align: bottom;
+	width: 100px;
 }
 
 .tooltipTdLeftSpace {
@@ -310,6 +311,7 @@ td input[type="checkbox"]:disabled{
 	padding: 8px 4px 0px 4px;
 	margin-bottom: 1px;
     vertical-align: bottom;
+	width: 100px;
 }
 
 .tooltipTdRight {
@@ -325,6 +327,7 @@ td input[type="checkbox"]:disabled{
 	display: inline-block;
 	min-width: 48px;
 	text-align: right;
+	font-variant-numeric: tabular-nums;
 }
 
 .tooltipTdRight .gold {

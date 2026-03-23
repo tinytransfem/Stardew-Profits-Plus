@@ -116,13 +116,17 @@
 			<table cellspacing="2" style="height: 0;">
 			
 				<tr id="enable_mods_row">
-					<td>Include mods:</td>
+					<td>Enable mods:</td>
 					<td><input type="checkbox" id="enable_mods" onChange="rebuild()" /></td>
 				</tr>
 
 				<tr>
 					<td colspan="2" class="submod">
 						<table class="submodt">
+							<tr id="tr_check_vanilla">
+								<td>Vanilla:</td>
+								<td><input type="checkbox" id="check_vanilla" onChange="rebuild()" checked="true"/> <br /></td>
+							</tr>
 							<tr id="tr_check_sve">
 								<td>Stardew Valled Expanded:</td>
 								<td><input type="checkbox" id="check_sve" onChange="rebuild()"/> <br /></td>

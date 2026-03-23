@@ -717,8 +717,7 @@ function fetchCrops() {
 	var season = seasons[options.season];
 
 	for (var i = 0; i < season.crops.length; i++) {
-		if (season.crops[i].mod == undefined ||
-			season.crops[i].mod == "vanilla" ||
+		if (((season.crops[i].mod == "vanilla" || season.crops[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
 			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
 			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
 
@@ -734,10 +733,9 @@ function fetchCrops() {
 
 	if (options.fruit) {
 		for (var i = 0; i < season.fruit.length; i++) {
-			if (season.fruit[i].mod == undefined ||
-				season.fruit[i].mod == "vanilla" ||
-				(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
-				(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
+			if (((season.crops[i].mod == "vanilla" || season.crops[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
+			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
 
 				if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
 					(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
@@ -1284,173 +1282,185 @@ function renderGraph() {
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
 
-
 				if (options.predictionModel || options.sellExcess && options.predictionModel) {
-					// headers
-					tooltipTr = tooltipTable.append("thead").append("tr");
-					tooltipTr.append("th").attr("class", "tooltipThCenter").text("Quality");
-					tooltipTr.append("th").attr("class", "tooltipThCenter").text("Sell Price (Chance)");
-					// tooltipTr.append("th").attr("class", "tooltipThCenter").text("Probability");
-					tooltipTr.append("th").attr("class", "tooltipThCenter").text("Raw Sold");
-
-					//body
-					tooltipBody = tooltipTable.append("tbody");
-
-					//Row 1
 					tooltipBodyTR = tooltipBody.append("tr");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdLeft").text("Normal");
-					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(d.produce.price + " (" + (d.profitData.regular * 100).toFixed(0) + "%)").append("div").attr("class", "gold");
+					var tdRight = tooltipBodyTR.append("td").attr("class", "tooltipTdRight");
+					var priceSpan = tdRight.append("span").attr("class", "price");
+					priceSpan.append("span").text(d.produce.price);
+					priceSpan.append("div").attr("class", "gold");
+					tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.regular * 100).toFixed(0) + "%)");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(d.produce.regular);
 
-					//Row 2
 					tooltipBodyTR = tooltipBody.append("tr");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdLeft").text("Silver");
-					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.25) + " (" + (d.profitData.silver * 100).toFixed(0) + "%)").append("div").attr("class", "gold");
+					var tdRight = tooltipBodyTR.append("td").attr("class", "tooltipTdRight");
+					var priceSpan = tdRight.append("span").attr("class", "price");
+					priceSpan.append("span").text(Math.trunc(d.produce.price * 1.25));
+					priceSpan.append("div").attr("class", "gold");
+					tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.silver * 100).toFixed(0) + "%)");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(d.produce.silver);
 
-					//Row 3
 					tooltipBodyTR = tooltipBody.append("tr");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdLeft").text("Gold");
-					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.5) + " (" + (d.profitData.gold * 100).toFixed(0) + "%)").append("div").attr("class", "gold");
+					var tdRight = tooltipBodyTR.append("td").attr("class", "tooltipTdRight");
+					var priceSpan = tdRight.append("span").attr("class", "price");
+					priceSpan.append("span").text(Math.trunc(d.produce.price * 1.5));
+					priceSpan.append("div").attr("class", "gold");
+					tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.gold * 100).toFixed(0) + "%)");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(d.produce.gold);
 
-					//Row 4
 					tooltipBodyTR = tooltipBody.append("tr");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdLeft").text("Iridium");
-					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 2) + " (" + (d.profitData.iridium * 100).toFixed(0) + "%)").append("div").attr("class", "gold");
+					var tdRight = tooltipBodyTR.append("td").attr("class", "tooltipTdRight");
+					var priceSpan = tdRight.append("span").attr("class", "price");
+					priceSpan.append("span").text(Math.trunc(d.produce.price * 2));
+					priceSpan.append("div").attr("class", "gold");
+					tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.iridium * 100).toFixed(0) + "%)");
 					tooltipBodyTR.append("td").attr("class", "tooltipTdRight").text(d.produce.iridium);
 				} else {
-
 					if (!(d.isWildseed && options.skills.botanist)) {
 						tooltipTr = tooltipTable.append("tr");
 						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Normal):");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price)
-							.append("div").attr("class", "gold");
-						tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.regular * 100).toFixed(0) + "%)");
+
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						var priceSpan = tdRight.append("span").attr("class", "price");
+						priceSpan.append("span").text(d.produce.price);
+						priceSpan.append("div").attr("class", "gold");
+						tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.regular * 100).toFixed(0) + "%)");
 					}
 					if (d.name != "Tea Leaves") {
 						if (!(d.isWildseed && options.skills.botanist)) {
 							tooltipTr = tooltipTable.append("tr");
 							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Silver):");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.25))
-								.append("div").attr("class", "gold");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.silver * 100).toFixed(0) + "%)");
+
+							var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+							var priceSpan = tdRight.append("span").attr("class", "price");
+							priceSpan.append("span").text(Math.trunc(d.produce.price * 1.25));
+							priceSpan.append("div").attr("class", "gold");
+							tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.silver * 100).toFixed(0) + "%)");
+
 							tooltipTr = tooltipTable.append("tr");
 							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Gold):");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text(Math.trunc(d.produce.price * 1.5))
-								.append("div").attr("class", "gold");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.gold * 100).toFixed(0) + "%)");
+
+							var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+							var priceSpan = tdRight.append("span").attr("class", "price");
+							priceSpan.append("span").text(Math.trunc(d.produce.price * 1.5));
+							priceSpan.append("div").attr("class", "gold");
+							tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.gold * 100).toFixed(0) + "%)");
 						}
 						if ((!d.isWildseed && fertilizers[options.fertilizer].ratio >= 3) || (d.isWildseed && options.skills.botanist)) {
 							tooltipTr = tooltipTable.append("tr");
 							tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Iridium):");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text(d.produce.price * 2)
-								.append("div").attr("class", "gold");
-							tooltipTr.append("td").attr("class", "tooltipTdRight").text("(" + (d.profitData.iridium * 100).toFixed(0) + "%)");
+
+							var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+							var priceSpan = tdRight.append("span").attr("class", "price");
+							priceSpan.append("span").text(d.produce.price * 2);
+							priceSpan.append("div").attr("class", "gold");
+							tdRight.append("span").attr("class", "uses").text(" (" + (d.profitData.iridium * 100).toFixed(0) + "%)");
 						}
 					}
-				}
 
-				tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Artisan:");
-				tooltipTable = tooltip.append("table")
-					.attr("class", "tooltipTable")
-					.attr("cellspacing", 0);
-				tooltipTr = tooltipTable.append("tr");
-				if (getArtisanType(d, "jar") != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + getArtisanType(d, "jar") + "):");
+					tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Artisan:");
+					tooltipTable = tooltip.append("table")
+						.attr("class", "tooltipTable")
+						.attr("cellspacing", 0);
+					tooltipTr = tooltipTable.append("tr");
+					if (getArtisanType(d, "jar") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (" + getArtisanType(d, "jar") + "):");
 
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						var priceSpan = tdRight.append("span").attr("class", "price");
+						priceSpan.append("span").text(options.skills.arti ? Math.round((d.produce.price * 2 + 50) * 1.4) : d.produce.price * 2 + 50);
+						priceSpan.append("div").attr("class", "gold");
+						if (getMultiCropUsage(d, 1) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 1) + ")");
+					} else {
+						tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (Jar):");
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						tdRight.append("span").attr("class", "price").text("-");
+					}
+					tooltipTr = tooltipTable.append("tr");
+					if (getArtisanType(d, "keg") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "keg") + "):");
+
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						var priceSpan = tdRight.append("span").attr("class", "price");
+						priceSpan.append("span").text(Math.round(kegPrice));
+						priceSpan.append("div").attr("class", "gold");
+						if (getMultiCropUsage(d, 2) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 2) + ")");
+					}
+					else {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Keg):");
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						tdRight.append("span").attr("class", "price").text("-");
+					}
+					tooltipTr = tooltipTable.append("tr");
+					if (getArtisanType(d, "dehydrator") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "dehydrator") + "):");
+
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						var priceSpan = tdRight.append("span").attr("class", "price");
+						priceSpan.append("span").text(getDehydratorPrice(d));
+						priceSpan.append("div").attr("class", "gold");
+						if (getMultiCropUsage(d, 4) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 4) + ")");
+					} else {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Dehydrator):");
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						tdRight.append("span").attr("class", "price").text("-");
+					}
+					tooltipTr = tooltipTable.append("tr");
+					if (getArtisanType(d, "mill") != "None") {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "mill") + "):");
+
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						var priceSpan = tdRight.append("span").attr("class", "price");
+						priceSpan.append("span").text(getMillPrice(d));
+						priceSpan.append("div").attr("class", "gold");
+						if (getMultiCropUsage(d, 5) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 5) + ")");
+					} else {
+						tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Mill):");
+						var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
+						tdRight.append("span").attr("class", "price").text("-");
+					}
+					tooltipTr = tooltipTable.append("tr");
+					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Seeds):");
 					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 					var priceSpan = tdRight.append("span").attr("class", "price");
-					priceSpan.append("span").text(options.skills.arti ? Math.round((d.produce.price * 2 + 50) * 1.4) : d.produce.price * 2 + 50);
+					priceSpan.append("span").text(seedPrice);
 					priceSpan.append("div").attr("class", "gold");
-					if (getMultiCropUsage(d, 1) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 1) + ")");
-				} else {
-					tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Value (Jar):");
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					tdRight.append("span").attr("class", "price").text("-");
-				}
-				tooltipTr = tooltipTable.append("tr");
-				if (getArtisanType(d, "keg") != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "keg") + "):");
 
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					var priceSpan = tdRight.append("span").attr("class", "price");
-					priceSpan.append("span").text(Math.round(kegPrice));
-					priceSpan.append("div").attr("class", "gold");
-					if (getMultiCropUsage(d, 2) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 2) + ")");
-				}
-				else {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Keg):");
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					tdRight.append("span").attr("class", "price").text("-");
-				}
-				tooltipTr = tooltipTable.append("tr");
-				if (getArtisanType(d, "dehydrator") != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "dehydrator") + "):");
+					tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Other Details:");
+					tooltipTable = tooltip.append("table")
+						.attr("class", "tooltipTable")
+						.attr("cellspacing", 0);
 
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					var priceSpan = tdRight.append("span").attr("class", "price");
-					priceSpan.append("span").text(getDehydratorPrice(d));
-					priceSpan.append("div").attr("class", "gold");
-					if (getMultiCropUsage(d, 4) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 4) + ")");
-				} else {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Dehydrator):");
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					tdRight.append("span").attr("class", "price").text("-");
-				}
-				tooltipTr = tooltipTable.append("tr");
-				if (getArtisanType(d, "mill") != "None") {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (" + getArtisanType(d, "mill") + "):");
+					var first = true;
+					if (d.seeds.pierre > 0) {
+						appendTooltipGoldRow(tooltipTable, "tooltipTdLeftSpace", "tooltipTdRight", "Seeds (Pierre):", d.seeds.pierre);
+						first = false;
+					}
+					if (d.seeds.joja > 0) {
+						appendTooltipGoldRow(tooltipTable, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Joja):", d.seeds.joja);
+						first = false;
+					}
+					if (d.seeds.special > 0) {
+						appendTooltipGoldRow(tooltipTable, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Special):", d.seeds.special);
+						first = false;
+						appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "", d.seeds.specialLoc);
+					}
 
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					var priceSpan = tdRight.append("span").attr("class", "price");
-					priceSpan.append("span").text(getMillPrice(d));
-					priceSpan.append("div").attr("class", "gold");
-					if (getMultiCropUsage(d, 5) > 1) tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(d, 5) + ")");
-				} else {
-					tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Mill):");
-					var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-					tdRight.append("span").attr("class", "price").text("-");
-				}
-				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Seeds):");
-				var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
-				var priceSpan = tdRight.append("span").attr("class", "price");
-				priceSpan.append("span").text(seedPrice);
-				priceSpan.append("div").attr("class", "gold");
-
-				tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Other Details:");
-				tooltipTable = tooltip.append("table")
-					.attr("class", "tooltipTable")
-					.attr("cellspacing", 0);
-
-				var first = true;
-				if (d.seeds.pierre > 0) {
-					appendTooltipGoldRow(tooltipTable, "tooltipTdLeftSpace", "tooltipTdRight", "Seeds (Pierre):", d.seeds.pierre);
-					first = false;
-				}
-				if (d.seeds.joja > 0) {
-					appendTooltipGoldRow(tooltipTable, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Joja):", d.seeds.joja);
-					first = false;
-				}
-				if (d.seeds.special > 0) {
-					appendTooltipGoldRow(tooltipTable, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Special):", d.seeds.special);
-					first = false;
-					appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "", d.seeds.specialLoc);
-				}
-
-				appendTooltipRow(tooltipTable, "tooltipTdLeftSpace", "tooltipTdRight", "Time to grow:", initialGrow + " days");
-				appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Time to regrow:", d.growth.regrow > 0 ? d.growth.regrow + " days" : "N/A");
-				if (d.produce.extra > 0) {
-					appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Extra produce:", d.produce.extra);
-					appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Extra chance:", (d.produce.extraPerc * 100).toFixed(1) + "%");
-				}
-				if (d.produce.extraPerc > 0) {
-					appendTooltipRow(tooltipTable, "tooltipTdLeft", d.produce.extraProduced > 0 ? "tooltipTdRight" : "tooltipTdRightNeg", "Extra Produced:", d.produce.extraProduced);
+					appendTooltipRow(tooltipTable, "tooltipTdLeftSpace", "tooltipTdRight", "Time to grow:", initialGrow + " days");
+					appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Time to regrow:", d.growth.regrow > 0 ? d.growth.regrow + " days" : "N/A");
+					if (d.produce.extra > 0) {
+						appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Extra produce:", d.produce.extra);
+						appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Extra chance:", (d.produce.extraPerc * 100).toFixed(1) + "%");
+					}
+					if (d.produce.extraPerc > 0) {
+						appendTooltipRow(tooltipTable, "tooltipTdLeft", d.produce.extraProduced > 0 ? "tooltipTdRight" : "tooltipTdRightNeg", "Extra Produced:", d.produce.extraProduced);
+					}
 				}
 			}
 		})
-
 		.on("mousemove", function () {
 			tooltip.style("top", (d3.event.pageY - 16) + "px").style("left", (d3.event.pageX + 20) + "px");
 		})
@@ -1872,18 +1882,22 @@ function updateData() {
 	// mod support options
 	options.enableMods = el('enable_mods').checked;
 
+	var tr_check_vanillaID = el('tr_check_vanilla');
 	var tr_check_sveID = el('tr_check_sve');
 	var tr_check_cornucopiaID = el('tr_check_cornucopia');
 
 	if (options.enableMods == false) {
+		tr_check_vanillaID.classList.add('hidden');
 		tr_check_sveID.classList.add('hidden');
 		tr_check_cornucopiaID.classList.add('hidden');
 	}
 	else {
+		tr_check_vanillaID.classList.remove('hidden');
 		tr_check_sveID.classList.remove('hidden');
 		tr_check_cornucopiaID.classList.remove('hidden');
 	}
 
+	options.enableVanilla = el('check_vanilla').checked;
 	options.enableSVE = el('check_sve').checked;
 	options.enableCornucopia = el('check_cornucopia').checked;
 
@@ -2045,6 +2059,9 @@ function optionsLoad() {
 	// mod support options
 	options.enableMods = validBoolean(options.enableMods);
 	el('enable_mods').checked = options.enableMods;
+
+	options.enableVanilla = validBoolean(options.enableVanilla);
+	el('check_vanilla').checked = options.enableVanilla;
 
 	options.enableSVE = validBoolean(options.enableSVE);
 	el('check_sve').checked = options.enableSVE;
