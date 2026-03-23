@@ -39,17 +39,63 @@ var options = {
 
 var artisanMachines = {
 	jar: {
-		Vegetable: "Pickles",
-		Fruit: "Jelly"
+		label: "Jar",
+		produce: 1,
+		baseUses: 1,
+		types: {
+			Vegetable: "Pickles",
+			Fruit: "Jelly"
+		},
+		price: {
+			mode: "multiplierPlusFlat",
+			multiplier: 2,
+			flat: 50
+		},
+		mod: "Vanilla"
 	},
 	keg: {
-		Vegetable: "Juice",
-		Fruit: "Wine"
+		label: "Keg",
+		produce: 2,
+		baseUses: 1,
+		types: {
+			Vegetable: "Juice",
+			Fruit: "Wine"
+		},
+		typePrice: {
+			Juice: {
+				mode: "multiplier",
+				multiplier: 2.25
+			},
+			Wine: {
+				mode: "multiplier",
+				multiplier: 3
+			}
+		},
+		mod: "Vanilla"
 	},
 	dehydrator: {
-		Fruit: "Dried Fruit"
+		label: "Dehydrator",
+		produce: 4,
+		baseUses: 5,
+		types: {
+			Fruit: "Dried Fruit"
+		},
+		typePrice: {
+			"Dried Fruit": {
+				mode: "multiplierPlusFlat",
+				multiplier: 7.5,
+				flat: 25
+			}
+		},
+		mod: "Vanilla"
 	},
 	mill: {
+		label: "Mill",
+		produce: 5,
+		baseUses: 1,
+		types: {
+		},
+		mod: "Vanilla"
 	}
 };
 
@@ -120,7 +166,7 @@ var seasons = [
 			crops.blue_jazz,
 			crops.tulip,
 			crops.ancient_fruit,
-			crops.spring_seeds,
+			// crops.spring_seeds,
 			crops.carrot,
 			crops.fiber,
 			// SVE
@@ -161,7 +207,7 @@ var seasons = [
 			crops.sunflower,
 			crops.ancient_fruit,
 			crops.taro_root,
-			crops.summer_seeds,
+			// crops.summer_seeds,
 			crops.summer_squash,
 			crops.fiber,
 			// SVE
@@ -201,7 +247,7 @@ var seasons = [
 			crops.wheat,
 			crops.corn,
 			crops.ancient_fruit,
-			crops.fall_seeds,
+			// crops.fall_seeds,
 			crops.broccoli,
 			crops.fiber,
 			// SVE
@@ -220,7 +266,7 @@ var seasons = [
 		"name": "Winter",
 		"duration": 28,
 		"crops": [
-			crops.winter_seeds,
+			// crops.winter_seeds,
 			crops.powdermelon,
 			crops.fiber,
 			// SVE
