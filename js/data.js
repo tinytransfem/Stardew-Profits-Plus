@@ -1,6 +1,6 @@
 // Options used to draw the graph.
 var options = {
-	"produce": 0,
+	"machine": "raw",
 	"equipment": 0,
 	"sellRaw": false,
 	"sellExcess": false,
@@ -40,33 +40,38 @@ var options = {
 var artisanMachines = {
 	jar: {
 		label: "Jar",
-		produce: 1,
 		baseUses: 1,
 		types: {
 			Vegetable: "Pickles",
 			Fruit: "Jelly"
 		},
-		price: {
-			mode: "multiplierPlusFlat",
-			multiplier: 2,
-			flat: 50
+		typePrice: {
+			"Pickles": {
+				mode: "multiplierPlusFlat",
+				multiplier: 2,
+				flat: 50
+			},
+			"Jelly": {
+				mode: "multiplierPlusFlat",
+				multiplier: 2,
+				flat: 50
+			}
 		},
 		mod: "Vanilla"
 	},
 	keg: {
 		label: "Keg",
-		produce: 2,
 		baseUses: 1,
 		types: {
 			Vegetable: "Juice",
 			Fruit: "Wine"
 		},
 		typePrice: {
-			Juice: {
+			"Juice": {
 				mode: "multiplier",
 				multiplier: 2.25
 			},
-			Wine: {
+			"Wine": {
 				mode: "multiplier",
 				multiplier: 3
 			}
@@ -75,7 +80,6 @@ var artisanMachines = {
 	},
 	dehydrator: {
 		label: "Dehydrator",
-		produce: 4,
 		baseUses: 5,
 		types: {
 			Fruit: "Dried Fruit"
@@ -91,7 +95,6 @@ var artisanMachines = {
 	},
 	mill: {
 		label: "Mill",
-		produce: 5,
 		baseUses: 1,
 		types: {
 		},

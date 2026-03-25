@@ -274,6 +274,10 @@ function convertToSeeds(crop, num_planted, isTea, isCoffee) {
  * @return The product type.
  */
 function getArtisanType(crop, machine) {
+	if (machine == "raw" || machine == "seeds") {
+		return null;
+	}
+	
 	var overrideField = machine + "Override";
 
 	if (crop.produce[overrideField] != null) {
@@ -289,58 +293,45 @@ function getArtisanType(crop, machine) {
 	return "None";
 }
 
+/*
+ * Calculates the price for the crop and machine.
+ * @param crop The crop object, containing all the crop data.
+ * @param machine The machine type.
+ * @return The price.
+ */
 function getArtisanPrice(crop, machine) {
-	switch (machine) {
-		case "jar":
-			return options.skills.arti ? Math.round((crop.produce.price * 2 + 50) * 1.4) : crop.produce.price * 2 + 50;
-		case "keg":
-			return Math.round(getKegPrice(crop));
-		case "dehydrator":
-			return getDehydratorPrice(crop);
-		case "mill":
-			return getMillPrice(crop);
-		default:
-			return 0;
-	}
-}
+	var priceField = machine + "Price";
+	var artisanType = getArtisanType(crop, machine);
+	var machineData = artisanMachines[machine];
+	var basePrice = 0;
 
-function getArtisanMachineKey(produce) {
-	for (var machine in artisanMachines) {
-		if (artisanMachines[machine].produce == produce) {
-			return machine;
+	if (crop.produce[priceField] != null) {
+		basePrice = crop.produce[priceField];
+	}
+	else if (artisanType != "None" && machineData.typePrice != null && machineData.typePrice[artisanType] != null) {
+		var priceData = machineData.typePrice[artisanType];
+
+		switch (priceData.mode) {
+			case "multiplier":
+				basePrice = crop.produce.price * priceData.multiplier;
+				break;
+			case "multiplierPlusFlat":
+				basePrice = crop.produce.price * priceData.multiplier + priceData.flat;
+				break;
+			default:
+				basePrice = 0;
 		}
 	}
-	return null;
-}
 
-/*
- * Calculates the keg modifier for the kegType.
- * @param crop The crop object, containing all the crop data.
- * @return The keg modifier.
- */
-function getKegModifier(crop) {
-	switch (getArtisanType(crop, "keg")) {
-		case "Juice":
-			return 2.25;
-		case "Wine":
-			return 3;
-		default:
-			return 1;
+	if (artisanType == "Wine") {
+		basePrice *= getCaskModifier();
 	}
-}
 
-/*
- * Calculates the keg price for the crop.
- * @param crop The crop object, containing all the crop data.
- * @return The keg price.
- */
-function getKegPrice(crop) {
-	if (crop.produce.kegPrice != null) {
-		return getArtisanType(crop, "keg") == "Coffee" ? crop.produce.kegPrice : crop.produce.kegPrice * getCaskModifier();
-	} else if (getArtisanType(crop, "keg") != "None") {
-		return crop.produce.price * getKegModifier(crop) * getCaskModifier();
+	if (artisanType != "Coffee" && options.skills.arti) {
+		basePrice *= 1.4;
 	}
-	else return 0;
+
+	return Math.round(basePrice);
 }
 
 /*
@@ -350,40 +341,11 @@ function getKegPrice(crop) {
  */
 function getCaskModifier() {
 	switch (options.aging) {
-		case 1: return options.skills.arti ? 1.75 : 1.25;
-		case 2: return options.skills.arti ? 2.145 : 1.5;
-		case 3: return options.skills.arti ? 2.8 : 2;
-		default: return options.skills.arti ? 1.4 : 1;
+		case 1: return 1.25;
+		case 2: return 1.5;
+		case 3: return 2;
+		default: return 1;
 	}
-}
-
-/*
- * Calculates the keg price for the crop.
- * @param crop The crop object, containing all the crop data.
- * @return The keg price.
- */
-function getDehydratorPrice(crop) {
-	if (crop.produce.dehydratorPrice != null) {
-		return options.skills.arti ? crop.produce.dehydratorPrice * 1.4 : crop.produce.dehydratorPrice;
-	}
-	else switch (getArtisanType(crop, "dehydrator")) {
-		case "Dried Fruit":
-			return options.skills.arti ? (crop.produce.price * 7.5 + 25) * 1.4 : crop.produce.price * 7.5 + 25;
-		default:
-			return 0;
-	}
-}
-
-/*
- * Calculates the mill modifier for 3 crops.
- * @param crop The crop object, containing all the crop data.
- * @return The mill modifier.
- */
-function getMillPrice(crop) {
-	if (crop.produce.millPrice != null) {
-		return crop.produce.millPrice;
-	}
-	else return 0;
 }
 
 /*
@@ -391,19 +353,9 @@ function getMillPrice(crop) {
  * @param crop The crop object, containing all the crop data.
  * @return The number of crops used.
  */
-function getMultiCropUsage(crop, produce) {
-	switch (produce) {
-		case 1:
-			return crop.produce.jarUses != null ? crop.produce.jarUses : 1;
-		case 2:
-			return crop.produce.kegUses != null ? crop.produce.kegUses : 1;
-		case 4:
-			return crop.produce.dehydratorUses != null ? crop.produce.dehydratorUses : 5;
-		case 5:
-			return crop.produce.millUses != null ? crop.produce.millUses : 1;
-		default:
-			return 1;
-	}
+function getMultiCropUsage(crop, machine) {
+	var useField = machine + "Uses";
+	return crop.produce[useField] != null ? crop.produce[useField] : artisanMachines[machine].baseUses;
 }
 
 function appendProduceSoldRows(table, tooltipTr, crop, machine) {
@@ -508,8 +460,8 @@ function appendArtisanValueRow(table, crop, machine, leftClass) {
 		priceSpan.append("span").text(getArtisanPrice(crop, machine));
 		priceSpan.append("div").attr("class", "gold");
 
-		if (getMultiCropUsage(crop, artisanMachines[machine].produce) > 1)
-			tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(crop, artisanMachines[machine].produce) + ")");
+		if (getMultiCropUsage(crop, machine) > 1)
+			tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(crop, machine) + ")");
 	} else {
 		tooltipTr.append("td").attr("class", leftClass).text("Value (" + artisanMachines[machine].label + "):");
 
@@ -559,7 +511,7 @@ function profit(crop) {
 	profitData = {}
 	var num_planted = planted(crop);
 	var fertilizer = fertilizers[options.fertilizer];
-	var produce = options.produce;
+	var machine = options.machine;
 	var isTea = crop.name == "Tea Leaves";
 	var isCoffee = crop.name == "Coffee Bean";
 
@@ -581,21 +533,7 @@ function profit(crop) {
 
 	//Skip calculations for crops with no artisan goods
 	var userawproduce = false;
-
-	switch (produce) {
-		case 1:
-			if (getArtisanType(crop, "jar") == "None") userawproduce = true;
-			break;
-		case 2:
-			if (getArtisanType(crop, "keg") == "None") userawproduce = true;
-			break;
-		case 4:
-			if (getArtisanType(crop, "dehydrator") == "None") userawproduce = true;
-			break;
-		case 5:
-			if (getArtisanType(crop, "mill") == "None") userawproduce = true;
-			break;
-	}
+	if (getArtisanType(crop, machine) == "None") userawproduce = true;
 
 	//Determine how many produce will be used for seeds.
 	var forSeeds = convertToSeeds(crop, num_planted, isTea, isCoffee)
@@ -618,16 +556,7 @@ function profit(crop) {
 	}
 
 	// Determine income
-	/*
-	* 	Produce Types:
-	*	0 = Raw
-	*	1 = Jar
-	*	2 = Keg
-	*	3 = Seeds
-	*	4 = Dehydrator
-	*	5 = Mill
-	*/
-	if (produce != 3 && produce != 5 || userawproduce) {
+	if ((machine != "seeds" && machine != "mill") || userawproduce) {
 		if (userawproduce && !options.sellRaw) {
 			netIncome = 0;
 		} else {
@@ -652,7 +581,7 @@ function profit(crop) {
 			var [countRegular, countSilver, countGold, countIridium] = removeCropQuality(forSeeds, countRegular, countSilver, countGold, countIridium)
 
 
-			if (produce == 0 || userawproduce) {
+			if (machine == "raw" || userawproduce) {
 
 				netIncome += rawNetIncome(crop, countRegular, countSilver, countGold, countIridium);
 
@@ -662,16 +591,16 @@ function profit(crop) {
 				crop.produce.iridium = countIridium
 				profitData.quantitySold = Math.floor(total_crops - forSeeds);
 			}
-			else if (produce == 1 || produce == 2 || produce == 4) {
+			else if (machine == "jar" || machine == "keg" || machine == "dehydrator") {
 
 				var usableCrops = 0;
 				var usableCropsByHarvest = [];
-				var cropsPerItem = getMultiCropUsage(crop, options.produce);
+				var cropsPerItem = getMultiCropUsage(crop, machine);
 				var itemsMade = 0;
 				var cropsLeft = 0;
 
 				//extra isn't being accounted for by harvest
-				if (produce != 4 || options.byHarvest) {
+				if (machine != "dehydrator" || options.byHarvest) {
 					if (options.predictionModel && crop.produce.extra > 0) {
 						if (extra.extraByHarvest.length > 0) {
 							for (i in extra.extraByHarvest) {
@@ -698,14 +627,14 @@ function profit(crop) {
 						cropsLeft += Math.floor(usableCropsByHarvest[i] % cropsPerItem);
 					}
 				} else {
-					if (produce == 1 || produce == 2) {
+					if (machine == "jar" || machine == "keg") {
 						usableCrops *= crop.harvests;
 					}
 					itemsMade = Math.floor(usableCrops / cropsPerItem);
 					cropsLeft = Math.floor(usableCrops % cropsPerItem);
 				}
 
-				if (produce == 4 && options.equipment > 0 && options.byHarvest) {
+				if (machine == "dehydrator" && options.equipment > 0 && options.byHarvest) {
 					if (options.predictionModel && usableCropsByHarvest.length > 0) {
 						itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops / cropsPerItem))
 						cropsLeft = total_crops - (itemsMade * cropsPerItem);
@@ -716,7 +645,7 @@ function profit(crop) {
 					}
 				}
 
-				if (produce == 4 && options.byHarvest) {
+				if (machine == "dehydrator" && options.byHarvest) {
 					if (usableCropsByHarvest.length == 0) {
 						cropsLeft *= crop.harvests;
 						itemsMade *= crop.harvests;
@@ -730,7 +659,7 @@ function profit(crop) {
 				}
 
 				if (options.equipment > 0) {
-					if (produce == 1 || produce == 2) {
+					if (machine == "jar" || machine == "keg") {
 						if (options.predictionModel && usableCropsByHarvest.length > 0) {
 							itemsMade = Math.min(options.equipment * crop.harvests, Math.floor(total_crops / cropsPerItem));
 							cropsLeft = total_crops - itemsMade * cropsPerItem;
@@ -740,14 +669,14 @@ function profit(crop) {
 							itemsMade = Math.min(options.equipment, itemsMade) * crop.harvests;
 						}
 					}
-					if (produce == 4 && !options.byHarvest) {
+					if (machine == "dehydrator" && !options.byHarvest) {
 						cropsLeft += Math.max(0, itemsMade - options.equipment) * cropsPerItem;
 						itemsMade = Math.min(options.equipment, itemsMade);
 					}
 				}
 
 				if (options.nextyear) {
-					if (produce == 1 || produce == 2) {
+					if (machine == "jar" || machine == "keg") {
 						cropsLeft += num_planted * 0.5;
 						itemsMade = Math.max(0, itemsMade - num_planted * 0.5);
 					}
@@ -764,15 +693,7 @@ function profit(crop) {
 					crop.produce.iridium = Math.round((countIridium + Number.EPSILON) * 100) / 100;
 				}
 
-				if (options.produce == 1) {
-					netIncome += itemsMade * (options.skills.arti ? (crop.produce.price * 2 + 50) * 1.4 : crop.produce.price * 2 + 50);
-				}
-				else if (options.produce == 2) {
-					netIncome += itemsMade * getKegPrice(crop);
-				}
-				else if (options.produce == 4) {
-					netIncome += itemsMade * getDehydratorPrice(crop);
-				}
+				netIncome += itemsMade * getArtisanPrice(crop, machine);
 
 				profitData.quantitySold = itemsMade;
 				profitData.excessProduce = cropsLeft;
@@ -780,14 +701,14 @@ function profit(crop) {
 		}
 
 	}
-	else if (produce == 3) {
+	else if (machine == "seeds" && !isCoffee) {
 		var items = total_crops - forSeeds;
 		netIncome += 2 * items * crop.seeds.sell;
 		profitData.quantitySold = Math.floor(2 * items);
 	}
-	else if (produce == 5) {
+	else if (machine == "mill") {
 		var items = total_crops - forSeeds;
-		netIncome += getMillPrice(crop) * items;
+		netIncome += items * getArtisanPrice(crop, machine);
 		profitData.quantitySold = items;
 	}
 
@@ -903,9 +824,9 @@ function fetchCrops() {
 
 	if (options.fruit) {
 		for (var i = 0; i < season.fruit.length; i++) {
-			if (((season.crops[i].mod == "vanilla" || season.crops[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
-				(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
-				(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
+			if (((season.fruit[i].mod == "vanilla" || season.fruit[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
+				(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
+				(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
 
 				if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
 					(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
@@ -1292,11 +1213,11 @@ function renderGraph() {
 			//Ineligible crops are sold raw.
 			tooltipTr = tooltipTable.append("tr");
 			tooltipTr.append("td").attr("class", "tooltipTdLeftSpace").text("Produce sold:");
-			var machine = getArtisanMachineKey(options.produce);
+			var machine = options.machine;
 
-			switch (options.produce) {
+			switch (machine) {
 
-				case 0:
+				case "raw":
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("Raw crops");
 
 					tooltipTr = tooltipTable.append("tr");
@@ -1309,15 +1230,14 @@ function renderGraph() {
 
 					break;
 
-
-				case 1:
-				case 2:
-				case 4:
+				case "jar":
+				case "keg":
+				case "dehydrator":
+				case "mill":
 					appendProduceSoldRows(tooltipTable, tooltipTr, d, machine);
 					break;
 
-
-				case 3:
+				case "seeds":
 					tooltipTr.append("td").attr("class", "tooltipTdRight").text("Seeds");
 
 					tooltipTr = tooltipTable.append("tr");
@@ -1328,11 +1248,6 @@ function renderGraph() {
 					else
 						tooltipTr.append("td").attr("class", "tooltipTdRightNeg").text(d.profitData.quantitySold);
 
-					break;
-
-
-				case 5:
-					appendProduceSoldRows(tooltipTable, tooltipTr, d, "mill");
 					break;
 			}
 			appendTooltipRow(tooltipTable, "tooltipTdLeft", "tooltipTdRight", "Duration:", options.days + " days");
@@ -1625,7 +1540,7 @@ function updateData() {
 	options.season = parseInt(el('select_season').value);
 	const isGreenhouse = options.season == 4;
 
-	options.produce = parseInt(el('select_produce').value);
+	options.machine = el('select_machine').value;
 
 	var tr_equipmentID = el('tr_equipment');
 	var tr_check_sellRawID = el('tr_check_sellRaw');
@@ -1633,19 +1548,19 @@ function updateData() {
 	var tr_check_byHarvestID = el('tr_check_byHarvest');
 	var tr_select_agingID = el('tr_select_aging');
 
-	if (options.produce == 0 || options.produce == 3 || options.produce == 5) {
+	if (options.machine == "raw" || options.machine == "seeds" || options.machine == "mill") {
 		tr_equipmentID.classList.add('hidden');
 		tr_check_sellRawID.classList.add('hidden');
 		tr_check_sellExcessID.classList.add('hidden');
 		tr_check_byHarvestID.classList.add('hidden');
 		tr_select_agingID.classList.add('hidden');
 	}
-	else if (options.produce == 1 || options.produce == 2) {
+	else if (options.machine == "jar" || options.machine == "keg") {
 		tr_equipmentID.classList.remove('hidden');
 		tr_check_sellRawID.classList.remove('hidden');
 		tr_check_sellExcessID.classList.remove('hidden');
 		tr_check_byHarvestID.classList.add('hidden');
-		if (options.produce == 2) {
+		if (options.machine == "keg") {
 			tr_select_agingID.classList.remove('hidden');
 		} else {
 			tr_select_agingID.classList.add('hidden');
@@ -1662,7 +1577,7 @@ function updateData() {
 	options.sellExcess = el('check_sellExcess').checked;
 	options.byHarvest = el('check_byHarvest').checked;
 
-	if (options.produce == 0 || options.produce == 3 || options.produce == 5) {
+	if (options.machine == "raw" || options.machine == "seeds" || options.machine == "mill") {
 		el('equipment').disabled = true;
 		el('equipment').style.cursor = "default";
 
@@ -1683,7 +1598,7 @@ function updateData() {
 		el('equipment').value = 0;
 	options.equipment = parseInt(el('equipment').value);
 
-	if (options.produce == 2) {
+	if (options.machine == "keg") {
 		el('select_aging').disabled = false;
 		el('select_aging').style.cursor = "pointer";
 	}
@@ -1924,11 +1839,22 @@ function optionsLoad() {
 		return num < min ? min : num > max ? max : parseInt(num, 10);
 	}
 
+	function validMachine(machine) {
+
+		var valid = ["raw", "seeds"];
+
+		for (var key in artisanMachines) {
+			valid.push(key);
+		}
+
+		return valid.includes(machine) ? machine : "raw";
+	}
+
 	options.season = validIntRange(0, 4, options.season);
 	el('select_season').value = options.season;
 
-	options.produce = validIntRange(0, 5, options.produce);
-	el('select_produce').value = options.produce;
+	options.machine = validMachine(options.machine);
+	el('select_machine').value = options.machine;
 
 	options.equipment = validIntRange(0, MAX_INT, options.equipment);
 	el('equipment').value = options.equipment;
@@ -2055,28 +1981,11 @@ function optionsLoad() {
 }
 
 function deserialize(str) {
-	var json = `(${str})`
-		.replace(/_/g, ' ')
-		.replace(/-/g, ',')
-		.replace(/\(/g, '{')
-		.replace(/\)/g, '}')
-		.replace(/([a-z]+)/gi, '"$1":')
-		.replace(/"(true|false)":/gi, '$1');
-
-	// console.log(json);
-
-	return JSON.parse(json);
+	return JSON.parse(decodeURIComponent(str));
 }
 
 function serialize(obj) {
-
-	return Object.keys(obj)
-		.reduce((acc, key) => {
-			return /^(?:true|false|\d+)$/i.test('' + obj[key])
-				? `${acc}-${key}_${obj[key]}`
-				: `${acc}-${key}_(${serialize(obj[key])})`;
-		}, '')
-		.slice(1);
+	return JSON.stringify(obj);
 }
 
 /*
