@@ -74,10 +74,6 @@
 				<tr>
 					<td colspan="2" class="sub">
 						<table cellspacing="2" class="subt">
-							<tr id="tr_equipment">
-								<td>Equipment:</td>
-								<td><input type="number" id="equipment" value="0" onChange="refresh()" /></td>
-							</tr>
 							<tr id="tr_check_sellRaw">
 								<td>No Artisan Good:</td>
 								<td><input type="checkbox" id="check_sellRaw" onChange="refresh()" /> Sell Raw<br />
@@ -87,10 +83,6 @@
 								<td>Excess:</td>
 								<td><input type="checkbox" id="check_sellExcess" onChange="refresh()" /> Sell Raw<br />
 								</td>
-							</tr>
-							<tr id="tr_check_byHarvest">
-								<td>By Harvest:</td>
-								<td><input type="checkbox" id="check_byHarvest" onChange="refresh()" /><br /></td>
 							</tr>
 							<tr id="tr_select_aging">
 								<td>Aging:</td>
@@ -299,13 +291,6 @@
 			<tr>
 				<td>Disable Crop Links:</td>
 				<td><input type="checkbox" id="disable_links" onChange="refresh()" /></td>
-			</tr>
-
-			<tr>
-				<td>Use Prediction Model:</td>
-				<td><input type="checkbox" id="predictionModel" onChange="refresh()" />
-					<button type="button" onClick="refresh()">Recalculate</button>
-				</td>
 			</tr>
 
 			<tr>

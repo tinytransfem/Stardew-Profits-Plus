@@ -359,7 +359,8 @@ var seasons = [
 			crops.sweet_potato,
 			crops.winter_seeds,
 			crops.powdermelon,
-			crops.void_root
+			crops.void_root,
+			crops.cactus_fruit
 		],
 		"fruit": [
 			crops.apricot,
