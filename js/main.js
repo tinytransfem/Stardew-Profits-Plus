@@ -277,7 +277,7 @@ function getArtisanType(crop, machine) {
 	if (machine == "raw" || machine == "seeds") {
 		return null;
 	}
-	
+
 	var overrideField = machine + "Override";
 
 	if (crop.produce[overrideField] != null) {
@@ -346,6 +346,70 @@ function getCaskModifier() {
 		case 3: return 2;
 		default: return 1;
 	}
+}
+
+function isMachineEnabled(machineKey) {
+	if (!(machineKey in artisanMachines)) {
+		return false;
+	}
+
+	var mod = artisanMachines[machineKey].mod;
+
+	if (mod == null || mod == "Vanilla") {
+		return true;
+	}
+
+	if (mod == "Cornucopia - Artisan Machines") {
+		return options.enableCornucopiaMachines;
+	}
+
+	return false;
+}
+
+function rebuildMachineSelector() {
+	var select = el("select_machine");
+	var currentValue = select.value;
+	var enabledMachineKeys = getEnabledMachineKeys();
+
+	select.innerHTML = "";
+
+	function addOption(value, label) {
+		var option = document.createElement("option");
+		option.value = value;
+		option.textContent = label;
+		select.appendChild(option);
+	}
+
+	addOption("raw", "Raw");
+
+	for (var i = 0; i < enabledMachineKeys.length; i++) {
+		var key = enabledMachineKeys[i];
+		addOption(key, artisanMachines[key].label);
+	}
+
+	addOption("seeds", "Seeds");
+
+	if (
+		currentValue == "raw" ||
+		currentValue == "seeds" ||
+		enabledMachineKeys.includes(currentValue)
+	) {
+		select.value = currentValue;
+	} else {
+		select.value = "raw";
+	}
+}
+
+function getEnabledMachineKeys() {
+	var keys = [];
+
+	for (var key in artisanMachines) {
+		if (isMachineEnabled(key)) {
+			keys.push(key);
+		}
+	}
+
+	return keys;
 }
 
 /*
@@ -1316,7 +1380,7 @@ function renderGraph() {
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
 
-				var machineKeys = Object.keys(artisanMachines);
+				var machineKeys = getEnabledMachineKeys();
 
 				for (var i = 0; i < machineKeys.length; i++) {
 					appendArtisanValueRow(
@@ -1797,6 +1861,9 @@ function updateData() {
 	options.enableCornucopia = el('check_cornucopia').checked;
 	options.enableCornucopiaMachines = el('check_cornucopia_machines').checked;
 
+	rebuildMachineSelector();
+	options.machine = el('select_machine').value;
+
 	// Persist the options object into the URL hash.
 	window.location.hash = encodeURIComponent(serialize(options));
 
@@ -1840,11 +1907,11 @@ function optionsLoad() {
 	}
 
 	function validMachine(machine) {
-
 		var valid = ["raw", "seeds"];
+		var enabledMachineKeys = getEnabledMachineKeys();
 
-		for (var key in artisanMachines) {
-			valid.push(key);
+		for (var i = 0; i < enabledMachineKeys.length; i++) {
+			valid.push(enabledMachineKeys[i]);
 		}
 
 		return valid.includes(machine) ? machine : "raw";
@@ -1852,9 +1919,6 @@ function optionsLoad() {
 
 	options.season = validIntRange(0, 4, options.season);
 	el('select_season').value = options.season;
-
-	options.machine = validMachine(options.machine);
-	el('select_machine').value = options.machine;
 
 	options.equipment = validIntRange(0, MAX_INT, options.equipment);
 	el('equipment').value = options.equipment;
@@ -1978,6 +2042,10 @@ function optionsLoad() {
 
 	options.enableCornucopiaMachines = validBoolean(options.enableCornucopiaMachines);
 	el('check_cornucopia_machines').checked = options.enableCornucopiaMachines;
+
+	rebuildMachineSelector();
+	options.machine = validMachine(options.machine);
+	el('select_machine').value = options.machine;
 }
 
 function deserialize(str) {

@@ -99,6 +99,21 @@ var artisanMachines = {
 		types: {
 		},
 		mod: "Vanilla"
+	},
+	juicer: {
+		label: "Juicer",
+		baseUses: 1,
+		types: {
+			Fruit: "Juice",
+			Vegetable: "Juice"
+		},
+		typePrice: {
+			"Juice": {
+				mode: "multiplier",
+				multiplier: 2.25
+			}
+		},
+		mod: "Cornucopia - Artisan Machines"
 	}
 };
 
