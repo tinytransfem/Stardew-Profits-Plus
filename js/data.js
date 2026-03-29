@@ -18,6 +18,8 @@ var options = {
 	"average": false,
 	"fertilizer": 2,
 	"fertilizerSource": 0,
+	"crossSeason": false,
+	"fruit": false,
 	"seeds": {
 		"pierre": true,
 		"joja": true,
@@ -34,86 +36,558 @@ var options = {
 	"foodLevel": 0,
 	"extra": false,
 	"disableLinks": false,
-	"enableMods": false
+	"enableMods": false,
+	"enableVanilla": true,
+	"enableSVE": false,
+	"enableCornucopia": false,
+	"enableCornucopiaMachines": false
 };
 
-var artisanMachines = {
-	jar: {
-		label: "Jar",
-		baseUses: 1,
-		types: {
-			Vegetable: "Pickles",
-			Fruit: "Jelly"
-		},
-		typePrice: {
-			"Pickles": {
-				mode: "multiplierPlusFlat",
-				multiplier: 2,
-				flat: 50
+var artisanMachineSources = {
+
+	vanilla: {
+		jar: {
+			label: "Preserves Jar",
+			baseUses: 1,
+			types: {
+				Vegetable: "Pickles",
+				Fruit: "Jelly",
+				"Coffee Bean": "None"
 			},
-			"Jelly": {
-				mode: "multiplierPlusFlat",
-				multiplier: 2,
-				flat: 50
+			typePrice: {
+				"Pickles": {
+					mode: "multiplierPlusFlat",
+					multiplier: 2,
+					flat: 50
+				},
+				"Jelly": {
+					mode: "multiplierPlusFlat",
+					multiplier: 2,
+					flat: 50
+				}
 			}
 		},
-		mod: "Vanilla"
-	},
-	keg: {
-		label: "Keg",
-		baseUses: 1,
-		types: {
-			Vegetable: "Juice",
-			Fruit: "Wine"
-		},
-		typePrice: {
-			"Juice": {
-				mode: "multiplier",
-				multiplier: 2.25
+		keg: {
+			label: "Keg",
+			baseUses: 1,
+			types: {
+				Vegetable: "Juice",
+				Fruit: "Wine",
+				"Coffee Bean": "Coffee",
+				"Hops": "Pale Ale",
+				"Tea Leaves": "Tea",
+				"Wheat": "Beer"
 			},
-			"Wine": {
-				mode: "multiplier",
-				multiplier: 3
+			typePrice: {
+				"Juice": {
+					mode: "multiplier",
+					multiplier: 2.25
+				},
+				"Wine": {
+					mode: "multiplier",
+					multiplier: 3,
+					aging: true
+				},
+				"Coffee": {
+					mode: "flat",
+					flat: 150,
+					uses: 5
+				},
+				"Pale Ale": {
+					mode: "flat",
+					flat: 300,
+					aging: true
+				},
+				"Tea": {
+					mode: "flat",
+					flat: 100
+				},
+				"Beer": {
+					mode: "flat",
+					flat: 200,
+					aging: true
+				}
 			}
 		},
-		mod: "Vanilla"
-	},
-	dehydrator: {
-		label: "Dehydrator",
-		baseUses: 5,
-		types: {
-			Fruit: "Dried Fruit"
-		},
-		typePrice: {
-			"Dried Fruit": {
-				mode: "multiplierPlusFlat",
-				multiplier: 7.5,
-				flat: 25
+		dehydrator: {
+			label: "Dehydrator",
+			baseUses: 5,
+			types: {
+				Fruit: "Dried Fruit",
+				"Grape": "Raisins"
+			},
+			typePrice: {
+				"Dried Fruit": {
+					mode: "multiplierPlusFlat",
+					multiplier: 7.5,
+					flat: 25
+				},
+				"Raisins": {
+					mode: "flat",
+					flat: 600
+				}
 			}
 		},
-		mod: "Vanilla"
+		mill: {
+			label: "Mill",
+			baseUses: 1,
+			types: {
+				"Beet": "Sugar",
+				"Unmilled Rice": "Rice",
+				"Wheat": "Wheat Flour"
+			},
+			typePrice: {
+				"Sugar": {
+					mode: "flat",
+					flat: 150
+				},
+				"Rice": {
+					mode: "flat",
+					flat: 100
+				},
+				"Wheat Flour": {
+					mode: "flat",
+					flat: 50
+				}
+			}
+		}
 	},
-	mill: {
-		label: "Mill",
-		baseUses: 1,
-		types: {
-		},
-		mod: "Vanilla"
-	},
-	juicer: {
-		label: "Juicer",
-		baseUses: 1,
-		types: {
-			Fruit: "Juice",
-			Vegetable: "Juice"
-		},
-		typePrice: {
-			"Juice": {
-				mode: "multiplier",
-				multiplier: 2.25
+
+	cornucopia: {
+		alembic: {
+			label: "Alembic",
+			baseUses: 5,
+			types: {
+				Fruit: "Essential Oil",
+				Vegetable: "Essential Oil",
+				Flower: "Essential Oil",
+				Herb: "Essential Oil",
+				Spice: "Essential Oil",
+				Nut: "Essential Oil"
+			},
+			typePrice: {
+				"Essential Oil": {
+					mode: "multiplier",
+					multiplier: 7.5
+				}
 			}
 		},
-		mod: "Cornucopia - Artisan Machines"
+		butterChurn: {
+			label: "Butter Churn",
+			baseUses: 1,
+			types: {
+				Nut: "Nut Butter",
+				"Cocoa Pod": "Cocoa Butter",
+				"Coconut": "Coconut Butter",
+				"Peanut": "Peanut Butter",
+				"Oats": "Oat Butter",
+				"Soybeans": "Soy Butter",
+				"Sunflower": "Sunflower Butter"
+			},
+			typePrice: {
+				"Nut Butter": {
+					mode: "multiplier",
+					multiplier: 1.5
+				},
+				"Cocoa Butter": {
+					mode: "flat",
+					flat: 250
+				},
+				"Coconut Butter": {
+					mode: "flat",
+					flat: 250
+				},
+				"Peanut Butter": {
+					mode: "flat",
+					flat: 200
+				},
+				"Oat Butter": {
+					mode: "multiplier",
+					multiplier: 1.5,
+					uses: 2
+				},
+				"Soy Butter": {
+					mode: "multiplier",
+					multiplier: 1.5,
+					uses: 2
+				},
+				"Sunflower Butter": {
+					mode: "multiplier",
+					multiplier: 1.5
+				}
+			}
+		},
+		cheesePress: {
+			label: "Cheese Press",
+			baseUses: 1,
+			types: {
+				"Mung Beans": "Eggless Egg",
+				"Soybeans": "Tofu"
+			},
+			typePrice: {
+				"Eggless Egg": {
+					mode: "flat",
+					flat: 50
+				},
+				"Tofu": {
+					mode: "flat",
+					flat: 280,
+					uses: 2
+				}
+			}
+		},
+		compactMill: {
+			label: "Compact Mill",
+			baseUses: 1,
+			types: {
+				"Aloe": "Aloe Gel",
+				"Apple": "Applesauce",
+				"Hot Pepper": "Chili Powder",
+				"Habanero": "Chili Powder",
+				"Jalapeño": "Chili Powder",
+				"Lemon": "Lemon Zest",
+				"Lime": "Lime Zest",
+				"Soybeans": "Miso Paste",
+				"Orange": "Orange Zest",
+				"Bell Pepper": "Paprika",
+				"Peppercorn": "Pepper"
+			},
+			typePrice: {
+				"Aloe Gel": {
+					mode: "flat",
+					flat: 150
+				},
+				"Applesauce": {
+					mode: "flat",
+					flat: 250
+				},
+				"Chili Powder": {
+					mode: "flat",
+					flat: 150
+				},
+				"Lemon Zest": {
+					mode: "flat",
+					flat: 100
+				},
+				"Lime Zest": {
+					mode: "flat",
+					flat: 100
+				},
+				"Miso Paste": {
+					mode: "flat",
+					flat: 300
+				},
+				"Orange Zest": {
+					mode: "flat",
+					flat: 150
+				},
+				"Paprika": {
+					mode: "flat",
+					flat: 140
+				},
+				"Pepper": {
+					mode: "flat",
+					flat: 140
+				}
+			}
+		},
+		dehydrator: {
+			label: "Dehydrator",
+			baseUses: 5,
+			types: {
+				Vegetable: "Dried Vegetable",
+				Herb: "Dried Herb",
+				Flower: "Dried Flower"
+			},
+			typePrice: {
+				"Dried Vegetable": {
+					mode: "multiplierPlusFlat",
+					multiplier: 7.5,
+					flat: 25
+				},
+				"Dried Herb": {
+					mode: "multiplierPlusFlat",
+					multiplier: 10,
+					flat: 50
+				},
+				"Dried Flower": {
+					mode: "multiplierPlusFlat",
+					multiplier: 10,
+					flat: 50
+				}
+			}
+		},
+		dryingRack: {
+			label: "Drying Rack",
+			baseUses: 5,
+			types: {
+				Herb: "Dried Herb",
+				Flower: "Dried Flower"
+			},
+			typePrice: {
+				"Dried Herb": {
+					mode: "multiplierPlusFlat",
+					multiplier: 10,
+					flat: 50
+				},
+				"Dried Flower": {
+					mode: "multiplierPlusFlat",
+					multiplier: 10,
+					flat: 50
+				}
+			}
+		},
+		extruder: {
+			label: "Extruder",
+			baseUses: 1,
+			types: {
+				"Cassava": "Glass Noodles",
+				"Potato": "Glass Noodles",
+				"Yam": "Glass Noodles",
+				"Sweet Potato": "Glass Noodles",
+				"Zucchini": "Zoodles"
+			},
+			typePrice: {
+				"Glass Noodles": {
+					mode: "flat",
+					flat: 200
+				},
+				"Zoodles": {
+					mode: "flat",
+					flat: 100
+				}
+			}
+		},
+		juicer: {
+			label: "Juicer",
+			baseUses: 1,
+			types: {
+				Fruit: "Juice",
+				Vegetable: "Juice"
+			},
+			typePrice: {
+				"Juice": {
+					mode: "multiplier",
+					multiplier: 2.25
+				}
+			}
+		},
+		keg: {
+			label: "Keg",
+			baseUses: 1,
+			types: {
+				Nut: "Nut Milk",
+				Vegetable: "Wine",
+				"Coconut": "Coconut Milk",
+				"Soybeans": "Soy Milk",
+				"Oats": "Oat Milk",
+				"Durum": "Dark Ale",
+				"Buckwheat": "Porter",
+				"White Grape": "Sparkling Wine",
+				"Barley": "Stout"
+			},
+			typePrice: {
+				"Nut Milk": {
+					mode: "multiplier",
+					multiplier: 2.25
+				},
+				"Wine": {
+					mode: "multiplier",
+					multiplier: 3,
+					aging: true
+				},
+				"Coconut Milk": {
+					mode: "flat",
+					flat: 250
+				},
+				"Soy Milk": {
+					mode: "multiplier",
+					multiplier: 2.25
+				},
+				"Oat Milk": {
+					mode: "multiplier",
+					multiplier: 2.25
+				},
+				"Dark Ale": {
+					mode: "flat",
+					flat: 300
+				},
+				"Porter": {
+					mode: "flat",
+					flat: 250
+				},
+				"Sparkling Wine": {
+					mode: "flat",
+					flat: 260
+				},
+				"Stout": {
+					mode: "flat",
+					flat: 250
+				}
+
+			}
+		},
+		mill: {
+			label: "Mill",
+			baseUses: 1,
+			types: {
+				"Corn": "Corn Flour",
+				"Buckwheat": "Buckwheat Flour",
+				"Durum": "Semolina Flour",
+				"Barley": "Whole-Grain Flour",
+				"Sugar Cane": "Cane Sugar",
+				"Sugar Beet": "Beet Sugar"
+			},
+			typePrice: {
+				"Corn Flour": {
+					mode: "flat",
+					flat: 50
+				},
+				"Buckwheat Flour": {
+					mode: "flat",
+					flat: 50
+				},
+				"Semolina Flour": {
+					mode: "flat",
+					flat: 50
+				},
+				"Whole-Grain Flour": {
+					mode: "flat",
+					flat: 50
+				},
+				"Cane Sugar": {
+					mode: "flat",
+					flat: 100
+				},
+				"Beet Sugar": {
+					mode: "flat",
+					flat: 200
+				}
+			}
+		},
+		oilMaker: {
+			label: "Oil Maker",
+			baseUses: 1,
+			types: {
+				"Avocado": "Avocado Oil",
+				"Hot Pepper": "Chili Oil",
+				"Habanero": "Chili Oil",
+				"Jalapeño": "Chili Oil",
+				"Coconut": "Coconut Oil",
+				"Canola Flower": "Oil",
+				"Peanut": "Oil",
+				"Olive": "Olive Oil",
+				"Palm Nut": "Palm Oil",
+				"Sesame Seeds": "Sesame Oil"
+			},
+			typePrice: {
+				"Avocado Oil": {
+					mode: "flat",
+					flat: 400
+				},
+				"Chili Oil": {
+					mode: "flat",
+					flat: 120
+				},
+				"Coconut Oil": {
+					mode: "flat",
+					flat: 200
+				},
+				"Oil": {
+					mode: "flat",
+					flat: 100
+				},
+				"Olive Oil": {
+					mode: "flat",
+					flat: 450,
+					uses: 4
+				},
+				"Palm Oil": {
+					mode: "flat",
+					flat: 150
+				},
+				"Sesame Oil": {
+					mode: "flat",
+					flat: 120
+				}
+
+			}
+		},
+		jar: {
+			label: "Preserves Jar",
+			baseUses: 1,
+			types: {
+				"Olive": "Brined Olives",
+				"Daikon": "Kimchi",
+				"Lettuce": "Kimchi",
+				"Cucumber": "Pickle Spears",
+				"Cabbage": "Sauerkraut",
+				"Red Cabbage": "Sauerkraut",
+				"Soybeans": "Soy Sauce",
+				"Ume": "Umeboshi"
+			},
+			typePrice: {
+				"Brined Olives": {
+					mode: "flat",
+					flat: 320,
+					uses: 3
+				},
+				"Kimchi": {
+					mode: "multiplierPlusFlat",
+					multiplier: 2,
+					flat: 50
+				},
+				"Pickle Spears": {
+					mode: "flat",
+					flat: 260
+				},
+				"Sauerkraut": {
+					mode: "flat",
+					flat: 340
+				},
+				"Soy Sauce": {
+					mode: "flat",
+					flat: 300,
+					uses: 2,
+					aging: true
+				},
+				"Umeboshi": {
+					mode: "flat",
+					flat: 150
+				}
+			}
+		},
+		vinegarKeg: {
+			label: "Vinegar Keg",
+			baseUses: 1,
+			types: {
+				"Grape": "Vinegar",
+				"White Grape": "Vinegar",
+				"Sugar Cane": "Vinegar",
+				"Apple": "Vinegar",
+				"Unmilled Rice": "Vinegar",
+				"Coconut": "Vinegar"
+			},
+			typePrice: {
+				"Vinegar": {
+					mode: "flat",
+					flat: 100
+				}
+			}
+		},
+		loom: {
+			label: "Loom",
+			baseUses: 3,
+			types: {
+				"Cotton Boll": "Cloth"
+			},
+			typePrice: {
+				"Cloth": {
+					mode: "flat",
+					flat: 470
+				}
+			}
+		}
 	}
 };
 
@@ -164,217 +638,30 @@ var fertilizers = [
 	}
 ];
 
-// Different seasons with predefined crops.
 var seasons = [
 	{
-		"name": "Spring",
-		"duration": 28,
-		"crops": [
-			crops.coffee_bean,
-			crops.strawberry,
-			crops.rhubarb,
-			crops.potato,
-			crops.cauliflower,
-			crops.green_bean,
-			crops.tea_leaves,
-			crops.kale,
-			crops.unmilled_rice,
-			crops.garlic,
-			crops.parsnip,
-			crops.blue_jazz,
-			crops.tulip,
-			crops.ancient_fruit,
-			// crops.spring_seeds,
-			crops.carrot,
-			crops.fiber,
-			// SVE
-			crops.cucumber,
-			crops.gold_carrot,
-			crops.joja_berry,
-			crops.joja_veggie,
-			crops.salal_berry,
-			crops.slime_berry
-		],
-		"fruit": [
-			crops.apricot,
-			crops.cherry,
-			// SVE
-			crops.pear,
-			crops.tree_coin
-		]
+		name: "Spring",
+		key: "spring",
+		duration: 28
 	},
 	{
-		"name": "Summer",
-		"duration": 28,
-		"crops": [
-			crops.pineapple,
-			crops.blueberry,
-			crops.starfruit,
-			crops.red_cabbage,
-			crops.hops,
-			crops.melon,
-			crops.hot_pepper,
-			crops.tea_leaves,
-			crops.tomato,
-			crops.radish,
-			crops.summer_spangle,
-			crops.poppy,
-			crops.wheat,
-			crops.corn,
-			crops.coffee_bean,
-			crops.sunflower,
-			crops.ancient_fruit,
-			crops.taro_root,
-			// crops.summer_seeds,
-			crops.summer_squash,
-			crops.fiber,
-			// SVE
-			crops.ancient_fiber,
-			crops.butternut_squash,
-			crops.monster_fruit,
-			// Cornucopia
-			crops.adzuki_bean
-		],
-		"fruit": [
-			crops.peach,
-			crops.orange,
-			crops.banana,
-			crops.mango,
-			// SVE
-			crops.nectarine,
-			crops.tree_coin
-		]
+		name: "Summer",
+		key: "summer",
+		duration: 28
 	},
 	{
-		"name": "Fall",
-		"duration": 28,
-		"crops": [
-			crops.sweet_gem_berry,
-			crops.cranberries,
-			crops.pumpkin,
-			crops.grape,
-			crops.artichoke,
-			crops.beet,
-			crops.eggplant,
-			crops.amaranth,
-			crops.yam,
-			crops.tea_leaves,
-			crops.fairy_rose,
-			crops.bok_choy,
-			crops.sunflower,
-			crops.wheat,
-			crops.corn,
-			crops.ancient_fruit,
-			// crops.fall_seeds,
-			crops.broccoli,
-			crops.fiber,
-			// SVE
-			crops.monster_mushroom,
-			crops.sweet_potato
-		],
-		"fruit": [
-			crops.apple,
-			crops.pomegranate,
-			// SVE
-			crops.persimmon,
-			crops.tree_coin
-		]
+		name: "Fall",
+		key: "fall",
+		duration: 28
 	},
 	{
-		"name": "Winter",
-		"duration": 28,
-		"crops": [
-			// crops.winter_seeds,
-			crops.powdermelon,
-			crops.fiber,
-			// SVE
-			crops.void_root
-		],
-		"fruit": [
-			// SVE
-			crops.tree_coin
-		]
+		name: "Winter",
+		key: "winter",
+		duration: 28
 	},
 	{
-		"name": "Greenhouse",
-		"duration": 112,
-		"crops": [
-			crops.coffee_bean,
-			crops.strawberry,
-			crops.rhubarb,
-			crops.potato,
-			crops.cauliflower,
-			crops.green_bean,
-			crops.tea_leaves,
-			crops.kale,
-			crops.unmilled_rice,
-			crops.garlic,
-			crops.parsnip,
-			crops.blue_jazz,
-			crops.tulip,
-			crops.ancient_fruit,
-			crops.spring_seeds,
-			crops.carrot,
-			crops.fiber,
-			crops.cucumber,
-			crops.gold_carrot,
-			crops.joja_berry,
-			crops.joja_veggie,
-			crops.salal_berry,
-			crops.slime_berry,
-			crops.pineapple,
-			crops.blueberry,
-			crops.starfruit,
-			crops.red_cabbage,
-			crops.hops,
-			crops.melon,
-			crops.hot_pepper,
-			crops.tomato,
-			crops.radish,
-			crops.summer_spangle,
-			crops.poppy,
-			crops.wheat,
-			crops.corn,
-			crops.sunflower,
-			crops.taro_root,
-			crops.summer_seeds,
-			crops.summer_squash,
-			crops.ancient_fiber,
-			crops.butternut_squash,
-			crops.monster_fruit,
-			crops.sweet_gem_berry,
-			crops.cranberries,
-			crops.pumpkin,
-			crops.grape,
-			crops.artichoke,
-			crops.beet,
-			crops.eggplant,
-			crops.amaranth,
-			crops.yam,
-			crops.fairy_rose,
-			crops.bok_choy,
-			crops.fall_seeds,
-			crops.broccoli,
-			crops.monster_mushroom,
-			crops.sweet_potato,
-			crops.winter_seeds,
-			crops.powdermelon,
-			crops.void_root,
-			crops.cactus_fruit
-		],
-		"fruit": [
-			crops.apricot,
-			crops.cherry,
-			crops.pear,
-			crops.peach,
-			crops.orange,
-			crops.banana,
-			crops.mango,
-			crops.nectarine,
-			crops.apple,
-			crops.pomegranate,
-			crops.persimmon,
-			crops.tree_coin
-		]
+		name: "Greenhouse",
+		key: "greenhouse",
+		duration: 112
 	}
 ];

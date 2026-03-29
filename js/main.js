@@ -1,5 +1,6 @@
 // Prepare variables
 var cropList;
+var artisanMachines = {};
 
 var svgWidth = 1080;
 var svgMinWidth = 300;
@@ -61,9 +62,9 @@ function el(id) {
  */
 function formatNumber(num) {
 	num = num.toFixed(2) + '';
-	x = num.split('.');
-	x1 = x[0];
-	x2 = x.length > 1 ? '.' + x[1] : '';
+	var x = num.split('.');
+	var x1 = x[0];
+	var x2 = x.length > 1 ? '.' + x[1] : '';
 	var rgx = /(\d+)(\d{3})/;
 	while (rgx.test(x1)) {
 		x1 = x1.replace(rgx, '$1' + ',' + '$2');
@@ -73,39 +74,36 @@ function formatNumber(num) {
 
 /*
  * Calculates the maximum number of harvests for a crop, specified days, season, etc.
- * @param cropID The ID of the crop to calculate. This corresponds to the crop number of the selected season.
+ * @param crop The crop object to calculate.
  * @return Number of harvests for the specified crop.
  */
-function harvests(cropID) {
+function harvests(crop) {
 
 	// fruit trees always harvest once per day
-	if (cropID >= seasons[options.season].crops.length) {
+	if (isTreeFruit(crop)) {
 		return 28;
 	}
 
-	var crop = seasons[options.season].crops[cropID];
 	var fertilizer = fertilizers[options.fertilizer];
-	// Tea blooms every day for the last 7 days of a season
 	var isTea = crop.name == "Tea Leaves";
 
-	// if the crop is NOT cross season, remove 28 extra days for each extra season
 	var remainingDays = options.days - 28;
+
 	if (options.crossSeason && options.season != 4) {
-		var i = options.season + 1;
-		if (i >= 4)
-			i = 0;
-		for (var j = 0; j < seasons[i].crops.length; j++) {
-			var seasonCrop = seasons[i].crops[j];
-			if (crop.name == seasonCrop.name) {
-				remainingDays += 28;
-				break;
-			}
+		var nextSeasonIndex = options.season + 1;
+		if (nextSeasonIndex >= 4)
+			nextSeasonIndex = 0;
+
+		var nextSeasonKey = seasons[nextSeasonIndex].key;
+
+		if (crop.produce.seasons.indexOf(nextSeasonKey) !== -1) {
+			remainingDays += 28;
 		}
 	} else {
 		remainingDays = options.days;
 	}
 
-	var harvests = 0;
+	var harvestCount = 0;
 	var day = 1;
 
 	if (options.skills.agri)
@@ -114,7 +112,7 @@ function harvests(cropID) {
 		day += Math.floor(crop.growth.initial * fertilizer.growth);
 
 	if (day <= remainingDays && (!isTea || ((day - 1) % 28 + 1) > 21))
-		harvests++;
+		harvestCount++;
 
 	while (day <= remainingDays) {
 		if (crop.growth.regrow > 0) {
@@ -127,10 +125,10 @@ function harvests(cropID) {
 		}
 
 		if (day <= remainingDays && (!isTea || ((day - 1) % 28 + 1) > 21))
-			harvests++;
+			harvestCount++;
 	}
 
-	return harvests;
+	return harvestCount;
 }
 
 /*
@@ -233,7 +231,7 @@ function removeCropQuality(removeCrop, countRegular, countSilver, countGold, cou
  * @return netIncome Total Net Income based only on raw produce by quality including till skill.
  */
 function rawNetIncome(crop, countRegular, countSilver, countGold, countIridium) {
-	netIncome = 0;
+	var netIncome = 0;
 
 	netIncome += crop.produce.price * countRegular;
 	netIncome += Math.trunc(crop.produce.price * 1.25) * countSilver;
@@ -280,19 +278,39 @@ function getArtisanType(crop, machine) {
 		return null;
 	}
 
-	var overrideField = machine + "Override";
-
-	if (crop.produce[overrideField] != null) {
-		return crop.produce[overrideField];
+	var machineData = artisanMachines[machine];
+	if (machineData == null) {
+		return "None";
 	}
 
-	var types = artisanMachines[machine].types;
+	var types = machineData.types || {};
+
+	if (types[crop.name] != null) {
+		return types[crop.name];
+	}
 
 	if (types[crop.produce.type] != null) {
 		return types[crop.produce.type];
 	}
 
 	return "None";
+}
+
+function getArtisanPriceData(crop, machine) {
+	var artisanType = getArtisanType(crop, machine);
+	var machineData = artisanMachines[machine];
+
+	if (
+		artisanType == null ||
+		artisanType == "None" ||
+		machineData == null ||
+		machineData.typePrice == null ||
+		machineData.typePrice[artisanType] == null
+	) {
+		return null;
+	}
+
+	return machineData.typePrice[artisanType];
 }
 
 /*
@@ -302,31 +320,31 @@ function getArtisanType(crop, machine) {
  * @return The price.
  */
 function getArtisanPrice(crop, machine) {
-	var priceField = machine + "Price";
+	var priceData = getArtisanPriceData(crop, machine);
 	var artisanType = getArtisanType(crop, machine);
-	var machineData = artisanMachines[machine];
 	var basePrice = 0;
 
-	if (crop.produce[priceField] != null) {
-		basePrice = crop.produce[priceField];
-	}
-	else if (artisanType != "None" && machineData.typePrice != null && machineData.typePrice[artisanType] != null) {
-		var priceData = machineData.typePrice[artisanType];
-
+	if (priceData != null) {
 		switch (priceData.mode) {
 			case "multiplier":
 				basePrice = crop.produce.price * priceData.multiplier;
 				break;
+
 			case "multiplierPlusFlat":
 				basePrice = crop.produce.price * priceData.multiplier + priceData.flat;
 				break;
+
+			case "flat":
+				basePrice = priceData.flat;
+				break;
+
 			default:
 				basePrice = 0;
 		}
-	}
 
-	if (artisanType == "Wine") {
-		basePrice *= getCaskModifier();
+		if (priceData.aging === true) {
+			basePrice *= getCaskModifier();
+		}
 	}
 
 	if (artisanType != "Coffee" && options.skills.arti) {
@@ -350,27 +368,63 @@ function getCaskModifier() {
 	}
 }
 
-function isMachineEnabled(machineKey) {
-	if (!(machineKey in artisanMachines)) {
-		return false;
-	}
-
-	var mod = artisanMachines[machineKey].mod;
-
-	if (mod == null || mod == "Vanilla") {
-		return true;
-	}
-
-	if (mod == "Cornucopia - Artisan Machines") {
-		return options.enableCornucopiaMachines;
-	}
-
-	return false;
+function deepClone(obj) {
+	return JSON.parse(JSON.stringify(obj));
 }
 
-function rebuildMachineSelector() {
+function mergeMachineData(base, addition) {
+	var result = deepClone(base);
+
+	for (var key in addition) {
+		if (!addition.hasOwnProperty(key)) continue;
+
+		var value = addition[key];
+
+		if (
+			value != null &&
+			typeof value === "object" &&
+			!Array.isArray(value) &&
+			result[key] != null &&
+			typeof result[key] === "object" &&
+			!Array.isArray(result[key])
+		) {
+			result[key] = mergeMachineData(result[key], value);
+		} else {
+			result[key] = deepClone(value);
+		}
+	}
+
+	return result;
+}
+
+function buildArtisanMachines() {
+	var merged = {};
+
+	function applySource(source) {
+		if (source == null) return;
+
+		for (var machineKey in source) {
+			if (!source.hasOwnProperty(machineKey)) continue;
+
+			if (merged[machineKey] == null) {
+				merged[machineKey] = deepClone(source[machineKey]);
+			} else {
+				merged[machineKey] = mergeMachineData(merged[machineKey], source[machineKey]);
+			}
+		}
+	}
+
+	applySource(artisanMachineSources.vanilla);
+
+	if (options.enableCornucopiaMachines) {
+		applySource(artisanMachineSources.cornucopia);
+	}
+
+	return merged;
+}
+
+function rebuildMachineSelector(selectedValue) {
 	var select = el("select_machine");
-	var currentValue = select.value;
 	var enabledMachineKeys = getEnabledMachineKeys();
 
 	select.innerHTML = "";
@@ -392,11 +446,11 @@ function rebuildMachineSelector() {
 	addOption("seeds", "Seeds");
 
 	if (
-		currentValue == "raw" ||
-		currentValue == "seeds" ||
-		enabledMachineKeys.includes(currentValue)
+		selectedValue == "raw" ||
+		selectedValue == "seeds" ||
+		enabledMachineKeys.includes(selectedValue)
 	) {
-		select.value = currentValue;
+		select.value = selectedValue;
 	} else {
 		select.value = "raw";
 	}
@@ -406,7 +460,7 @@ function getEnabledMachineKeys() {
 	var keys = [];
 
 	for (var key in artisanMachines) {
-		if (isMachineEnabled(key)) {
+		if (artisanMachines.hasOwnProperty(key)) {
 			keys.push(key);
 		}
 	}
@@ -414,22 +468,22 @@ function getEnabledMachineKeys() {
 	return keys;
 }
 
-function isSpecialMachine(machine) {
-	return machine == "raw" || machine == "seeds";
-}
-
 function isArtisanMachine(machine) {
 	return machine in artisanMachines;
 }
 
 function machineUsesAging(machine) {
-	if (!isArtisanMachine(machine)) return false;
-
 	var machineData = artisanMachines[machine];
-	if (machineData.typePrice == null) return false;
+	if (machineData == null || machineData.typePrice == null) {
+		return false;
+	}
 
 	for (var productType in machineData.typePrice) {
-		if (productType == "Wine") {
+		if (
+			machineData.typePrice.hasOwnProperty(productType) &&
+			machineData.typePrice[productType] != null &&
+			machineData.typePrice[productType].aging == true
+		) {
 			return true;
 		}
 	}
@@ -439,17 +493,6 @@ function machineUsesAging(machine) {
 
 function machineCanSellRawFallback(machine) {
 	return isArtisanMachine(machine);
-}
-
-function getProduceSoldLabel(machine) {
-	if (machine == "raw") return "Raw crops";
-	if (machine == "seeds") return "Seeds";
-
-	if (isArtisanMachine(machine)) {
-		return artisanMachines[machine].label;
-	}
-
-	return "None";
 }
 
 function appendQuantitySoldRow(table, quantity) {
@@ -515,8 +558,23 @@ function appendProduceSoldSection(table, crop, machine) {
  * @return The number of crops used.
  */
 function getMultiCropUsage(crop, machine) {
-	var useField = machine + "Uses";
-	return crop.produce[useField] != null ? crop.produce[useField] : artisanMachines[machine].baseUses;
+	var machineData = artisanMachines[machine];
+	if (machineData == null) {
+		return 1;
+	}
+
+	var artisanType = getArtisanType(crop, machine);
+
+	if (
+		artisanType != "None" &&
+		machineData.typePrice != null &&
+		machineData.typePrice[artisanType] != null &&
+		machineData.typePrice[artisanType].uses != null
+	) {
+		return machineData.typePrice[artisanType].uses;
+	}
+
+	return machineData.baseUses != null ? machineData.baseUses : 1;
 }
 
 /*
@@ -599,21 +657,23 @@ function appendValueChanceRow(table, leftClass, label, value, chance) {
 function appendArtisanValueRow(table, crop, machine, leftClass) {
 	var tooltipTr = table.append("tr");
 	var artisanType = getArtisanType(crop, machine);
+	var machineLabel = artisanMachines[machine].label;
+
+	tooltipTr.append("td").attr("class", leftClass).text(machineLabel + ":");
+
+	var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 
 	if (artisanType != "None") {
-		tooltipTr.append("td").attr("class", leftClass).text("Value (" + artisanType + "):");
-
-		var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 		var priceSpan = tdRight.append("span").attr("class", "price");
 		priceSpan.append("span").text(getArtisanPrice(crop, machine));
 		priceSpan.append("div").attr("class", "gold");
 
-		if (getMultiCropUsage(crop, machine) > 1)
-			tdRight.append("span").attr("class", "uses").text(" (uses " + getMultiCropUsage(crop, machine) + ")");
+		if (getMultiCropUsage(crop, machine) > 1) {
+			tdRight.append("span")
+				.attr("class", "uses")
+				.text(" (uses " + getMultiCropUsage(crop, machine) + ")");
+		}
 	} else {
-		tooltipTr.append("td").attr("class", leftClass).text("Value (" + artisanMachines[machine].label + "):");
-
-		var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 		tdRight.append("span").attr("class", "price").text("-");
 	}
 }
@@ -827,44 +887,92 @@ function perDay(value) {
 }
 
 /*
- * Performs filtering on a season's crop list, saving the new list to the cropList array.
+ * Performs filtering on all enabled crop sets, saving the new list to cropList.
  */
 function fetchCrops() {
 	cropList = [];
 
-	var season = seasons[options.season];
+	var allCrops = getAllEnabledCrops();
 
-	for (var i = 0; i < season.crops.length; i++) {
-		if (((season.crops[i].mod == "vanilla" || season.crops[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
-			(season.crops[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
-			(season.crops[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
+	for (var i = 0; i < allCrops.length; i++) {
+		var crop = allCrops[i];
 
-			if ((options.seeds.pierre && season.crops[i].seeds.pierre != 0) ||
-				(options.seeds.joja && season.crops[i].seeds.joja != 0) ||
-				(options.seeds.special && season.crops[i].seeds.specialLoc != "")) {
+		if (!cropMatchesCurrentSeason(crop)) {
+			continue;
+		}
 
-				cropList.push(JSON.parse(JSON.stringify(season.crops[i])));
-				cropList[cropList.length - 1].id = i;
+		if (!cropHasSelectedSeedSource(crop)) {
+			continue;
+		}
+
+		if (isTreeFruit(crop) && !options.fruit) {
+			continue;
+		}
+
+		cropList.push(JSON.parse(JSON.stringify(crop)));
+		cropList[cropList.length - 1].id = cropList.length - 1;
+	}
+}
+
+function getAllEnabledCrops() {
+	var result = [];
+	var groups = [];
+
+	if (!options.enableMods || options.enableVanilla) {
+		if (crops.vanilla != null) groups.push(crops.vanilla);
+	}
+
+	if (options.enableMods && options.enableSVE) {
+		if (crops.sve != null) groups.push(crops.sve);
+	}
+
+	if (options.enableMods && options.enableCornucopia) {
+		if (crops.cornucopia != null) groups.push(crops.cornucopia);
+	}
+
+	for (var i = 0; i < groups.length; i++) {
+		var group = groups[i];
+
+		for (var key in group) {
+			if (group.hasOwnProperty(key)) {
+				result.push(group[key]);
 			}
 		}
 	}
 
-	if (options.fruit) {
-		for (var i = 0; i < season.fruit.length; i++) {
-			if (((season.fruit[i].mod == "vanilla" || season.fruit[i].mod == undefined) && (options.enableVanilla || !options.enableMods)) ||
-				(season.fruit[i].mod == "Stardew Valley Expanded" && options.enableMods && options.enableSVE) ||
-				(season.fruit[i].mod == "Cornucopia" && options.enableMods && options.enableCornucopia)) {
+	return result;
+}
 
-				if ((options.seeds.pierre && season.fruit[i].seeds.pierre != 0) ||
-					(options.seeds.joja && season.fruit[i].seeds.joja != 0) ||
-					(options.seeds.special && season.fruit[i].seeds.specialLoc != "")) {
+function cropHasSelectedSeedSource(crop) {
+	return (
+		(options.seeds.pierre && crop.seeds.pierre != 0) ||
+		(options.seeds.joja && crop.seeds.joja != 0) ||
+		(options.seeds.special && crop.seeds.specialLoc != "")
+	);
+}
 
-					cropList.push(JSON.parse(JSON.stringify(season.fruit[i])));
-					cropList[cropList.length - 1].id = season.crops.length + i;
-				}
-			}
-		}
+function cropMatchesCurrentSeason(crop) {
+	if (crop.produce == null || crop.produce.seasons == null) {
+		return false;
 	}
+
+	var cropSeasons = crop.produce.seasons;
+
+	if (options.season == 4) {
+		return (
+			cropSeasons.indexOf("spring") !== -1 ||
+			cropSeasons.indexOf("summer") !== -1 ||
+			cropSeasons.indexOf("fall") !== -1 ||
+			cropSeasons.indexOf("winter") !== -1 ||
+			cropSeasons.indexOf("greenhouse") !== -1
+		);
+	}
+
+	return cropSeasons.indexOf(seasons[options.season].key) !== -1;
+}
+
+function isTreeFruit(crop) {
+	return crop.produce != null && crop.produce.treeFruit === true;
 }
 
 /*
@@ -873,7 +981,7 @@ function fetchCrops() {
 function valueCrops() {
 	for (var i = 0; i < cropList.length; i++) {
 		cropList[i].planted = planted(cropList[i]);
-		cropList[i].harvests = harvests(cropList[i].id);
+		cropList[i].harvests = harvests(cropList[i]);
 		cropList[i].totalCrops = harvested(cropList[i]);
 		cropList[i].seedLoss = seedLoss(cropList[i]);
 		cropList[i].fertLoss = fertLoss(cropList[i]);
@@ -1248,7 +1356,7 @@ function renderGraph() {
 					{ label: "Iridium", value: d.produce.price * 2, chance: d.profitData.iridium * 100, sold: d.produce.iridium, show: d.name != "Tea Leaves" && fertilizers[options.fertilizer].ratio >= 3 }
 				];
 
-				tooltip.append("h3").attr("class", "tooltipTitleExtra").text("Crop Info");
+				tooltip.append("h3").attr("class", "tooltipTitleExtra").text("Sell value");
 				tooltipTable = tooltip.append("table")
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
@@ -1258,14 +1366,14 @@ function renderGraph() {
 						appendValueChanceRow(
 							tooltipTable,
 							"tooltipTdLeft",
-							"Value (" + qualityRows[i].label + "):",
+							qualityRows[i].label + ":",
 							qualityRows[i].value,
 							qualityRows[i].chance
 						);
 					}
 				}
 
-				tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Artisan:");
+				tooltip.append("h4").attr("class", "tooltipTitleExtra").text("Artisan goods:");
 				tooltipTable = tooltip.append("table")
 					.attr("class", "tooltipTable")
 					.attr("cellspacing", 0);
@@ -1282,7 +1390,7 @@ function renderGraph() {
 				}
 
 				tooltipTr = tooltipTable.append("tr");
-				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Value (Seeds):");
+				tooltipTr.append("td").attr("class", "tooltipTdLeft").text("Seeds:");
 				var tdRight = tooltipTr.append("td").attr("class", "tooltipTdRight");
 				var priceSpan = tdRight.append("span").attr("class", "price");
 				priceSpan.append("span").text(seedPrice);
@@ -1431,8 +1539,8 @@ function updateGraph() {
 			else
 				return zeroY - barWidth - barPadding;
 		})
-		.attr('width', barWidth)
-		.attr('height', barWidth)
+		.attr('width', iconSize)
+		.attr('height', iconSize)
 		.attr("xlink:href", function (d) { return "img/" + d.img; });
 
 	barsTooltips.data(cropList)
@@ -1713,7 +1821,8 @@ function updateData() {
 	options.enableCornucopia = el('check_cornucopia').checked;
 	options.enableCornucopiaMachines = el('check_cornucopia_machines').checked;
 
-	rebuildMachineSelector();
+	artisanMachines = buildArtisanMachines();
+	rebuildMachineSelector(options.machine);
 	options.machine = el('select_machine').value;
 
 	// Persist the options object into the URL hash.
@@ -1888,8 +1997,9 @@ function optionsLoad() {
 	options.enableCornucopiaMachines = validBoolean(options.enableCornucopiaMachines);
 	el('check_cornucopia_machines').checked = options.enableCornucopiaMachines;
 
-	rebuildMachineSelector();
-	options.machine = validMachine(options.machine);
+	artisanMachines = buildArtisanMachines();
+	rebuildMachineSelector(options.machine);
+	options.machine = el('select_machine').value;
 	el('select_machine').value = options.machine;
 }
 
