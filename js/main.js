@@ -1126,6 +1126,7 @@ function renderGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
+	var barWidth = Math.min(barWidth, 48);
 	var iconSize = Math.min(barWidth, 48);
 	var y = updateScaleY();
 	var zeroY = y(0) + barOffsetY;
@@ -1443,6 +1444,7 @@ function updateGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
+	var barWidth = Math.min(barWidth, 48);
 	var iconSize = Math.min(barWidth, 48);
 	var y = updateScaleY();
 	var zeroY = y(0) + barOffsetY;
