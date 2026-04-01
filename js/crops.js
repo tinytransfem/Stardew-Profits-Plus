@@ -114,7 +114,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -524,7 +525,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 4,
@@ -960,7 +962,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 9,
@@ -1811,7 +1814,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -1884,7 +1888,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 4,
@@ -2028,7 +2033,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -2197,7 +2203,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -2270,7 +2277,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -2318,7 +2326,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -2342,7 +2351,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 7,
@@ -2391,7 +2401,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 7,
@@ -2439,7 +2450,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 4,
@@ -2487,7 +2499,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -2511,7 +2524,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -2559,7 +2573,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -2608,7 +2623,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -2632,7 +2648,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -2731,7 +2748,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -2755,7 +2773,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 9,
@@ -2779,7 +2798,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 11,
@@ -2997,7 +3017,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 4,
@@ -3070,7 +3091,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -3094,7 +3116,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -3118,7 +3141,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -3191,7 +3215,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 9,
@@ -3336,7 +3361,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -3410,7 +3436,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -3458,7 +3485,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 7,
@@ -3530,7 +3558,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -3579,7 +3608,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -3627,7 +3657,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 9,
@@ -3943,7 +3974,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 6,
@@ -4162,7 +4194,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -4210,7 +4243,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -4234,7 +4268,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -4501,7 +4536,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -4598,7 +4634,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 10,
@@ -4745,7 +4782,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 9,
@@ -4769,7 +4807,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 6,
@@ -4817,7 +4856,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -4841,7 +4881,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -5033,7 +5074,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -5057,7 +5099,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -5105,7 +5148,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -5177,7 +5221,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 6,
@@ -5201,7 +5246,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 5,
@@ -5395,7 +5441,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 8,
@@ -5419,7 +5466,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -5467,7 +5515,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 12,
@@ -5614,7 +5663,8 @@ var crops = {
 				joja: 0,
 				special: 0,
 				specialLoc: "",
-				specialUrl: ""
+				specialUrl: "",
+				year: 2
 			},
 			growth: {
 				initial: 14,

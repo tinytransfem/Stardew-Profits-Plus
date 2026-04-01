@@ -679,19 +679,22 @@ function appendArtisanValueRow(table, crop, machine, leftClass) {
 }
 
 function appendSeedSourceRows(table, crop) {
-	var first = true;
-
 	if (crop.seeds.pierre > 0) {
 		appendTooltipGoldRow(table, "tooltipTdLeftSpace", "tooltipTdRight", "Seeds (Pierre):", crop.seeds.pierre);
-		first = false;
+	} else {
+		appendTooltipRow(table, "tooltipTdLeftSpace", "tooltipTdRight", "Seeds (Pierre):", "-");
 	}
+
 	if (crop.seeds.joja > 0) {
-		appendTooltipGoldRow(table, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Joja):", crop.seeds.joja);
-		first = false;
+		appendTooltipGoldRow(table, "tooltipTdLeft", "tooltipTdRight", "Seeds (Joja):", crop.seeds.joja);
+	} else {
+		appendTooltipRow(table, "tooltipTdLeft", "tooltipTdRight", "Seeds (Joja):", "-");
 	}
+
 	if (crop.seeds.special > 0) {
-		appendTooltipGoldRow(table, first ? "tooltipTdLeftSpace" : "tooltipTdLeft", "tooltipTdRight", "Seeds (Special):", crop.seeds.special);
-		appendTooltipRow(table, "tooltipTdLeft", "tooltipTdRight", "", crop.seeds.specialLoc);
+		appendTooltipGoldRow(table, "tooltipTdLeft", "tooltipTdRight", "Seeds (" + crop.seeds.specialLoc + "):", crop.seeds.special);
+	} else if (crop.seeds.specialLoc !== "") {
+		appendTooltipRow(table, "tooltipTdLeft", "tooltipTdRight", "Seeds (Special):", crop.seeds.specialLoc);
 	}
 }
 
@@ -906,6 +909,10 @@ function fetchCrops() {
 		}
 
 		if (isTreeFruit(crop) && !options.fruit) {
+			continue;
+		}
+
+		if (options.onlyYear1 && crop.seeds.year === 2) {
 			continue;
 		}
 
@@ -1436,6 +1443,7 @@ function updateGraph() {
 
 	var x = updateScaleX(graphWidth);
 	var barWidth = x.rangeBand();
+	var iconSize = Math.min(barWidth, 48);
 	var y = updateScaleY();
 	var zeroY = y(0) + barOffsetY;
 	var ax = updateScaleY();
@@ -1795,6 +1803,8 @@ function updateData() {
 	// tree fruit support options
 	options.fruit = el('fruit').checked;
 
+	options.onlyYear1 = el('only_year1').checked;
+
 	// mod support options
 	options.enableMods = el('enable_mods').checked;
 
@@ -1978,6 +1988,9 @@ function optionsLoad() {
 
 	options.disableLinks = validBoolean(options.disableLinks);
 	el('disable_links').checked = options.disableLinks;
+
+	options.onlyYear1 = validBoolean(options.onlyYear1);
+	el('only_year1').checked = options.onlyYear1;
 
 	updateSeasonNames();
 

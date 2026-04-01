@@ -36,6 +36,7 @@ var options = {
 	"foodLevel": 0,
 	"extra": false,
 	"disableLinks": false,
+	"onlyYear1": false,
 	"enableMods": false,
 	"enableVanilla": true,
 	"enableSVE": false,
