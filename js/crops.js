@@ -4222,7 +4222,7 @@ var crops = {
 				specialUrl: ""
 			},
 			growth: {
-				initial: 6,
+				initial: 8,
 				regrow: 0
 			},
 			produce: {
